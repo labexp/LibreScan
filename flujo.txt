@@ -1,0 +1,17 @@
+Resumen de comandos en terminal:
+
+-Una vez tomadas las fotos con el chdkptp, se rotan con el siguiente comando (se deben tener las imagenes en la misma carpeta que el archivo rotateImages.py):
+
+$python rotateImages.py
+
+-Después aplicamos el scantailor a todas las imagenes de la carpeta rotated:
+
+$scantailor-cli -l=1.5 --threshold=4 --margins-top=2.5 --margins-right=2.5 --margins-bottom=2.5 --margins-left=2.5 *.jpg ./
+
+-Ahora aplicamos el tesseract a todos los .tif:
+
+$parallel tesseract -l spa {} {.} hocr ::: *.tif
+
+-Por ultimo generamos un pdf con pdfbeads:
+
+$pdfbeads *.tif > out.pdf
