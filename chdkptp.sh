@@ -25,7 +25,7 @@ SCANS_DIR=''
 # Create directories for saving the pictures.
 function create_scans_dir {
   TIMESTAMP=$(date +%Y%m%d%H%M)
-  SCANS_DIR="libroEscaneado_$TIMESTAMP"
+  SCANS_DIR="book_$TIMESTAMP"
   mkdir -p $SCANS_DIR
   mkdir -p $SCANS_DIR/left
   mkdir -p $SCANS_DIR/right
@@ -147,3 +147,5 @@ echo "Pedal pressed twice in two seconds. Downloading and deleting from cameras.
     fi
 fi
 done
+
+
