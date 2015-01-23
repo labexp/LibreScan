@@ -1,33 +1,27 @@
 import os
+import sys
 
 #Funcion que servira como llave para comparar en el sorted, hace que compare por numero.
 def ordenNumerico(fn):
-    res = 3000
     if fn != 'renImages.py' and fn != 'renImages.py~':
-        tmp  = os.path.splitext(fn)[0]
-        numsName = tmp[4:]
-        res = int(numsName)
+        num  = os.path.splitext(fn)[0]
+        res = int(num)
     return res
 
 
-
-
 #Va renombrando los archivos en orden secuencial.
-def rename(folder,cnt):
-    contador = cnt
-    path = os.getcwd()+"/"+folder
+def rename(folder, orientation):
+    if orientation == 'left':
+        contador = 0
+    else:
+        contador = 1
+    path = os.getcwd()+"/"+folder + "/" + orientation  
     ext = '.jpg'
     for fn in sorted(os.listdir(path), key = ordenNumerico):
         if fn != 'renImages.py' and fn != str(contador)+ext:
-            var = ''
-            if contador < 10:
-                var = '00'
-            elif contador < 100:
-                var = '0'
-            else:
-                var = ''
-            os.rename(path+'/'+fn,var+str(contador)+ext) 
+            os.rename(path+'/'+fn,str(contador)+ext) 
         contador+=2
 
-rename("left",0)
-rename("right",1)
+
+rename("test2","left")
+
