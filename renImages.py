@@ -5,7 +5,8 @@ import sys
 def ordenNumerico(fn):
     if fn != 'renImages.py' and fn != 'renImages.py~':
         num  = os.path.splitext(fn)[0]
-        res = int(num)
+        image = num.split("_")
+        res = int(image[1])
     return res
 
 
@@ -17,11 +18,9 @@ def rename(folder, orientation):
         contador = 1
     path = os.getcwd()+"/"+folder + "/" + orientation  
     ext = '.jpg'
+    print("Renaming images...")
     for fn in sorted(os.listdir(path), key = ordenNumerico):
-        if fn != 'renImages.py' and fn != str(contador)+ext:
-            os.rename(path+'/'+fn,str(contador)+ext) 
+        os.rename(path+'/'+fn,folder+"/renamed/"+str(contador)+ext) 
         contador+=2
-
-
-rename("test2","left")
+    print("Images renamed!")
 

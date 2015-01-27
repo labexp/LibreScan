@@ -148,4 +148,24 @@ echo "Pedal pressed twice in two seconds. Downloading and deleting from cameras.
 fi
 done
 
+cd $SCANS_DIR
+mkdir renamed
+mkdir rotated
+
+cd ..
+
+python -c'import renImages; renImages.rename("'"$SCANS_DIR"'","left")'
+python -c'import renImages; renImages.rename("'"$SCANS_DIR"'","right")'
+
+python -c'import rotateImages; rotateImages.rotateImages("'"$SCANS_DIR"'")'
+
+cd $SCANS_DIR/rotated
+
+scantailor-cli -l=1.5 --threshold=4 --margins-top=2.5 --margins-right=2.5 --margins-bottom=2.5 --margins-left=2.5 *.jpg ./
+
+parallel tesseract -l spa {} {.} hocr ::: *.tif
+
+pdfbeads *.tif > out.pdf
+
+
 
