@@ -25,7 +25,7 @@ SCANS_DIR=''
 # Create directories for saving the pictures.
 function create_scans_dir {
   TIMESTAMP=$(date +%Y%m%d%H%M)
-  SCANS_DIR="book_$TIMESTAMP"
+  SCANS_DIR="libroEscaneado_$TIMESTAMP"
   mkdir -p $SCANS_DIR
   mkdir -p $SCANS_DIR/left
   mkdir -p $SCANS_DIR/right
@@ -64,9 +64,9 @@ function set_flash {
 
 function set_iso {
   echo "Setting camera 1 iso..."
-  $CHDKPTP -e"connect -b=$CAM1_USBBUS -d=$CAM1_USBID" -e'lua set_iso_real(50)'
+  $CHDKPTP -e"connect -b=$CAM1_USBBUS -d=$CAM1_USBID" -e'lua set_iso_real(80)'
   echo "Setting camera 2 iso..."
-  $CHDKPTP -e"connect -b=$CAM2_USBBUS -d=$CAM2_USBID" -e'lua set_iso_real(50)'
+  $CHDKPTP -e"connect -b=$CAM2_USBBUS -d=$CAM2_USBID" -e'lua set_iso_real(80)'
 }
 
 function set_ndfilter {
@@ -92,8 +92,8 @@ detect_cams
 switch_to_record_mode
 set_zoom
 set_flash
-set_iso
-set_ndfilter
+#set_iso
+#set_ndfilter
 
 
 $CHDKPTP -e"connect -b=$CAM1_USBBUS -d=$CAM1_USBID" -e'lua play_sound(0)'
@@ -117,7 +117,7 @@ echo "Pedal pressed first time."
 		
       # Shooting loop
       echo "Pedal pressed once in two seconds. Starting shooting loop...\n
-      Press c to capture\n
+      Press c to 	capture\n
       Press q to exit to outer loop"
       $CHDKPTP -e"connect -b=$CAM1_USBBUS -d=$CAM1_USBID" -e'lua play_sound(0)'
       while true; do
@@ -129,11 +129,11 @@ echo "Pedal pressed first time."
          # shutter speed needs to be set before every shot
          set_iso
          $CHDKPTP -e"connect -b=$CAM1_USBBUS -d=$CAM1_USBID" -e"luar set_tv96(320)"
-         $CHDKPTP -e"connect -b=$CAM1_USBBUS -d=$CAM1_USBID" -e"remoteshoot $SCANS_DIR/$CAM1_ORIENTATION"
+         $CHDKPTP -e"connect -b=$CAM1_USBBUS -d=$CAM1_USBID" -e"remoteshoot $SCANS_DIR/$CAM1_ORIENTATION -tv=1/25"
          
          # shutter speed needs to be set before every shot
          $CHDKPTP -e"connect -b=$CAM2_USBBUS -d=$CAM2_USBID" -e"luar set_tv96(320)"
-         $CHDKPTP -e"connect -b=$CAM2_USBBUS -d=$CAM2_USBID" -e"remoteshoot $SCANS_DIR/$CAM2_ORIENTATION"
+         $CHDKPTP -e"connect -b=$CAM2_USBBUS -d=$CAM2_USBID" -e"remoteshoot $SCANS_DIR/$CAM2_ORIENTATION -tv=1/25"
          sleep 2s
          echo "Shooting done. Waiting for next input. "
          echo "Press c to shoot again, q to exit to outer loop. "
@@ -148,24 +148,20 @@ echo "Pedal pressed twice in two seconds. Downloading and deleting from cameras.
 fi
 done
 
+clear
+echo "proceso chdkptp finalizado"
+
 cd $SCANS_DIR
 mkdir renamed
 mkdir rotated
-
 cd ..
-
 python -c'import renImages; renImages.rename("'"$SCANS_DIR"'","left")'
 python -c'import renImages; renImages.rename("'"$SCANS_DIR"'","right")'
-
 python -c'import rotateImages; rotateImages.rotateImages("'"$SCANS_DIR"'")'
-
 cd $SCANS_DIR/rotated
-
 scantailor-cli -l=1.5 --threshold=4 --margins-top=2.5 --margins-right=2.5 --margins-bottom=2.5 --margins-left=2.5 *.jpg ./
-
 parallel tesseract -l spa {} {.} hocr ::: *.tif
-
 pdfbeads *.tif > out.pdf
-
+echo "done"
 
 
