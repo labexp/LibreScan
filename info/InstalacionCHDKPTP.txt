@@ -1,0 +1,45 @@
+apt-get install --only-upgrade gcc
+
+apt-get install python-pip python-pyexiv2 lua5.2 liblua5.2 git-svn libusb-dev python libmagickwand-dev parallel scantailor-cli
+
+pip install Wand
+
+git svn clone http://subversion.assembla.com/svn/chdkptp/trunk chdkptp
+
+cd chdkptp
+
+mv config-sample-linux.mk config.mk
+
+make
+
+mkdir /usr/local/lib/chdkptp
+cp chdkptp-sample.sh /usr/local/lib/chdkptp/chdkptp
+
+cd /usr/local/lib/chdkptp
+
+nano /usr/local/lib/chdkptp/chdkptp
+MODIFICAR
+CHDKPTP_DIR=/home/folderclonado/chdkptp (Y guardamos los cambios)
+
+ln -s /usr/local/lib/chdkptp/chdkptp /bin
+
+
+apt-get install tesseract-ocr tesseract-ocr-spa scantailor
+
+NOTA: Si se encuentra corriendo la version Wheezy(stable) posiblemente deba agregar al sources.list los backports para que se
+pueda instalar el paquete de scantailor. Esto se puede lograr agregando la siguiente linea en el /etc/apt/sources.list
+		deb http://http.debian.net/debian wheezy-backports main
+
+apt-get install ruby1.9.1 ruby-dev ruby-rmagick
+gem install iconv pdfbeads
+
+
+Nota: Si sale un error de No such file or directory
+
+Hay que cambiar la ruta en el chdkptp.sh a donde este instalado el binario de chdkptp. En este caso /bin/chdkptp, en la linea 5 y 6.
+
+Nota: Despues de instalar el chdkptp, si se quiere correr el .sh, hay que cambiar el sistema a bash. Para eso:
+	# cd /bin
+	# rm sh
+	# ln -s bash sh
+	# ls -la
