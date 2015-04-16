@@ -1,69 +1,119 @@
 * {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 a, a:hover {
-	text-decoration: none;
-	cursor: grab;
+    text-decoration: none;
+    cursor: grab;
 }
 
 .main-container {	
-	background-color: #59323C;
-	margin: 0;
-	border: none;
-	overflow: hidden;
+    background-color: #59323C;
+    margin: 0;
+    border: none;
+    overflow: hidden;
+    width: 100%;
 }
 
 .custom-navbar {
-	background-color: #260126;
-	color: #F2EEB3;
-	margin: 0;
-	border: none;
+    background-color: #260126;
+    color: #F2EEB3;
+    margin: 0;
+    border: none;
 }
 
 #signature {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 .footer-navbar {
-	color: #F2EEB3;
-	font-size: 1.1em;
-	margin:0;
-	border: none;
-	box-sizing: border-box;
+    color: #F2EEB3;
+    font-size: 1.1em;
+    margin:0;
+    border: none;
+    box-sizing: border-box;
 }
 
 .footer-nav {
-	bottom: 0;
-	color: white;
-	font-size: 1.2em;
-	margin:0;
-	border: none;
+    bottom: 0;
+    color: white;
+    font-size: 1.2em;
+    margin:0;
+    border: none;
 }
 
 #sign {
-	margin-top: 10px;
-	margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 footer{
-	margin: 0;
+    margin: 0;
 }
 
 .primary-font-color, #topbar-collapse a {
-	color: #D1C7AB !important;
+    color: #D1C7AB !important;
+    font-size: 1.2em;
 }
 
 .custom-dropdown:visited {
-	background-color: black;
+    background-color: black;
 }
 
 .logo {
-	transition: all 0.5s;
+    transition: all 0.5s;
 }
 
 .logo:hover {
-	color: black;
+    color: black;
+}
+
+.box {
+    text-align: center;
+    height: 300px;
+    width: 100%;
+    background-color: #BFAF80;
+    padding-top: 30px;
+    border: 5px solid #260126;
+    margin-bottom: 25px;
+    transition: all 0.8s;
+}
+
+.box:hover {
+    opacity: 0.6;
+}
+
+.box:hover .home-button-text {
+    color: #6D3F4B;
+}
+
+.circle {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    background-color: #8C6954;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 8em;
+    border: 3px solid #775947;
+}
+
+.fa-folder-open {
+    margin-left: 15px;
+    color: floralwhite;   
+}
+
+.fa-file {
+    color: floralwhite;
+}
+
+.main-button-container {
+    margin-top: 100px;
+}
+
+.home-button-text {
+    color: #260126;
+    transition: all 0.8s;
 }
