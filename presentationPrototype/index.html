@@ -1,67 +1,94 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+	<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>LibreScan</title>
+		<title>LibreScan</title>
 
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+		<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+		<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+		<!-- Custom CSS -->
+		<link href="css/index.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<!-- Custom Fonts -->
+		<link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-</head>
+	</head>
 
-<body>
+	<body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
-            </div>
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-static-top custom-navbar header-navbar">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand primary-font-color logo" href="#"><i class="fa fa-book"></i> LibreScan</a>
+				</div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    
-    <!-- jQuery -->
-    <script src="js/jquery-2.1.3.min.js"></script>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="topbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="dropdown custom-dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Guias<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">C&oacute;mo escanear</a></li>
+								<li><a href="#">Instalacion CHDK</a></li>
+								<li><a href="#">Como armar el escaner</a></li>
+							</ul>
+						</li> <!--li dropdown closure-->
+						<li class="dropdown custom-dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Idiomas<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Español</a></li>
+								<li><a href="#">Ingles</a></li>
+								<li><a href="#">Portugues</a></li>
+							</ul>
+						</li> <!--li dropdown closure-->
+						<li><a href="#">Contacto</a ></li>
+						<li><a href="#">Acerca</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+		<main class="main-container">
 
-</body>
+
+			Hola Mundo
+
+		</main>
+
+		<footer>
+			<div class="navbar-inverse navbar-bottom footer-nav custom-navbar">
+				<div class="container">
+					<a id="sign" class="pull-right primary-font-color" href="#"> ITCR <i class="fa fa-copyright"></i></a>
+				</div> <!-- container-->
+			</div> <!-- navbar navbar-default navbar-fixed-bottom" --> 
+		</footer>
+
+
+
+		<!-- jQuery -->
+		<script src="js/jquery-2.1.3.min.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap/bootstrap.min.js"></script>
+
+		<!-- Custom JS -->
+		<script src="js/index.js"></script>
+
+	</body>
 
 </html>
