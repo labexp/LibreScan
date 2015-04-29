@@ -14,6 +14,9 @@
         <!-- Custom CSS -->
         <link href="css/index.css" rel="stylesheet">
 
+        <!-- Contact Us CSS -->
+        <link href="css/contactUs.css" rel="stylesheet">
+
         <!-- Custom Fonts -->
         <link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -32,7 +35,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand primary-font-color logo" href="#"><i class="fa fa-book"></i> LibreScan</a>
+                    <a class="navbar-brand primary-font-color logo" href="index.html"><i class="fa fa-book"></i> LibreScan</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,7 +57,7 @@
                                 <li><a href="#">Portugues</a></li>
                             </ul>
                         </li> <!--li dropdown closure-->
-                        <li><a href="contactUs.html">Contacto</a ></li>
+                        <li><a href="#">Contacto</a ></li>
                         <li><a href="#">Acerca</a></li>
                     </ul>
                 </div>
@@ -64,39 +67,28 @@
         </nav>
 
         <main class="main-container">
-
-
-            <div class="container main-button-container">
-
+            <div class="container contact-info-container">
                 <div class="row">
-
-                    <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
-                        <a href="#">
-                            <div class="box">
-                                <div class="circle">
-                                    <i class="fa fa-file"></i>
-                                </div>
-                                <h3 class="home-button-text">Nuevo proyecto</h3>
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 class="form-h2">Contactenos</h2>
+                        <small>Estaremos agradecidos de recibir cualquier mensaje o recomendacion.</small>
+                        <hr>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                             </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2 col-sm-2">
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                        <a href="#">
-                            <div class="box">
-                                <div class="circle">
-                                    <i class="fa fa-folder-open"></i>
-                                </div>
-                                <h3 class="home-button-text">Cargar Proyecto</h3>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                             </div>
-                        </a>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
                     </div>
-
                 </div>
             </div>
+
+
 
         </main>
 
