@@ -1,5 +1,6 @@
 #send-mail-btn{
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 textarea{
@@ -7,5 +8,9 @@ textarea{
 }
 
 .contact-info-container{
-    color: #000000;
+    color: #D1C7AB;
+}
+
+#contact-h2{
+    margin-bottom: 0;
 }

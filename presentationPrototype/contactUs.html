@@ -69,20 +69,24 @@
         <main class="main-container">
             <div class="container contact-info-container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2 class="form-h2">Contactenos</h2>
+                    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                        <h2 class="form-h2" id="contact-h2">Contactenos</h2>
                         <small>Estaremos agradecidos de recibir cualquier mensaje o recomendacion.</small>
                         <hr>
                         <form>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <label for="form-user-name">Nombre</label>
+                                <input type="text" class="form-control form-input" id="form-user-name">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <label for="form-user-email">Email</label>
+                                <input type="email" class="form-control form-input" id="form-user-email">
                             </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <div class="form-group">
+                                <label for="form-user-message">Mensaje</label>
+                                <textarea rows="10" class="form-control" id="form-user-message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-default btn-lg pull-right">Enviar</button>
                         </form>
                     </div>
                 </div>
