@@ -120,4 +120,12 @@ footer{
 
 .form-h2 {
 	color: #BFAF80;
+	font-weight: bold;
+}
+
+
+.form-label {
+	color: #D1C7AB;
+	font-size: 1.2em;
+	margin-bottom: 10px;
 }
