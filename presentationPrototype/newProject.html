@@ -13,6 +13,7 @@
 
 		<!-- Custom CSS -->
 		<link href="css/index.css" rel="stylesheet">
+		<link href="css/newProject.css" rel="stylesheet">
 
 		<!-- Custom Fonts -->
 		<link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -69,30 +70,36 @@
 			<div class="container">
 
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+						<a href="#" class="pull-right" id="new-project-config">
+							<i class="fa fa-cog fa-3x"></i>
+						</a>
 						<h2 class="form-h2">Nuevo Proyecto</h2>
 						<hr />
-						<form>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Email address</label>
-								<input type="email" class="form-control" id="exampleInputEmail1">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">Password</label>
-								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputFile">File input</label>
-								<input type="file" id="exampleInputFile">
-								<p class="help-block">Example block-level help text here.</p>
-							</div>
-							<div class="checkbox">
-								<label>
-									<input type="checkbox"> Check me out
-								</label>
-							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
+						<div class="col-md-8">
+							<form>
+								<div class="form-group">
+									<label for="newproject-name" class="form-label">Nombre del proyecto</label>
+									<input type="text" class="form-control form-input" id="newproject-name">
+								</div>
+								<div class="form-group">
+									<label for="newproject-directory" class="form-label">Carpeta</label>
+									<input id="newproject-directory" type="file" class="filestyle">
+								</div>
+								<div class="form-group">
+									<label for="newproject-directory" class="form-label">Idioma del documento</label>
+									<select class="form-control form-input" id="newproject-directory">
+										<option>Español</option>
+										<option>Portugués</option>
+										<option>Inglés</option>
+									</select>
+								</div>
+								<button type="submit" class="btn btn-default pull-right create-project-button" >Crear</button>
+								<button class="btn btn-default pull-right goback-button" >Atrás</button>
+
+							</form>
+						</div>
+
 					</div>
 
 				</div>
@@ -118,6 +125,9 @@
 
 		<!-- Custom JS -->
 		<script src="js/index.js"></script>
+		
+		<!-- Custom JS for file-inputs -->
+		<script src="js/bootstrap/bootstrap-filestyle.min.js"></script>
 
 	</body>
 

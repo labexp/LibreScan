@@ -1,0 +1,20 @@
+.fa-cog {
+	color: #BFAF80;
+}
+
+#new-project-config {
+	margin-top: 15px;
+}
+
+#new-project-config:hover .fa-cog {
+	color: #D1C7AB;
+}
+
+.goback-button {
+	margin-right: 15px;
+}
+
+.folder-icon {
+	color: darkslategray;
+	margin: 0 !important;
+}
