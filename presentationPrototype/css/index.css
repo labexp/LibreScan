@@ -9,6 +9,10 @@ a, a:hover {
     cursor: grab;
 }
 
+.clear {
+	clear: both;
+}
+
 .main-container {	
     background-color: #59323C;
     margin: 0;
@@ -128,4 +132,8 @@ footer{
 	color: #D1C7AB;
 	font-size: 1.2em;
 	margin-bottom: 10px;
+}
+
+.goback-button {
+	margin-right: 15px;
 }
