@@ -1,0 +1,10 @@
+#left-col {
+    border-right: 3px solid #667;
+}
+
+.number-input {
+    width: 84px;
+    height: 32px;
+    border-radius: 3px; 
+    border: 1px solid #CCCCCC;
+}
