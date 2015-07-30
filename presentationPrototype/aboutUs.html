@@ -14,8 +14,6 @@
         <!-- Custom CSS -->
         <link href="css/index.css" rel="stylesheet">
 
-        <link href="css/capture.css" rel="stylesheet">
-
         <!-- Custom Fonts -->
         <link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -34,7 +32,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand primary-font-color logo" href="index.html"><i class="fa fa-book"></i> LibreScan</a>
+                    <a class="navbar-brand primary-font-color logo" href="index.html"><i class="fa fa-book"></i>LibreScan</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,99 +65,84 @@
 
         <main class="main-container">
 
-            <div class="container capture-container">
+
+            <div class="container main-button-container">
+                
+                <!--
                 <div class="row">
 
-                    <div class="col-md-3 col-sm-3 sidebar">
+                    <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
                         <a href="#">
                             <div class="box">
-
+                                <div class="circle">
+                                    <i class="fa fa-file"></i>
+                                </div>
+                                <h3 class="home-button-text">Nuevo proyecto</h3>
                             </div>
                         </a>
-                    </div>                    
-
-                    <div class="col-md-9 col-sm-9">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <a href="#">
-                                    <div class="box-photo">
-                                        <div class="circle2">
-                                            <i class="fa fa-camera"></i>
-                                        </div>
-                                        <h3 class="home-button-text"></h3>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6">
-                                <a href="#">
-                                    <div class="box-photo">
-                                        <div class="circle2">
-                                            <i class="fa fa-camera"></i>
-                                        </div>
-                                        <h3 class="home-button-text"></h3>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <a href="#">
-                                    <div class="capture-btn action-btn">
-                                        <span>Capturar</span>
-                                    </div>
-                                </a>
-                            </div> 
-
-                            <div class="col-md-6 col-sm-6">
-                                <a href="#">
-                                    <div class="recapture-btn action-btn">
-                                        <span>Repetir</span>
-                                    </div>
-                                </a>
-                            </div>                      
-                       
-                        </div>
                     </div>
 
-                </div>
-                
-                
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        
+                    <div class="col-md-2 col-sm-2">
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                        
-                    </div>                    
-                </div>
 
-            <a id="process-btn" href="" data-toggle="modal" data-target="#processing-modal">
-                Procesar
-            </a>
-
-            <div class="modal fade bs-example-modal-lg" id="processing-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3 class="modal-title" id="config-modal-title">Nombre proyecto - Fase de procesamiento</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <img src="images/loadingBook.gif" id="loading-book-gif"/>
-                                    <img src="images/loadingPercentage.gif" class="pull-right" id="loading-percentage-gif"/>
+                    <div class="col-md-4 col-sm-4">
+                        <a href="#">
+                            <div class="box">
+                                <div class="circle">
+                                    <i class="fa fa-folder-open"></i>
                                 </div>
+                                <h3 class="home-button-text">Cargar Proyecto</h3>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <a href="outputPreview.html" class="btn btn-primary">Siguiente</a>
-                        </div>
+                        </a>
                     </div>
+
+                </div>
+
+
+            -->
+
+            <div class="row main">
+                <div class="col-md-">
+                    <ul class="nav nav-tabs" role="tablist" id="myTab">
+                        <li role="presentation" class="active"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">Acerca de <span>Librescan</span> </a></li>
+                        <li role="presentation"><a href="#team" aria-controls="team" role="tab" data-toggle="tab">Nuestro Equipo</a></li>
+                        <li role="presentation"><a href="#get-involved" aria-controls="get-involved" role="tab" data-toggle="tab">Invol&uacute;crate</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="about">
+                            <p>
+                                Librescan es un software libre creado para facilitar el proceso de escaneo de documentos
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="team">
+                            <h4>Desarrolladores</h4>
+                            <ul>
+                                <li>Tony Kong Hsu</li>
+                                <li>Diego Ugalde Avila</li>
+                                <li>Daniel Solis Mendez</li>                                
+                                <li>Melvin Elizondo Perez</li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="get-involved">
+                            <ul>
+                                <li>
+                                    <a href="https://github.com/LabExperimental-SIUA/LibreScan">Github <i class="fa fa-github"> </i></a> 
+                                    
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LabExperimental-SIUA/LibreScan">Laboratorio Experimental</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>                
                 </div>
             </div>
+
+
+            </div>
+
+
 
         </main>
 
@@ -181,8 +164,6 @@
 
         <!-- Custom JS -->
         <script src="js/index.js"></script>
-
-        <script src="js/loading-circle.js"></script>
 
     </body>
 
