@@ -13,9 +13,7 @@
 
         <!-- Custom CSS -->
         <link href="css/index.css" rel="stylesheet">
-
-        <!-- Contact Us CSS -->
-        <link href="css/contactUs.css" rel="stylesheet">
+        <link href="css/outputPreview.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -67,31 +65,22 @@
         </nav>
 
         <main class="main-container">
-            <div class="container contact-info-container">
+
+
+            <div class="container">
+
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-                        <h2 class="form-h2" id="contact-h2">Contactenos</h2>
-                        <small>Estaremos agradecidos de recibir cualquier mensaje o recomendacion.</small>
-                        <hr>
-                        <form id="contact-form">
-                            <div class="form-group">
-                                <label for="form-user-name">Nombre</label>
-                                <input type="text" class="form-control form-input" id="form-user-name">
-                            </div>
-                            <div class="form-group">
-                                <label for="form-user-email">Email</label>
-                                <input type="email" class="form-control form-input" id="form-user-email">
-                            </div>
-                            <div class="form-group">
-                                <label for="form-user-message">Mensaje</label>
-                                <textarea rows="10" class="form-control" id="form-user-message"></textarea>
-                            </div>
-                            <button id="send-mail-btn" type="submit" class="btn btn-default pull-right">Enviar</button>
-                        </form>
+                    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1" id="pdf-col">
+                        <h2 class="form-h2">Nombre Proyecto - Vista previa</h2>
+                        <hr />
+                        <embed id="pdf-preview" src="data/example.pdf" type='application/pdf'>
+                        <a href="index.html" class="btn btn-default pull-right preview-btn" >Finalizar</a>
+                        <a class="btn btn-default pull-right goback-button preview-btn" href="capture.html">Modificar capturas</a>
+
                     </div>
+
                 </div>
             </div>
-
 
 
         </main>
@@ -114,6 +103,7 @@
 
         <!-- Custom JS -->
         <script src="js/index.js"></script>
+
 
     </body>
 
