@@ -201,6 +201,10 @@ footer{
 ============================    
 */
 
+.capture-container{
+    margin-top: 10px;
+}
+
 .sidebar .box{height: 420px;}
 
 .box-photo {
