@@ -10,7 +10,7 @@ a, a:hover {
 }
 
 .clear {
-	clear: both;
+    clear: both;
 }
 
 .main-container {	
@@ -80,7 +80,9 @@ footer{
     width: 100%;
     background-color: #BFAF80;
     padding-top: 30px;
-    border: 5px solid #260126;
+    -webkit-box-shadow: -1px 0px 17px 4px rgba(38,1,38,0.5);
+    -moz-box-shadow: -1px 0px 17px 4px rgba(38,1,38,0.5);
+    box-shadow: -1px 0px 17px 4px rgba(38,1,38,0.5);
     margin-bottom: 25px;
     transition: all 0.6s;
 }
@@ -114,7 +116,7 @@ footer{
 }
 
 .main-button-container {
-    margin-top: 10px;
+    margin-top: 100px;
 }
 
 .home-button-text {
@@ -123,19 +125,19 @@ footer{
 }
 
 .form-h2 {
-	color: #BFAF80;
-	font-weight: bold;
+    color: #BFAF80;
+    font-weight: bold;
 }
 
 
 .form-label {
-	color: #D1C7AB;
-	font-size: 1.2em;
-	margin-bottom: 10px;
+    color: #D1C7AB;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .goback-button {
-	margin-right: 15px;
+    margin-right: 15px;
 }
 
 
