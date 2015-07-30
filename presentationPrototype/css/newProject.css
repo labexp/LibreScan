@@ -14,3 +14,14 @@
 	color: darkslategray;
 	margin: 0 !important;
 }
+
+#left-col {
+    border-right: 2px solid #A1B29B;
+}
+
+.number-input {
+    width: 84px;
+    height: 32px;
+    border-radius: 3px; 
+    border: 1px solid #CCCCCC;
+}
