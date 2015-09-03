@@ -13,6 +13,7 @@
 
         <!-- Custom CSS -->
         <link href="css/index.css" rel="stylesheet">
+        <link href="css/outputPreview.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -32,7 +33,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand primary-font-color logo" href="#"><i class="fa fa-book"></i> LibreScan</a>
+                    <a class="navbar-brand primary-font-color logo" href="index.html"><i class="fa fa-book"></i> LibreScan</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,37 +67,21 @@
         <main class="main-container">
 
 
-            <div class="container main-button-container">
+            <div class="container">
 
                 <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1" id="pdf-col">
+                        <h2 class="form-h2">Nombre Proyecto - Vista previa</h2>
+                        <hr />
+                        <embed id="pdf-preview" src="data/example.pdf" type='application/pdf'>
+                        <a href="index.html" class="btn btn-default pull-right preview-btn" >Finalizar</a>
+                        <a class="btn btn-default pull-right goback-button preview-btn" href="capture.html">Modificar capturas</a>
 
-                    <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
-                        <a href="newProject.html">
-                            <div class="box">
-                                <div class="circle">
-                                    <i class="fa fa-file"></i>
-                                </div>
-                                <h3 class="home-button-text">Escanear</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2 col-sm-2">
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                        <a href="#">
-                            <div class="box">
-                                <div class="circle">
-                                    <i class="fa fa-folder-open"></i>
-                                </div>
-                                <h3 class="home-button-text">Escaneos anteriores</h3>
-                            </div>
-                        </a>
                     </div>
 
                 </div>
             </div>
+
 
         </main>
 
@@ -118,6 +103,7 @@
 
         <!-- Custom JS -->
         <script src="js/index.js"></script>
+
 
     </body>
 
