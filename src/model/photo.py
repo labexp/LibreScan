@@ -1,6 +1,3 @@
-__author__ = 'melalonso'
-
-
 class Photo:
 
     def __init__(self, id, content):

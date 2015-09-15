@@ -1,5 +1,3 @@
-__author__ = 'melalonso'
-
 from outputMaker import OutputMaker
 
 

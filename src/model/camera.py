@@ -1,11 +1,8 @@
-__author__ = 'diugalde'
-
-
 class Camera:
 
     def __init__(self, pos):
-        self.usbBus = ""
-        self.usbId = ""
+        self.usb_bus = ""
+        self.usb_id = ""
         self.orientation = ""
         self.pos = pos
 

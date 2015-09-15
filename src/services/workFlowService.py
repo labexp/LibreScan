@@ -1,10 +1,7 @@
-__author__ = 'tonyzeru'
-
 class WorkFlowService:
 
-    def pushPhotos(self, pListIds):
+    def push_photos(self, p_list_ids):
         pass
 
-    def finishProduct(self, pListMails):
+    def finish_product(self, p_list_mails):
         pass
-
