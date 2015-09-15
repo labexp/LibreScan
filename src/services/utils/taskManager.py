@@ -1,5 +1,3 @@
-__author__ = 'melalonso'
-
 from outputMaker import OutputMaker
 from task import Task
 
@@ -10,7 +8,7 @@ class TaskManager:
         self.tasks = list()  # Task
         self.outputMaker = list()  # OutputMaker
 
-    def process(self, pList):
+    def process(self, p_list):
         pass
 
     def rename(self):

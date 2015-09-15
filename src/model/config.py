@@ -1,11 +1,9 @@
-__author__ = 'labexp'
-
 class Config:
 
-    def __init__(self, zoom, focusDistance, shutterSpeed, dpi, sensibility, raw, monochromatic, flip):
+    def __init__(self, zoom, focus_distance, shutter_speed, dpi, sensibility, raw, monochromatic, flip):
         self.zoom = zoom
-        self.focusDistance = focusDistance
-        self.shutterSpeed  = shutterSpeed
+        self.focus_distance = focus_distance
+        self.shutter_speed  = shutter_speed
         self.dpi = dpi
         self.sensibility = sensibility
         self.raw = raw
