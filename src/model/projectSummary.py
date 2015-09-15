@@ -1,6 +1,3 @@
-__author__ = 'melalonso'
-
-
 class ProjectSummary:
 
     def __init__(self, id, name, description):
