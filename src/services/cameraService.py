@@ -1,6 +1,6 @@
 from model.camera import Camera
 from services.utils.chdkptp import Chdkptp
-import multiprocessing
+from threading import Thread
 
 
 class CameraService:
@@ -17,7 +17,7 @@ class CameraService:
         jobs = []
         for cam in self.cams:
             CameraService.pic_number += 1
-            process = multiprocessing.Process(target=Chdkptp.shoot, args=(cam, save_path+str(CameraService.pic_number)))
+            process = Thread(target=Chdkptp.shoot, args=(cam, save_path+str(CameraService.pic_number)))
             jobs.append(process)
             process.start()
 
