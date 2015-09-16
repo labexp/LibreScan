@@ -1,12 +1,12 @@
 import yaml
 import subprocess
-from subprocess import call
 from services.utils.task import Task
 
 
 class Scantailor(Task):
-    def __init__(self):
+    def __init__(self, p_photo_extension="jpg"):
         self.params = self.get_configuration()
+        self.photo_extension = p_photo_extension
 
     # Loads scantailor configuration from src/configuration/config.yaml in python dictionary.
     def get_configuration(self):
@@ -20,7 +20,7 @@ class Scantailor(Task):
         command = "scantailor-cli"
         for param in self.params:
             command += " -" + param + "=" + str(self.params[param])
-        input_path = p_input_dir + "/" + p_photo
+        input_path = p_input_dir + "/" + p_photo + "." + self.photo_extension
         output_path = p_input_dir
         command += " " + input_path + " " + output_path + "/"
         return command
