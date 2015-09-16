@@ -1,10 +1,17 @@
-__author__ = 'melalonso'
-
-from outputMaker import OutputMaker
-from subprocess import call
+import os
+from pathlib import Path
+import subprocess
+from services.utils.outputMaker import OutputMaker
 
 
 class PDFBeads(OutputMaker):
 
-    def make(self, path, filename):
-        call("pdfbeads "+path+".tif > "+filename+".pdf", shell=True)
+    def get_output_path(self, p_path):
+        path_object = Path(p_path)
+        return str(path_object.parents[0])
+
+    def make(self, p_path, p_output_name):
+        output = self.get_output_path(p_path) + "/" + p_output_name
+        command = "pdfbeads " + "*.tif > " + output +".pdf"
+        os.chdir(p_path)
+        subprocess.call(command, shell=True)

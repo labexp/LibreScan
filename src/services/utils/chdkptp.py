@@ -1,4 +1,3 @@
-
 import subprocess
 from subprocess import call
 from model.camera import Camera
@@ -17,7 +16,6 @@ class Chdkptp:
         print(chdk_string)
         return chdk_string
 
-    @staticmethod
     def connect_string(p_cam):
         bus_string = "(%s -elist | %s -n1| cut -f4 -d' '| sed -e 's/b\=//g')" \
             % (chdk_path, p_cam.pos)
