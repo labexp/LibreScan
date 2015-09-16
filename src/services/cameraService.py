@@ -12,7 +12,7 @@ class CameraService:
         pass
 
     def prepare(self):
-        pass
+        pass    
 
     def remove(self):
         pass
