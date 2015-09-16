@@ -1,25 +1,22 @@
-__author__ = 'diugalde'
-
-
 class ProjectService:
 
-    def create(self, pProject):
+    def create(self, p_project):
         return 1
 
-    def remove(self, pId):
+    def remove(self, p_id):
         return 1
 
-    def load(self, pId):
+    def load(self, p_id):
         return 1
 
-    def getAll(self):
+    def get_all(self):
         return []
 
-    def getConfig(self, pId):
+    def get_config(self, p_id):
         return 1
 
-    def changeConfig(self, config):
+    def change_config(self, config):
         return 1
 
-    def createThreads(self):
+    def create_threads(self):
         return 1

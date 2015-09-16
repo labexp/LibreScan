@@ -1,5 +1,3 @@
-__author__ = 'melalonso'
-
 from task import Task
 from subprocess import call
 
