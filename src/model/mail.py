@@ -1,10 +1,7 @@
-__author__ = 'diugalde'
-
-
 class Mail:
 
-    def __init__(self, name, sender, phone, msg):
-        self.name = name
-        self.sender = sender
-        self.phone = phone
-        self.msg = msg
+    def __init__(self, p_name, p_sender, p_phone, p_msg):
+        self.name = p_name
+        self.sender = p_sender
+        self.phone = p_phone
+        self.msg = p_msg
