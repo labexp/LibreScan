@@ -11,5 +11,8 @@ scantailor:
   dpi-y: 300
   threshold: 0
   color-mode: black_and_white
+project:
+  path: /home/sd/LibreScanProjects
+  last-id: 1
 
 
