@@ -1,6 +1,14 @@
+import os
+import yaml
 class ProjectService:
 
     def create(self, p_project):
+        path = os.environ["HOME"] #This needs to be changed to environ["LibreScan"]
+        path += ".LibreScan/config.yaml"
+        f = open(path)
+        data_map = yaml.safe_load(f)
+        f.close()
+        data_map['project']
         return 1
 
     def remove(self, p_id):
