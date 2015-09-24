@@ -38,7 +38,7 @@ class Chdkptp:
         p_cam = Chdkptp.connect_string(p_cam)
         extra = "\" -e'download orientation.txt /tmp'"
         call(Chdkptp.string_maker(p_cam.usb_bus, p_cam.usb_id, extra), shell=True)
-        p_cam.orientation = subprocess.check_output("(cat /tmp/orientation.txt)", shell=True)
+        p_cam.orientation = subprocess.check_output("(cat /tmp/orientation.txt)", shell=True).decode(encoding='UTF-8')
         call("rm -rf /tmp/orientation.txt", shell=True)
 
     @staticmethod

@@ -10,7 +10,7 @@ class Scantailor(Task):
 
     # Loads scantailor configuration from src/configuration/config.yaml in python dictionary.
     def get_configuration(self):
-        f = open('../../configuration/config.yaml')
+        f = open('configuration/config.yaml')
         data_map = yaml.safe_load(f)
         f.close()
         return data_map['scantailor']

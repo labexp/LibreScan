@@ -16,9 +16,6 @@ class TaskManager:
             for task in self.tasks:
                 task.exec(params)
 
-    def rename(self):
-        pass
-
     def generate(self):
         for output_maker in self.output_makers:
             output_maker.make(self.working_dir, "out")
