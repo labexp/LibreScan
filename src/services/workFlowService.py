@@ -1,4 +1,5 @@
 from pdfBeads import PDFBeads
+from services.cameraService import CameraService
 
 
 class WorkFlowService:
@@ -12,3 +13,5 @@ class WorkFlowService:
     def finish_product(self):
         for output_maker in self.output_maker_list:
             output_maker.make("path/to/tiff_files", "output")
+
+

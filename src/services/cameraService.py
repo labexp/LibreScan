@@ -30,12 +30,7 @@ class CameraService:
         for cam in self.cams:
             Chdkptp.recMode(cam)
 
-<<<<<<< HEAD
-    def prepare(self):
-        pass    
-=======
->>>>>>> upstream/develop
-
+'''
 cs = CameraService()
 cs.prepare_cams()
-cs.take_pictures()
+cs.take_pictures()'''
