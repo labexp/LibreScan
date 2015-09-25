@@ -1,4 +1,3 @@
-
 import subprocess
 from subprocess import call
 from model.camera import Camera
@@ -17,7 +16,6 @@ class Chdkptp:
         print(chdk_string)
         return chdk_string
 
-    @staticmethod
     def connect_string(p_cam):
         bus_string = "(%s -elist | %s -n1| cut -f4 -d' '| sed -e 's/b\=//g')" \
             % (chdk_path, p_cam.pos)
@@ -40,7 +38,7 @@ class Chdkptp:
         p_cam = Chdkptp.connect_string(p_cam)
         extra = "\" -e'download orientation.txt /tmp'"
         call(Chdkptp.string_maker(p_cam.usb_bus, p_cam.usb_id, extra), shell=True)
-        p_cam.orientation = subprocess.check_output("(cat /tmp/orientation.txt)", shell=True)
+        p_cam.orientation = subprocess.check_output("(cat /tmp/orientation.txt)", shell=True).decode(encoding='UTF-8')
         call("rm -rf /tmp/orientation.txt", shell=True)
 
     @staticmethod

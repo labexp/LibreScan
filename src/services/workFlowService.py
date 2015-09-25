@@ -1,17 +1,18 @@
-from pdfBeads import PDFBeads
-from services.cameraService import CameraService
+
+from services.utils.taskManager import TaskManager
+
 
 
 class WorkFlowService:
-
     def __init__(self):
-        self.output_maker_list = [PDFBeads()]
+        self.task_manager = TaskManager("/home/diugalde/Desktop")
 
     def push_photos(self, p_list_ids):
         pass
 
     def finish_product(self):
-        for output_maker in self.output_maker_list:
-            output_maker.make("path/to/tiff_files", "output")
+        self.task_manager.generate()
 
+ws = WorkFlowService()
+ws.finish_product()
 
