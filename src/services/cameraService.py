@@ -45,3 +45,4 @@ class CameraService:
         right_photo = right_photo.rotate(270)
         left_photo.save(save_path + str(p_left_photo)+".jpg")
         right_photo.save(save_path + str(p_right_photo)+".jpg")
+

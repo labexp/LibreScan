@@ -18,6 +18,7 @@ class Scantailor(Task):
     # Iterates through python dictionary to create the command string.
     def command_maker(self, p_input_dir, p_photo):
         command = "scantailor-cli"
+
         for param in self.params:
             command += " -" + param + "=" + str(self.params[param])
         input_path = p_input_dir + "/" + p_photo + "." + self.photo_extension

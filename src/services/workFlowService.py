@@ -1,8 +1,9 @@
+
 from services.utils.taskManager import TaskManager
 
 
-class WorkFlowService:
 
+class WorkFlowService:
     def __init__(self):
         self.task_manager = TaskManager("/home/diugalde/Desktop")
 
@@ -14,3 +15,4 @@ class WorkFlowService:
 
 ws = WorkFlowService()
 ws.finish_product()
+
