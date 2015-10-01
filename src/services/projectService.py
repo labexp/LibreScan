@@ -7,9 +7,11 @@ from model.project import Project
 
 class ProjectService:
 
+    def __init__(self):
+        self.config_folder = os.environ["HOME"] + "/.librescan"
+
     def create(self, p_project):
-        home_path = os.environ["HOME"]  # This needs to be changed to environ["LibreScan"]
-        path = home_path + "/.librescan/config.yaml"
+        path = self.config_folder + "/config.yaml"
         folder_name = self.get_folder_name(path)
         new_project_path = self.get_projects_path(path) + "/" + folder_name
         os.mkdir(new_project_path)
@@ -17,7 +19,7 @@ class ProjectService:
         os.mkdir(new_project_path + "/processed")
 
         # Creates the project config template with default values.
-        src = home_path + "/.librescan/defaultProjectConfig.yaml"
+        src = self.config_folder + "/defaultProjectConfig.yaml"
         destiny = new_project_path + "/.projectConfig.yaml"
         os.system("cp " + src + " " + destiny)
 
@@ -25,10 +27,20 @@ class ProjectService:
         self.change_config(p_project, destiny)
 
         # Append new project to projects file.
-        self.append_project(home_path + "/.librescan/projects.yaml", folder_name, p_project.name, p_project.description)
+        self.append_project(self.config_folder + "/projects.yaml", folder_name, p_project.name, p_project.description)
         return new_project_path
 
-    def remove(self, p_id):
+    def remove(self, p_id, p_project_path):
+        config_path = self.config_folder + "/projects.yaml"
+        f = open(config_path)
+        data_map = yaml.safe_load(f)
+        f.close()
+        data_map.pop(p_id)
+        os.system("rm -rf " + p_project_path)
+
+        f = open(config_path, 'w')
+        f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
+        f.close()
         return 1
 
     def load(self, p_id):
