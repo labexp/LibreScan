@@ -5,28 +5,28 @@ from model.cameraConfig import CameraConfig
 from model.project import Project
 
 
-
 class ProjectService:
 
     def create(self, p_project):
-        home_path = os.environ["HOME"] #This needs to be changed to environ["LibreScan"]
+        home_path = os.environ["HOME"]  # This needs to be changed to environ["LibreScan"]
         path = home_path + "/.librescan/config.yaml"
         folder_name = self.get_folder_name(path)
         new_project_path = self.get_projects_path(path) + "/" + folder_name
         os.mkdir(new_project_path)
         os.mkdir(new_project_path + "/raw")
+        os.mkdir(new_project_path + "/processed")
 
-        #Creates the project config template with default values.
+        # Creates the project config template with default values.
         src = home_path + "/.librescan/defaultProjectConfig.yaml"
-        destiny = new_project_path + "/projectConfig.yaml"
+        destiny = new_project_path + "/.projectConfig.yaml"
         os.system("cp " + src + " " + destiny)
 
-        #Update project configuration
+        # Update project configuration
         self.change_config(p_project, destiny)
 
-        #Append new project to projects file.
+        # Append new project to projects file.
         self.append_project(home_path + "/.librescan/projects.yaml", folder_name, p_project.name, p_project.description)
-        return 1
+        return new_project_path
 
     def remove(self, p_id):
         return 1
@@ -57,9 +57,6 @@ class ProjectService:
         f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
         f.close()
 
-    def create_threads(self):
-        return 1
-
     def get_folder_name(self, p_path):
         f = open(p_path)
         data_map = yaml.safe_load(f)
@@ -83,9 +80,3 @@ class ProjectService:
         f = open(p_projects_path, "a")
         f.write(yaml.dump(project, default_flow_style=False, allow_unicode=True))
         f.close()
-
-
-cam_config = CameraConfig(2, 10)
-project = Project(None, 'Cocori', 'Libro sobre un caribeño', 'en', cam_config, ['pdfbeads'])
-ps = ProjectService()
-ps.create(project)

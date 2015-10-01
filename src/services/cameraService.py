@@ -12,9 +12,9 @@ class CameraService:
 
     pic_number = 0
 
-    def __init__(self, p_save_path):
+    def __init__(self, p_working_dir):
         self.cams = [Camera("head"), Camera("tail")]
-        self.save_path = p_save_path
+        self.save_path = p_working_dir + "/raw/"
         self.camera_config = self.get_configuration()
 
     def get_configuration(self):
@@ -32,7 +32,7 @@ class CameraService:
             CameraService.pic_number += 1
             pic_name = "lsp"+str(CameraService.pic_number).zfill(5)
             pic_names.append(pic_name)
-            process = Thread(target=Chdkptp.shoot, args=(cam, self.save_path+pic_name))
+            process = Thread(target=Chdkptp.shoot, args=(cam, self.save_path + pic_name))
             jobs.append(process)
             process.start()
             time.sleep(0.0005)
