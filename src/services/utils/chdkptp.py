@@ -34,24 +34,32 @@ class Chdkptp:
         call(Chdkptp.string_maker(p_cam.usb_bus, p_cam.usb_id, extra), shell=True)
 
     @staticmethod
-    def prepare(p_cam):
+    def prepare(p_cam, p_camera_config):
         p_cam = Chdkptp.connect_string(p_cam)
         extra = "\" -e'download orientation.txt /tmp'"
         call(Chdkptp.string_maker(p_cam.usb_bus, p_cam.usb_id, extra), shell=True)
         p_cam.orientation = subprocess.check_output("(cat /tmp/orientation.txt)", shell=True).decode(encoding='UTF-8')
         call("rm -rf /tmp/orientation.txt", shell=True)
+        Chdkptp.set_zoom(p_cam, p_camera_config.zoom)
+        Chdkptp.set_quality(p_cam)
 
     @staticmethod
-    def recMode(p_cam):
+    def rec_mode(p_cam):
         extra = "\" -erec"
         call(Chdkptp.string_maker(p_cam.usb_bus, p_cam.usb_id, extra), shell=True)
 
     @staticmethod
-    def setFlash(p_cam):
-        extra = "\" -e'lua while(get_flash_mode()<2) do click(\"right\") end' "
+    def set_zoom(p_cam, p_zoom_level):
+        extra = "\" -e'lua set_zoom("+p_zoom_level+")'"
         call(Chdkptp.string_maker(p_cam.usb_bus, p_cam.usb_id, extra), shell=True)
 
     @staticmethod
-    def setZoom(p_cam, pZoomLevel):
-        extra = "\" -e'lua while(get_zoom()<" + str(pZoomLevel) + ") do click(\"zoom_out\") end'"
+    def set_zoom(p_cam, p_zoom_level):
+        extra = "\" -e'lua set_zoom("+str(p_zoom_level)+")'"
+        call(Chdkptp.string_maker(p_cam.usb_bus, p_cam.usb_id, extra), shell=True)
+
+    @staticmethod
+    def set_quality(p_cam):
+        extra = "\" -e'lua props=require(\"propcase\"); set_prop(props.QUALITY, 0); set_prop(props.RESOLUTION, 0);" \
+                " set_nd_filter(2); set_config_value(291, 0);'"
         call(Chdkptp.string_maker(p_cam.usb_bus, p_cam.usb_id, extra), shell=True)
