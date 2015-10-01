@@ -4,10 +4,10 @@ from services.utils.task import Task
 
 class Tesseract(Task):
 
-    def __init__(self, p_language='spa', p_format='hocr', p_photo_extension='tif'):
-        self.language = p_language
-        self.output_format = p_format
-        self.photo_extension = p_photo_extension
+    def __init__(self, p_config_params):
+        self.language = p_config_params['lang']
+        self.output_format = p_config_params['output-format']
+        self.photo_extension = p_config_params['input-extension']
 
     def exec(self, params):
         input_path = params['input_dir'] + '/' + params['photo'] + "." + self.photo_extension

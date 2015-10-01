@@ -1,14 +1,19 @@
 from services.utils.pdfBeads import PDFBeads
 from services.utils.scantailor import Scantailor
 from services.utils.tesseract import Tesseract
+import yaml
+from pathlib import Path
 
 
 class TaskManager:
 
     def __init__(self, p_working_dir):
         self.working_dir = p_working_dir
-        self.tasks = [Scantailor(), Tesseract()]  # Task
         self.output_makers = [PDFBeads()]  # OutputMaker
+        configuration = self.get_configuration()
+        scantailor = Scantailor(configuration['scantailor'])
+        tesseract = Tesseract(configuration['tesseract'])
+        self.tasks = [scantailor, tesseract]
 
     def process(self, p_list):
         for photo in p_list:
@@ -19,6 +24,15 @@ class TaskManager:
     def generate(self):
         for output_maker in self.output_makers:
             output_maker.make(self.working_dir, "out")
+
+    # Loads tools configuration from the project configuration.
+    def get_configuration(self):
+        path_object = Path(self.working_dir)
+        config_path = str(path_object.parents[0])+"/.projectConfig.yaml"
+        f = open(config_path)
+        data_map = yaml.safe_load(f)
+        f.close()
+        return data_map
 
 '''
 Example:
