@@ -10,7 +10,8 @@ class Tesseract(Task):
         self.photo_extension = p_config_params['input-extension']
 
     def exec(self, params):
-        input_path = params['input_dir'] + '/' + params['photo'] + "." + self.photo_extension
-        output_path = params['input_dir'] + '/' + params['photo']
+        working_path = params['input_dir'] + '/processed'
+        input_path = params['input_dir'] + '/processed/' + params['photo'] + "." + self.photo_extension
+        output_path = params['input_dir'] + '/processed/' + params['photo']
         command = "tesseract -l " + self.language + " " + input_path + " " + output_path + " " + self.output_format
         subprocess.call(command, shell=True)

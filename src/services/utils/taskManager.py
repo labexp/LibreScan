@@ -27,8 +27,7 @@ class TaskManager:
 
     # Loads tools configuration from the project configuration.
     def get_configuration(self):
-        path_object = Path(self.working_dir)
-        config_path = str(path_object.parents[0])+"/.projectConfig.yaml"
+        config_path = self.working_dir + "/.projectConfig.yaml"
         f = open(config_path)
         data_map = yaml.safe_load(f)
         f.close()
