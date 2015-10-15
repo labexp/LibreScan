@@ -1,5 +1,6 @@
 import subprocess
-from services.utils.task import Task
+
+from utils.task import Task
 
 
 class Scantailor(Task):

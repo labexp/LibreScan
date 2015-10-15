@@ -1,4 +1,4 @@
-from services.utils.taskManager import TaskManager
+from utils.taskManager import TaskManager
 
 
 class WorkFlowService:

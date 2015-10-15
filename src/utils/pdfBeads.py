@@ -1,7 +1,7 @@
 import os
-from pathlib import Path
 import subprocess
-from services.utils.outputMaker import OutputMaker
+
+from utils.outputMaker import OutputMaker
 
 
 class PDFBeads(OutputMaker):
