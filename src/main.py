@@ -2,10 +2,11 @@ from model.project import Project
 from services.cameraService import CameraService
 from services.projectService import ProjectService
 from services.queueService import QueueService
-from services.utils.taskManager import TaskManager
+from utils.taskManager import TaskManager
 
 
 def main():
+
     # Project service in charge of creating the new project
     ps = ProjectService()
     project = Project(None, 'Marcos Ramírez', 'Libro sobre Marcos Ramírez, esrito porLucho Fallas', 'spa', None, ['pdfbeads'])

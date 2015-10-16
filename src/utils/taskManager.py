@@ -1,8 +1,8 @@
-from services.utils.pdfBeads import PDFBeads
+import yaml
+
+from utils.pdfBeads import PDFBeads
 from services.utils.scantailor import Scantailor
 from services.utils.tesseract import Tesseract
-import yaml
-from pathlib import Path
 
 
 class TaskManager:
