@@ -11,7 +11,7 @@ class MailService:
     #Formats the mail msg with the sender information and the body msg.
     def prepare_msg(self, p_name, p_msg, p_phone, p_from):
         msg = """\
-        Enviado por: %s <%s>
+        Enviado pt: %s <%s>
         Tel: %s
         Cuerpo del mensaje: %s
         """ % (p_name, p_from, p_phone, p_msg)
