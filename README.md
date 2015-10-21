@@ -96,6 +96,8 @@ Actualmente se cuenta con una versión en línea de comandos. En la carpeta pres
 
         $ python3.4 setup.py
 
+    Esto crea dos carpetas en el home/usuario, una oculta llamada .librescan con archivos de configuración, y la otra se llama LibreScanProjects, donde se almacenarán todos los proyectos.
+
 - Ejecutamos el programa (en línea de comandos por ahora).
 
         $ python3.4 main.py
