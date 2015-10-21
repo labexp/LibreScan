@@ -1,11 +1,12 @@
 
 import os
 from shutil import copyfile
+import yaml
 
 USERHOME = os.environ["HOME"]
-RESOURCESPATH = 'resources/'
-LIBRESCANPATH =  USERHOME + "/LibreScan"
-LSCONFIGPATH =  USERHOME + "/.librescan"
+RESOURCESPATH = './configuration'
+LIBRESCANPATH = USERHOME + "/LibreScanProjects"
+LSCONFIGPATH = USERHOME + "/.librescan"
 
 
 def create_folders():
@@ -14,7 +15,24 @@ def create_folders():
 
 
 def create_config_files():
-    config_template = RESOURCESPATH + "config_template.yaml"
-    project_template = RESOURCESPATH + "project_template.yaml"
-    copyfile(config_template, LSCONFIGPATH)
-    copyfile(project_template, LSCONFIGPATH)
+    template_path = "/defaultProjectConfig.yaml"
+    project_template = RESOURCESPATH + template_path
+    copyfile(project_template, LSCONFIGPATH + template_path)
+    os.mknod(LSCONFIGPATH+"/projects.yaml")
+    os.mknod(LSCONFIGPATH+"/config.yaml")
+
+    data_map = {
+        'email-receiver': 'librescan@gmail.com',
+        'project': {
+            'last-id': 1,
+            'path': LIBRESCANPATH
+        }
+    }
+
+    f = open(LSCONFIGPATH+"/config.yaml", 'w')
+    f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
+    f.close()
+
+print(os.getcwd())
+create_folders()
+create_config_files()
