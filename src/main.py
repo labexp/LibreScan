@@ -9,7 +9,10 @@ def main():
 
     # Project service in charge of creating the new project
     ps = ProjectService()
-    project = Project(None, 'Nombre del libro', 'Descripcion libro', 'spa', None, ['pdfbeads'])
+    book_name = input("Ingrese el nombre del libro que va a escanear: ")
+    book_description = input("Ingrese alguna descripcion adicional: ")
+    print("")
+    project = Project(None, book_name, book_description, 'spa', None, ['pdfbeads'])
     project_path = ps.create(project)
 
     # TaskManager instance will be used in the threads queue and it will generate the final product.
@@ -32,5 +35,7 @@ def main():
 
     # Generates the final products and place them in the new project path's root.
     t.generate()
+
+    print("Producto finalizado, puede observarlo en la ruta " + project_path)
 
 main()
