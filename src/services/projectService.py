@@ -1,8 +1,5 @@
 import os
 import yaml
-import codecs
-from model.cameraConfig import CameraConfig
-from model.project import Project
 
 
 class ProjectService:

@@ -24,7 +24,7 @@ def create_config_files():
     data_map = {
         'email-receiver': 'librescan@gmail.com',
         'project': {
-            'last-id': 1,
+            'last-id': 0,
             'path': LIBRESCANPATH
         }
     }
@@ -33,6 +33,5 @@ def create_config_files():
     f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
     f.close()
 
-print(os.getcwd())
 create_folders()
 create_config_files()

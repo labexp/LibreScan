@@ -1,6 +1,6 @@
 from gettext import translation
 from bottle import *
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
 from web.controllers.navigationController import NavigationController

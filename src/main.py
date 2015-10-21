@@ -9,14 +9,14 @@ def main():
 
     # Project service in charge of creating the new project
     ps = ProjectService()
-    project = Project(None, 'Marcos Ramírez', 'Libro sobre Marcos Ramírez, esrito porLucho Fallas', 'spa', None, ['pdfbeads'])
+    project = Project(None, 'Nombre del libro', 'Descripcion libro', 'spa', None, ['pdfbeads'])
     project_path = ps.create(project)
 
     # TaskManager instance will be used in the threads queue and it will generate the final product.
     t = TaskManager(project_path)
     q = QueueService(t)
 
-    print("Preparing cameras....")
+    print("Preparando camaras....")
     cs = CameraService(project_path)
     cs.prepare_cams()
 

@@ -1,5 +1,3 @@
-__author__ = 'sd'
-
 from queue import Queue
 import threading
 

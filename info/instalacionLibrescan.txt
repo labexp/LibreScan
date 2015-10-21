@@ -2,8 +2,7 @@
 
 # apt-get install python-pip lua5.2 liblua5.2 git-svn libusb-dev python3.4 libmagickwand-dev
 
-# pip install pyYAML
-# pip install Pillow
+# pip install pyYAML Pillow bottle pyjade jinja2
 
 --------------------------------------------------------------------------------------------
 
@@ -36,7 +35,7 @@
 
 
 --------------------------------------------------------------------------------------------
-- Instalación CHDKPTP para el manejo de las cámaras:
+- En cuanto a las cámaras hay que instalar el CHDKPTP en el sistema.
 
 $ git svn clone http://subversion.assembla.com/svn/chdkptp/trunk chdkptp
 
@@ -46,16 +45,46 @@ $ mv config-sample-linux.mk config.mk
 
 $ make
 
-$ mkdir /usr/bin/chdkptp
+# mkdir /usr/bin/chdkptp
 
-$ cp chdkptp-sample.sh /usr/bin/chdkptp/chdkptp
+# cp chdkptp-sample.sh /usr/bin/chdkptp/chdkptp
 
-$ cd /usr/local/lib/chdkptp
+# cd /usr/local/lib/chdkptp
 
-$ nano /usr/bin/chdkptp/chdkptp
+# nano /usr/bin/chdkptp/chdkptp
 
 Modificar la línea que dice
 	
 	CHDKPTP_DIR=/home/folderclonado/chdkptp (Y guardamos los cambios)
 
-$ ln -s /usr/bin/chdkptp/chdkptp /bin
+# ln -s /usr/bin/chdkptp/chdkptp /bin
+
+--------------------------------------------------------------------------------------------
+- Para reconocer cuál cámara es la derecha y cuál es la izquierda hacemos uso de un archivo 'orientation.txt', que se encuentra almacenado la raíz de la tarjeta SD de cada cámara. Por ahora este proceso se debe hacer manualmente, introduciendo la SD en la computadora y creando el archivo manualmente. Pasos:
+	
+	1. Asegurarse que la SD esté desbloqueada.
+	2. Para la cámara que desea usar al lado izquierdo, crear un archivo orientation.txt que tenga la palabra 'left' (sin comillas) como contenido.
+	3. Para la cámara que desea usar al lado derecho, crear un archivo orientation.txt que tenga la palabra 'right' (sin comillas) como contenido.
+
+
+
+Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario conecte las cámaras y decida la orientación sin crear el archivo manualmente.
+
+--------------------------------------------------------------------------------------------
+- Una vez instaladas todas las dependencias, procedemos a clonar el repositorio de LibreScan (por ahora del branch develop).
+
+$ git clone https://github.com/LabExperimental-SIUA/LibreScan/tree/develop
+
+- Nos metemos a la carpeta clonada, y al código fuente.
+
+$ cd LibreScan
+
+$ cd src
+
+- Corremos el setup para la creación de carpetas y archivos de configuración.
+
+$ python3.4 setup.py
+
+- Ejecutamos el programa (en línea de comandos por ahora).
+
+$ python3.4 main.py

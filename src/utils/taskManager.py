@@ -1,8 +1,8 @@
 import yaml
 
 from utils.pdfBeads import PDFBeads
-from services.utils.scantailor import Scantailor
-from services.utils.tesseract import Tesseract
+from utils.scantailor import Scantailor
+from utils.tesseract import Tesseract
 
 
 class TaskManager:

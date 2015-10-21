@@ -1,11 +1,13 @@
 import polib
+import os
 
 
 class PoParser:
 
     @staticmethod
     def compilePoFiles():
-        langs = ['pt', 'en', 'spa']
+        locale_path = os.getcwd() + '/i18n/locale'
+        langs = os.listdir(locale_path)
         for lang in langs:
             path = './i18n/locale/' + lang + '/LC_MESSAGES/messages'
             po = polib.pofile(path + '.po')

@@ -1,6 +1,5 @@
 import subprocess
 from subprocess import call
-from model.camera import Camera
 
 
 class Chdkptp:
