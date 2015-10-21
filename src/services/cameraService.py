@@ -1,8 +1,8 @@
 from threading import Thread
-from pathlib import Path
 import time
 
 from PIL import Image
+from pathlib import Path
 import yaml
 
 from model.camera import Camera
