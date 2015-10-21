@@ -1,6 +1,6 @@
 - Instalar dependencias que serán utilizadas:
 
-# apt-get install lua5.2 liblua5.2 git-svn libusb-dev python3.4 python3-pip libmagickwand-dev
+# apt-get install python-pip lua5.2 liblua5.2 git-svn libusb-dev python3.4 libmagickwand-dev
 
 # pip install pyYAML Pillow bottle pyjade jinja2
 
