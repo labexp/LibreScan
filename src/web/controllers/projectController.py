@@ -8,3 +8,12 @@ class ProjectController:
 
     def home(self):
         return self.env.get_template('home.jade').render()
+
+    def get_config(self):
+        pass
+
+    def new(self):
+        pass
+
+    def create(self):
+        pass

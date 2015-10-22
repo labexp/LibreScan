@@ -16,7 +16,7 @@ from web.i18n.PoParser import PoParser
 class LibreScanWeb:
 
     def __init__(self):
-        self.host = 'localhost'
+        self.host = '0.0.0.0'
         self.port = '8181'
         self.app = Bottle()
         self.default_language = 'spa'
@@ -58,7 +58,6 @@ class LibreScanWeb:
         return controllers
 
     def return_resource(self, p_file):
-        print(p_file)
         return static_file(p_file, root='assets')
 
     def run_app(self):

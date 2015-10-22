@@ -1,21 +1,21 @@
 from queue import Queue
 import threading
 from patterns.singleton import Singleton
+from utils.taskManager import TaskManager
 
 
 class QueueService(metaclass=Singleton):
 
-    def __init__(self, p_task_manager, p_worker_threads=2):
+    def __init__(self, p_worker_threads=2):
         self.queue = Queue()
         self.worker_threads = p_worker_threads
-        self.task_manager = p_task_manager
+        self.task_manager = None
         for i in range(self.worker_threads):
             t = threading.Thread(target=self.start)
             t.setDaemon(True)
             t.start()
 
     def start(self):
-
         while True:
             item = [self.queue.get(block=True)]
             print("Procesando imagen: "+item[0])

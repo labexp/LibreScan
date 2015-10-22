@@ -18,10 +18,13 @@ class CameraService(metaclass=Singleton):
     def __init__(self):
         self.cams = [Camera("head"), Camera("tail")]
         self.save_path = None
-        self.camera_config = self.get_configuration()
+        self.camera_config = None
 
     def set_save_path(self, p_working_dir):
         self.save_path = p_working_dir + "/raw/"
+
+    def set_camera_config(self):
+        self.camera_config = self.get_configuration()
 
     def get_configuration(self):
         path_object = Path(self.save_path)
