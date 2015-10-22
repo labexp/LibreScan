@@ -1,6 +1,6 @@
 from gettext import translation
 from bottle import *
-from jinja2 import Environment
+from jinja2 import Environment, FileSystemLoader
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
 from web.controllers.navigationController import NavigationController
@@ -28,9 +28,14 @@ class LibreScanWeb:
         return env
 
     def init_routes(self):
+        self.app.route('/assets/:p_file#.+#', name='static', callback=self.return_resource)
         self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
         self.app.route('/shoot', method="GET", callback=self.controllers['camera'].shoot)
         self.app.route('/language/<lang>', method="GET", callback=self.controllers['language'].change_language)
+        self.app.route('/project/<id>/config', method="GET", callback=self.controllers['project'].get_config)
+        self.app.route('/project', method="POST", callback=self.controllers['project'].create)
+        self.app.route('/project/new', method="GET", callback=self.controllers['project'].new)
+
         # The other routes would go here.
 
     def init_controllers(self):
@@ -41,7 +46,12 @@ class LibreScanWeb:
             'mail': MailController(self.env),
             'language': LanguageController(self.env)
         }
+
         return controllers
+
+    def return_resource(self, p_file):
+        print(p_file)
+        return static_file(p_file, root='assets')
 
     def run_app(self):
         PoParser.compilePoFiles()
