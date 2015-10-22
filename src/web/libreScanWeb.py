@@ -1,6 +1,10 @@
 from gettext import translation
 from bottle import *
 from jinja2 import Environment
+from services.cameraService import CameraService
+from services.mailService import MailService
+from services.projectService import ProjectService
+from services.queueService import QueueService
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
 from web.controllers.navigationController import NavigationController
@@ -34,11 +38,15 @@ class LibreScanWeb:
         # The other routes would go here.
 
     def init_controllers(self):
+        camera_service = CameraService()
+        mail_service = MailService()
+        project_service = ProjectService()
+        queue_service = QueueService()
         controllers = {
             'navigation': NavigationController(self.env),
-            'camera': CameraController(self.env),
-            'project': ProjectController(self.env),
-            'mail': MailController(self.env),
+            'camera': CameraController(self.env, camera_service, queue_service),
+            'project': ProjectController(self.env, project_service),
+            'mail': MailController(self.env, mail_service),
             'language': LanguageController(self.env)
         }
         return controllers

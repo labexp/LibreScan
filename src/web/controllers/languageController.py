@@ -3,8 +3,8 @@ from gettext import translation
 
 class LanguageController:
 
-    def __init__(self, env):
-        self.env = env
+    def __init__(self, p_env):
+        self.env = p_env
 
     def change_language(self, lang):
         translations = translation(domain='messages', localedir='./i18n/locale', languages=[lang])
