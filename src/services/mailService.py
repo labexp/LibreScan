@@ -1,14 +1,15 @@
 import smtplib
+from patterns.singleton import Singleton
 
 
-class MailService:
+class MailService(metaclass=Singleton):
 
     server = "localhost"
 
     def get_email_receiver(self):
         return "librescan@gmail.com"
 
-    #Formats the mail msg with the sender information and the body msg.
+    # Formats the mail msg with the sender information and the body msg.
     def prepare_msg(self, p_name, p_msg, p_phone, p_from):
         msg = """\
         Enviado pt: %s <%s>

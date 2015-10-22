@@ -1,8 +1,9 @@
 from queue import Queue
 import threading
+from patterns.singleton import Singleton
 
 
-class QueueService:
+class QueueService(metaclass=Singleton):
 
     def __init__(self, p_task_manager, p_worker_threads=2):
         self.queue = Queue()

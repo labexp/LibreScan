@@ -5,19 +5,23 @@ from PIL import Image
 from pathlib import Path
 import yaml
 
-from model.camera import Camera
-from model.cameraConfig import CameraConfig
+from models.camera import Camera
+from models.cameraConfig import CameraConfig
+from patterns.singleton import Singleton
 from utils.chdkptp import Chdkptp
 
 
-class CameraService:
+class CameraService(metaclass=Singleton):
 
     pic_number = 0
 
-    def __init__(self, p_working_dir):
+    def __init__(self):
         self.cams = [Camera("head"), Camera("tail")]
-        self.save_path = p_working_dir + "/raw/"
+        self.save_path = None
         self.camera_config = self.get_configuration()
+
+    def set_save_path(self, p_working_dir):
+        self.save_path = p_working_dir + "/raw/"
 
     def get_configuration(self):
         path_object = Path(self.save_path)
