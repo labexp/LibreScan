@@ -1,4 +1,6 @@
-email-receiver: librescan@gmail.com
+camera:
+  zoom: 10
+  iso: 0
 scantailor:
   l: 1.5
   margins-left: 2.5
@@ -11,8 +13,12 @@ scantailor:
   dpi-y: 300
   threshold: 0
   color-mode: black_and_white
-project:
-  path: /home/sd/LibreScanProjects
-  last-id: 1
-
-
+tesseract:
+  lang: spa
+  output-format: hocr
+  input-extension: tif
+general-info:
+  name: name
+  description: description
+  output-formats:
+  - pdfbeads

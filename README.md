@@ -30,15 +30,15 @@ Actualmente se cuenta con una versión en línea de comandos. En la carpeta pres
 - Instalar scantailor para el procesamiento de las fotos:
 
         # apt-get install scantailor
-	
-	Nota: Si no se encuentra el package (mensaje de "Unable to locate package xyz") se debe hacer lo siguiente:
-	
+    
+    Nota: Si no se encuentra el package (mensaje de "Unable to locate package xyz") se debe hacer lo siguiente:
+    
         # nano /etc/apt/sources.list
         
     y agregar la siguiente linea al final del archivo 
     "deb http://http.debian.net/debian wheezy-backports main" (sin comillas).
 
-	
+    
 
 ---
 
@@ -66,20 +66,20 @@ Actualmente se cuenta con una versión en línea de comandos. En la carpeta pres
         # nano /usr/bin/chdkptp/chdkptp
 
     Modificar la línea que dice
-	
-	CHDKPTP_DIR=/home/ruta_clonado/chdkptp (Y guardamos los cambios)
-	
-	 por la ruta donde fue clonado el chdkptp.
+    
+    CHDKPTP_DIR=/home/ruta_clonado/chdkptp (Y guardamos los cambios)
+    
+     por la ruta donde fue clonado el chdkptp.
 
         # ln -s /usr/bin/chdkptp/chdkptp /bin
 
 ---
 
 - Para reconocer cuál cámara es la derecha y cuál es la izquierda hacemos uso de un archivo 'orientation.txt', que se encuentra almacenado la raíz de la tarjeta SD de cada cámara. Por ahora este proceso se debe hacer manualmente, introduciendo la SD en la computadora y creando el archivo manualmente. Pasos:
-	
-	1. Asegurarse que la SD esté desbloqueada.
-	2. Para la cámara que desea usar al lado izquierdo, crear un archivo orientation.txt que tenga la palabra 'left' (sin comillas) como contenido.
-	3. Para la cámara que desea usar al lado derecho, crear un archivo orientation.txt que tenga la palabra 'right' (sin comillas) como contenido.
+    
+    1. Asegurarse que la SD esté desbloqueada.
+    2. Para la cámara que desea usar al lado izquierdo, crear un archivo orientation.txt que tenga la palabra 'left' (sin comillas) como contenido.
+    3. Para la cámara que desea usar al lado derecho, crear un archivo orientation.txt que tenga la palabra 'right' (sin comillas) como contenido.
 
 - Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario conecte las cámaras y decida la orientación sin crear el archivo manualmente.
 
