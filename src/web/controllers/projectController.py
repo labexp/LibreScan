@@ -13,7 +13,10 @@ class ProjectController:
         pass
 
     def new(self):
-        pass
+        return self.env.get_template('newProject.jade').render()
 
     def create(self):
+        pass
+
+    def load(self):
         pass
