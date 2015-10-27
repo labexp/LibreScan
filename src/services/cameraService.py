@@ -5,8 +5,8 @@ from PIL import Image
 from pathlib import Path
 import yaml
 
-from model.camera import Camera
-from model.cameraConfig import CameraConfig
+from models.camera import Camera
+from models.cameraConfig import CameraConfig
 from utils.chdkptp import Chdkptp
 
 
