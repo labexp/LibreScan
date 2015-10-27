@@ -1,4 +1,4 @@
-from models.project import Project
+from model.project import Project
 from services.cameraService import CameraService
 from services.projectService import ProjectService
 from services.queueService import QueueService

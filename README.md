@@ -13,7 +13,7 @@ Actualmente se cuenta con una versión en línea de comandos. En la carpeta pres
 
         # apt-get install python-pip lua5.2 liblua5.2 git-svn libusb-dev python3.4 libmagickwand-dev
 
-        # pip3 install pyYAML Pillow bottle pyjade jinja2
+        # pip3 install pyYAML Pillow bottle pyjade jinja2 polib
 
 ---
 
@@ -102,5 +102,3 @@ Actualmente se cuenta con una versión en línea de comandos. En la carpeta pres
 - Ejecutamos el programa (en línea de comandos por ahora). Es necesario tener las cámaras en posición y encendidas, además de conectadas a la computadora.
 
         $ python3.4 main.py
-
-

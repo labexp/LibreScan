@@ -1,9 +1,8 @@
 import os
 import yaml
-from patterns.singleton import Singleton
 
 
-class ProjectService(metaclass=Singleton):
+class ProjectService:
 
     def __init__(self):
         self.config_folder = os.environ["HOME"] + "/.librescan"

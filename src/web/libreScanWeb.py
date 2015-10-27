@@ -1,9 +1,5 @@
 from gettext import translation
 from bottle import *
-from services.cameraService import CameraService
-from services.mailService import MailService
-from services.projectService import ProjectService
-from services.queueService import QueueService
 from jinja2 import Environment, FileSystemLoader
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
@@ -16,7 +12,7 @@ from web.i18n.PoParser import PoParser
 class LibreScanWeb:
 
     def __init__(self):
-        self.host = '0.0.0.0'
+        self.host = 'localhost'
         self.port = '8181'
         self.app = Bottle()
         self.default_language = 'spa'
@@ -43,21 +39,18 @@ class LibreScanWeb:
         # The other routes would go here.
 
     def init_controllers(self):
-        camera_service = CameraService()
-        mail_service = MailService()
-        project_service = ProjectService()
-        queue_service = QueueService()
         controllers = {
             'navigation': NavigationController(self.env),
-            'camera': CameraController(self.env, camera_service, queue_service),
-            'project': ProjectController(self.env, project_service),
-            'mail': MailController(self.env, mail_service),
+            'camera': CameraController(self.env),
+            'project': ProjectController(self.env),
+            'mail': MailController(self.env),
             'language': LanguageController(self.env)
         }
 
         return controllers
 
     def return_resource(self, p_file):
+        print(p_file)
         return static_file(p_file, root='assets')
 
     def run_app(self):

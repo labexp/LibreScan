@@ -1,19 +1,24 @@
-
+from bottle import request
 
 class ProjectController:
 
-    def __init__(self, p_env, p_project_service):
-        self.env = p_env
-        self.project_service = p_project_service
+    def __init__(self, env):
+        self.env = env
 
     def home(self):
         return self.env.get_template('home.jade').render()
 
-    def get_config(self):
-        pass
+    def create(self):
+        for params in request.params:
+            print(request.params[params])
+
+        return self.env.get_template('newProject.jade').render()
 
     def new(self):
-        pass
+        return self.env.get_template('newProject.jade').render()
 
-    def create(self):
-        pass
+    def delete(self, p_id):
+        return "ok"
+
+    def get_config(self, p_id):
+        return "ok"

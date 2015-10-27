@@ -2,8 +2,8 @@
 
 class NavigationController:
 
-    def __init__(self, p_env):
-        self.env = p_env
+    def __init__(self, env):
+        self.env = env
 
     def home(self):
-        return self.env.get_template('index.jade').render()
+        return self.env.get_template('home.jade').render()
