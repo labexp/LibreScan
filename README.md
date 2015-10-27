@@ -101,5 +101,3 @@ Actualmente se cuenta con una versión en línea de comandos. En la carpeta pres
 - Ejecutamos el programa (en línea de comandos por ahora).
 
         $ python3.4 main.py
-
-
