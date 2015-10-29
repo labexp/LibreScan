@@ -58,9 +58,55 @@ msgstr "Escaneos anteriores"
 
 # Translations for newProject.jade
 
+msgid "np_new_project"
+msgstr "Nuevo Proyecto"
+
+msgid "np_new_book_name_label"
+msgstr "Nombre del Libro"
+
+msgid "np_new_book_name_label"
+msgstr "Nombre del Libro"
+
+msgid "np_new_book_description_label"
+msgstr "Descripción del Libro"
+
+msgid "np_new_book_language"
+msgstr "Idioma del documento"
+
+msgid "np_new_book_create"
+msgstr "Crear"
+
+msgid "np_new_book_go_back"
+msgstr "Atras"
+
+msgid "np_new_book_config_modal_title"
+msgstr "Configuración avanzada"
+
+msgid "np_new_book_config_parameter_zoom"
+msgstr "Zoom"
+
+msgid "np_new_book_config_apply_button"
+msgstr "Aplicar"
+
+msgid "np_new_book_config_cancel_button"
+msgstr "Cancelar"
+
 # Translations for aboutUs.jade
 
-# Translations for newProject.jade
+msgid "au_tab1_label"
+msgstr "Acerca de LibreScan"
+
+msgid "au_tab2_label"
+msgstr "Nuestro Equipo"
+
+msgid "au_tab3_label"
+msgstr "Involúcrate"
+
+msgid "au_tab1_text"
+msgstr "Librescan es un software libre creado para facilitar el proceso de escaneo de documentos"
+
+msgid "au_developers"
+msgstr "Desarrolladores"
 
 # Translations for capture.jade
 
@@ -76,8 +122,24 @@ msgstr "Siguiente"
 msgid "c_processing_phase"
 msgstr "Fase de procesamiento"
 
-# Translations for processingPhase.jade
-
 # Translations for outputPreview.jade
 
 # Translations for contactUs.jade
+
+msgid "cu_title"
+msgstr "Contáctenos"
+
+msgid "cu_title_footer"
+msgstr "Estaremos agradecidos de recibir cualquier mensaje o recomendacion."
+
+msgid "cu_name_label"
+msgstr "Nombre"
+
+msgid "cu_email_label"
+msgstr "Correo"
+
+msgid "cu_message_label"
+msgstr "Mensaje"
+
+msgid "cu_send_button"
+msgstr "Enviar"

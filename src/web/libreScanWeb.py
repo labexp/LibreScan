@@ -17,7 +17,7 @@ class LibreScanWeb:
 
     def __init__(self):
         self.host = '0.0.0.0'
-        self.port = '8181'
+        self.port = '8180'
         self.app = Bottle()
         self.default_language = 'spa'
         self.env = self.init_environment()
@@ -61,6 +61,12 @@ class LibreScanWeb:
 
     def _init_mail_routes(self):
         self.app.route('/mail', method="POST", callback=self.controllers['mail'].create)
+
+    def _init_navigation_routes(self):
+        self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
+        self.app.route('/scan', method="GET", callback=self.controllers['navigation'].scan)
+        self.app.route('/about', method="GET", callback=self.controllers['navigation'].about)
+        self.app.route('/contact', method="GET", callback=self.controllers['navigation'].contact)
 
     def init_controllers(self):
         camera_service = CameraService()

@@ -61,13 +61,90 @@ msgstr "Previous scans"
 # Translations for newProject.jade
 
 # Translations for aboutUs.jade
+# MessageId standard
+# index.jade -> i_ + id
+# newProject.jade -> np_ + id
+# aboutUs.jade -> au_ + id
+# capture.jade -> c_ + id
+# contactUs.jade -> cu_ + id
+# outputPewview.jade -> op_ + id
+# processingPhase.jade -> pp_ + id
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+
+# Translations for index.jade
+
+msgid "i_ejemplo"
+msgstr "Ejemplo"
+
 
 # Translations for newProject.jade
 
-# Translations for capture.jade
+msgid "np_new_project"
+msgstr "New Project"
 
-# Translations for processingPhase.jade
+msgid "np_new_book_name_label"
+msgstr "Book name"
 
-# Translations for outputPreview.jade
+msgid "np_new_book_description_label"
+msgstr "Book description"
+
+msgid "np_new_book_language"
+msgstr "Language of the document"
+
+msgid "np_new_book_create"
+msgstr "Create"
+
+msgid "np_new_book_go_back"
+msgstr "Back"
+
+msgid "np_new_book_config_modal_title"
+msgstr "Advance configuration"
+
+msgid "np_new_book_config_parameter_zoom"
+msgstr "Zoom"
+
+msgid "np_new_book_config_apply_button"
+msgstr "Apply"
+
+msgid "np_new_book_config_cancel_button"
+msgstr "Cancel"
+
+# Translations for aboutUs.jade
+
+msgid "au_tab1_label"
+msgstr "About LibreScan"
+
+msgid "au_tab2_label"
+msgstr "LibreScan Team"
+
+msgid "au_tab3_label"
+msgstr "Get involved"
+
+msgid "au_tab1_text"
+msgstr "Librescan is a free software created to help in scanning books."
+
+msgid "au_developers"
+msgstr "Developers"
 
 # Translations for contactUs.jade
+
+msgid "cu_title"
+msgstr "Contact Us"
+
+msgid "cu_title_footer"
+msgstr "We'll be happy to receive your message."
+
+msgid "cu_name_label"
+msgstr "Name"
+
+msgid "cu_email_label"
+msgstr "Email"
+
+msgid "cu_message_label"
+msgstr "Message"
+
+msgid "cu_send_button"
+msgstr "Send"

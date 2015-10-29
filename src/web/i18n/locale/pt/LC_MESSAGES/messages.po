@@ -14,7 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: UTF-8\n"
 "Generated-By: pygettext.py 1.5\n"
 
-
 # Translations for topbar.jade
 
 msgid "tb_guides"
@@ -71,3 +70,20 @@ msgstr "Previous scans"
 # Translations for outputPreview.jade
 
 # Translations for contactUs.jade
+msgid "cu_title"
+msgstr "Contáctenos"
+
+msgid "cu_title_footer"
+msgstr "Estaremos agradecidos de recibir cualquier mensaje o recomendacion."
+
+msgid "cu_name_label"
+msgstr "Nombre"
+
+msgid "cu_email_label"
+msgstr "Correo"
+
+msgid "cu_message_label"
+msgstr "Mensaje"
+
+msgid "cu_send_button"
+msgstr "Enviar"
