@@ -1,21 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: Loco Demo\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Fri Oct 16 2015 00:32:57 GMT-0500 (CDT)\n"
-"PO-Revision-Date: Fri Oct 16 2015 00:32:58 GMT-0500 (CDT)\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: Spanish\n"
-"Plural-Forms: nplurals=2; plural=n!=1\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Loco-Source-Locale: es_ES\n"
-"X-Loco-Target-Locale: es_ES\n"
-"X-Generator: Loco - https://localise.biz/"
-
 # MessageId standard
 # index.jade -> i_ + id
 # newProject.jade -> np_ + id
@@ -25,13 +7,50 @@ msgstr ""
 # outputPewview.jade -> op_ + id
 # processingPhase.jade -> pp_ + id
 
-
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
 
 # Translations for index.jade
 
+msgid "i_ejemplo"
+msgstr "Ejemplo"
+
+
 # Translations for newProject.jade
 
+msgid "np_new_project"
+msgstr "New Project"
+
+msgid "np_new_book_name_label"
+msgstr "Book name"
+
+msgid "np_new_book_description_label"
+msgstr "Book description"
+
+msgid "np_new_book_language"
+msgstr "Language of the document"
+
+msgid "np_new_book_create"
+msgstr "Create"
+
+msgid "np_new_book_go_back"
+msgstr "Back"
+
+msgid "np_new_book_config_modal_title"
+msgstr "Advance configuration"
+
+msgid "np_new_book_config_parameter_zoom"
+msgstr "Zoom"
+
+msgid "np_new_book_config_apply_button"
+msgstr "Apply"
+
+msgid "np_new_book_config_cancel_button"
+msgstr "Cancel"
+
 # Translations for aboutUs.jade
+
 msgid "au_tab1_label"
 msgstr "About LibreScan"
 
@@ -56,6 +75,7 @@ msgstr "Developers"
 # Translations for outputPreview.jade
 
 # Translations for contactUs.jade
+
 msgid "cu_title"
 msgstr "Contact Us"
 

@@ -15,6 +15,10 @@
 	margin: 0 !important;
 }
 
+/*
+ * This identifier is for advance config modal
+ * in case more option can be added.
+ */
 #left-col {
     border-right: 2px solid #A1B29B;
 }
