@@ -115,10 +115,6 @@ footer{
 	color: floralwhite;
 }
 
-.main-button-container {
-	margin-top: 100px;
-}
-
 .home-button-text {
 	color: #260126;
 	transition: all 0.8s;
@@ -140,6 +136,9 @@ footer{
 	margin-right: 15px;
 }
 
+.main-button-container {
+	margin-top: 50px;
+}
 
 /*
 ========================

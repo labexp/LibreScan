@@ -32,14 +32,20 @@ class LibreScanWeb:
         return env
 
     def init_routes(self):
-        self._init_language_routes()
+        self._init_camera_routes()
         self._init_mail_routes()
+        self._init_navigation_routes()
         self.app.route('/assets/:p_file#.+#', name='static', callback=self.return_resource)
-        self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
         self.app.route('/language/<lang>', method="GET", callback=self.controllers['language'].change_language)
         self.init_project_routes()
 
         # The other routes would go here.
+
+    def _init_navigation_routes(self):
+        self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
+        self.app.route('/scan', method="GET", callback=self.controllers['navigation'].scan)
+        self.app.route('/about', method="GET", callback=self.controllers['navigation'].about)
+        self.app.route('/contact', method="GET", callback=self.controllers['navigation'].contact)
 
     def init_project_routes(self):
         self.app.route('/project/<id>/config', method="GET", callback=self.controllers['project'].get_config)

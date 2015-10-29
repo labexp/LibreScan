@@ -1,27 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Loco Demo\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Fri Oct 16 2015 00:32:57 GMT-0500 (CDT)\n"
-"PO-Revision-Date: Fri Oct 16 2015 00:32:58 GMT-0500 (CDT)\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: Spanish\n"
-"Plural-Forms: nplurals=2; plural=n!=1\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-09-11 13:53+CEST\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Loco-Source-Locale: es_ES\n"
-"X-Loco-Target-Locale: es_ES\n"
-"X-Generator: Loco - https://localise.biz/"
+"Content-Transfer-Encoding: UTF-8\n"
+"Generated-By: pygettext.py 1.5\n"
 
-msgid "Hello Worlddssssssssssssssssssssssssssssssss"
-msgstr "Hola Mundo"
 
-# Example comment
-#. Example pluralized message
-msgid "An example"
-msgid_plural "%s examples"
-msgstr[0] "Un ejemplo"
-msgstr[1] "%s ejemplos"
+# Translations for topbar.jade
+
+msgid "tb_guides"
+msgstr "Guides"
+
+msgid "tb_how_to_scan"
+msgstr "How to scan?"
+
+msgid "tb_chdk_installation"
+msgstr "CHDK Installation"
+
+msgid "tb_set_scanner"
+msgstr "How to assemble the scanner?"
+
+msgid "tb_languages"
+msgstr "Languages"
+
+msgid "tb_spanish_lang"
+msgstr "Spanish"
+
+msgid "tb_english_lang"
+msgstr "English"
+
+msgid "tb_portuguese_lang"
+msgstr "Portuguese"
+
+msgid "tb_guarani_lang"
+msgstr "Guarani"
+
+msgid "tb_contact_us"
+msgstr "Contact"
+
+msgid "tb_about_us"
+msgstr "About"
+
+# Translations for index.jade
+
+msgid "i_scan"
+msgstr "Scan"
+
+msgid "i_prev_scan"
+msgstr "Previous scans"
+
+# Translations for newProject.jade
+
+# Translations for aboutUs.jade
+
+# Translations for newProject.jade
+
+# Translations for capture.jade
+
+# Translations for processingPhase.jade
+
+# Translations for outputPreview.jade
+
+# Translations for contactUs.jade

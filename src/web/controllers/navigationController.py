@@ -7,3 +7,13 @@ class NavigationController:
 
     def home(self):
         return self.env.get_template('index.jade').render()
+
+    def scan(self):
+        return self.env.get_template('capture.jade').render()
+
+    def about(self):
+        pass
+
+    def contact(self):
+        pass
+
