@@ -14,48 +14,49 @@ msgstr ""
 "Content-Transfer-Encoding: UTF-8\n"
 "Generated-By: pygettext.py 1.5\n"
 
+
 # Translations for topbar.jade
 
 msgid "tb_guides"
-msgstr "Guides"
+msgstr "Guías"
 
 msgid "tb_how_to_scan"
-msgstr "¿How to scan?"
+msgstr "¿Cómo escanear?"
 
 msgid "tb_chdk_installation"
-msgstr "CHDK Installation"
+msgstr "Instalación de CHDK"
 
 msgid "tb_set_scanner"
-msgstr "How to assemble the scanner?"
+msgstr "¿Cómo armar el escaner?"
 
 msgid "tb_languages"
-msgstr "Languages"
+msgstr "Idiomas"
 
 msgid "tb_spanish_lang"
-msgstr "Spanish"
+msgstr "Español"
 
 msgid "tb_english_lang"
-msgstr "English"
+msgstr "Inglés"
 
 msgid "tb_portuguese_lang"
-msgstr "Portuguese"
+msgstr "Portugués"
 
 msgid "tb_guarani_lang"
-msgstr "Guarani"
+msgstr "Guaraní"
 
 msgid "tb_contact_us"
-msgstr "Contact"
+msgstr "Contacto"
 
 msgid "tb_about_us"
-msgstr "About"
+msgstr "Acerca"
 
 # Translations for index.jade
 
 msgid "i_scan"
-msgstr "Scan"
+msgstr "Escanear"
 
 msgid "i_prev_scan"
-msgstr "Previous scans"
+msgstr "Escaneos anteriores"
 
 # Translations for newProject.jade
 
@@ -70,20 +71,3 @@ msgstr "Previous scans"
 # Translations for outputPreview.jade
 
 # Translations for contactUs.jade
-msgid "cu_title"
-msgstr "Contáctenos"
-
-msgid "cu_title_footer"
-msgstr "Estaremos agradecidos de recibir cualquier mensaje o recomendacion."
-
-msgid "cu_name_label"
-msgstr "Nombre"
-
-msgid "cu_email_label"
-msgstr "Correo"
-
-msgid "cu_message_label"
-msgstr "Mensaje"
-
-msgid "cu_send_button"
-msgstr "Enviar"

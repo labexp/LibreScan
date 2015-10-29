@@ -1,21 +1,60 @@
+# Spanish translation.
 # MessageId standard
-# index.jade -> i_ + id
-# newProject.jade -> np_ + id
-# aboutUs.jade -> au_ + id
-# capture.jade -> c_ + id
-# contactUs.jade -> cu_ + id
-# outputPewview.jade -> op_ + id
-# processingPhase.jade -> pp_ + id
+#           index.jade -> i_ + id
+#           newProject.jade -> np_ + id
+#           aboutUs.jade -> au_ + id
+#           capture.jade -> c_ + id
+#           contactUs.jade -> cu_ + id
+#           outputPewview.jade -> op_ + id
+#           processingPhase.jade -> pp_ + id
+#           topbar.jade -> tb_ + id
 
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 
+# Translations for topbar.jade
+
+msgid "tb_guides"
+msgstr "Guías"
+
+msgid "tb_how_to_scan"
+msgstr "¿Cómo escanear?"
+
+msgid "tb_chdk_installation"
+msgstr "Instalación de CHDK"
+
+msgid "tb_set_scanner"
+msgstr "¿Cómo armar el escaner?"
+
+msgid "tb_languages"
+msgstr "Idiomas"
+
+msgid "tb_spanish_lang"
+msgstr "Español"
+
+msgid "tb_english_lang"
+msgstr "Inglés"
+
+msgid "tb_portuguese_lang"
+msgstr "Portugués"
+
+msgid "tb_guarani_lang"
+msgstr "Guaraní"
+
+msgid "tb_contact_us"
+msgstr "Contacto"
+
+msgid "tb_about_us"
+msgstr "Acerca"
+
 # Translations for index.jade
 
-msgid "i_ejemplo"
-msgstr "Ejemplo"
+msgid "i_scan"
+msgstr "Escanear"
 
+msgid "i_prev_scan"
+msgstr "Escaneos anteriores"
 
 # Translations for newProject.jade
 
@@ -53,6 +92,7 @@ msgid "np_new_book_config_cancel_button"
 msgstr "Cancelar"
 
 # Translations for aboutUs.jade
+
 msgid "au_tab1_label"
 msgstr "Acerca de LibreScan"
 
@@ -68,16 +108,24 @@ msgstr "Librescan es un software libre creado para facilitar el proceso de escan
 msgid "au_developers"
 msgstr "Desarrolladores"
 
-
-# Translations for newProject.jade
-
 # Translations for capture.jade
 
-# Translations for processingPhase.jade
+msgid "c_capture"
+msgstr "Capturar "
+
+msgid "c_repeat"
+msgstr "Repetir "
+
+msgid "c_next"
+msgstr "Siguiente"
+
+msgid "c_processing_phase"
+msgstr "Fase de procesamiento"
 
 # Translations for outputPreview.jade
 
 # Translations for contactUs.jade
+
 msgid "cu_title"
 msgstr "Contáctenos"
 

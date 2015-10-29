@@ -15,5 +15,5 @@ class NavigationController:
         return self.env.get_template('contactUs.jade').render()
 
     def scan(self):
-        pass
+        return self.env.get_template('capture.jade').render()
 
