@@ -119,10 +119,22 @@ msgstr "Repetir "
 msgid "c_next"
 msgstr "Siguiente"
 
+msgid "c_cancel"
+msgstr "Cancelar"
+
 msgid "c_processing_phase"
 msgstr "Fase de procesamiento"
 
 # Translations for outputPreview.jade
+
+msgid "op_title"
+msgstr "Vista previa"
+
+msgid "op_finish"
+msgstr "Finalizar"
+
+msgid "op_modify_captures"
+msgstr "Modificar capturas"
 
 # Translations for contactUs.jade
 
