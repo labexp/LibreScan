@@ -41,6 +41,12 @@ class LibreScanWeb:
 
         # The other routes would go here.
 
+    def _init_navigation_routes(self):
+        self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
+        self.app.route('/scan', method="GET", callback=self.controllers['navigation'].scan)
+        self.app.route('/about', method="GET", callback=self.controllers['navigation'].about)
+        self.app.route('/contact', method="GET", callback=self.controllers['navigation'].contact)
+
     def init_project_routes(self):
         self.app.route('/project/<id>/config', method="GET", callback=self.controllers['project'].get_config)
         self.app.route('/project', method="POST", callback=self.controllers['project'].create)
@@ -61,6 +67,7 @@ class LibreScanWeb:
         self.app.route('/scan', method="GET", callback=self.controllers['navigation'].scan)
         self.app.route('/about', method="GET", callback=self.controllers['navigation'].about)
         self.app.route('/contact', method="GET", callback=self.controllers['navigation'].contact)
+        self.app.route('/outputPreview', method="GET", callback=self.controllers['navigation'].output_preview)
 
     def init_controllers(self):
         camera_service = CameraService()
@@ -81,9 +88,8 @@ class LibreScanWeb:
         return static_file(p_file, root='assets')
 
     def run_app(self):
-        PoParser.compile_po_files()
         self.app.run(host=self.host, port=self.port, quiet=False, debug=True)
 
-
+PoParser.compile_po_files()
 app = LibreScanWeb()
 app.run_app()
