@@ -14,14 +14,46 @@ msgstr ""
 "Content-Transfer-Encoding: UTF-8\n"
 "Generated-By: pygettext.py 1.5\n"
 
-msgid "hello"
-msgstr "HOLEIRO"
+# MessageId standard
+# index.jade -> i_ + id
+# newProject.jade -> np_ + id
+# aboutUs.jade -> au_ + id
+# capture.jade -> c_ + id
+# contactUs.jade -> cu_ + id
+# outputPewview.jade -> op_ + id
+# processingPhase.jade -> pp_ + id
 
-msgid "hello %(variable)s"
-msgstr "Bonjour %(variable)s"
 
-msgid "world"
-msgstr "Univers"
 
-msgid "jamalajamalajamala"
-msgstr "ajajajajajaajaja"
+# Translations for index.jade
+
+# Translations for newProject.jade
+
+# Translations for aboutUs.jade
+
+# Translations for newProject.jade
+
+# Translations for capture.jade
+
+# Translations for processingPhase.jade
+
+# Translations for outputPreview.jade
+
+# Translations for contactUs.jade
+msgid "cu_title"
+msgstr "Contáctenos"
+
+msgid "cu_title_footer"
+msgstr "Estaremos agradecidos de recibir cualquier mensaje o recomendacion."
+
+msgid "cu_name_label"
+msgstr "Nombre"
+
+msgid "cu_email_label"
+msgstr "Correo"
+
+msgid "cu_message_label"
+msgstr "Mensaje"
+
+msgid "cu_send_button"
+msgstr "Enviar"
