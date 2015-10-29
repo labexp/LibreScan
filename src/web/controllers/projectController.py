@@ -1,6 +1,7 @@
 from services.cameraService import CameraService
 from services.queueService import QueueService
 from utils.taskManager import TaskManager
+from bottle import request
 
 
 class ProjectController:
@@ -19,7 +20,9 @@ class ProjectController:
         return self.env.get_template('newProject.jade').render()
 
     def create(self):
-        pass
+        for params in request.params:
+            print(request.params[params])
+
 
     def load(self):
         pass
