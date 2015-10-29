@@ -4,6 +4,7 @@ import time
 from PIL import Image
 from pathlib import Path
 import yaml
+import base64
 
 from models.camera import Camera
 from models.cameraConfig import CameraConfig
@@ -66,4 +67,9 @@ class CameraService(metaclass=Singleton):
         right_photo = right_photo.rotate(270)
         left_photo.save(self.save_path + p_left_photo+".jpg")
         right_photo.save(self.save_path + p_right_photo+".jpg")
+
+    def encode_image(self, img_path):
+        with open(img_path, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+            return encoded_string.decode(encoding="UTF-8")  # convert it to string
 
