@@ -58,6 +58,9 @@ msgstr "Desarrolladores"
 # Translations for outputPreview.jade
 
 # Translations for contactUs.jade
+msgid "cu_success_sending"
+msgstr "Exito al enviar correo"
+
 msgid "cu_title"
 msgstr "Contáctenos"
 
