@@ -16,12 +16,60 @@ msgstr ""
 "X-Loco-Target-Locale: es_ES\n"
 "X-Generator: Loco - https://localise.biz/"
 
-msgid "Hello Worlddssssssssssssssssssssssssssssssss"
-msgstr "Hola Mundo"
+# MessageId standard
+# index.jade -> i_ + id
+# newProject.jade -> np_ + id
+# aboutUs.jade -> au_ + id
+# capture.jade -> c_ + id
+# contactUs.jade -> cu_ + id
+# outputPewview.jade -> op_ + id
+# processingPhase.jade -> pp_ + id
 
-# Example comment
-#. Example pluralized message
-msgid "An example"
-msgid_plural "%s examples"
-msgstr[0] "Un ejemplo"
-msgstr[1] "%s ejemplos"
+
+
+# Translations for index.jade
+
+# Translations for newProject.jade
+
+# Translations for aboutUs.jade
+msgid "au_tab1_label"
+msgstr "About LibreScan"
+
+msgid "au_tab2_label"
+msgstr "LibreScan Team"
+
+msgid "au_tab3_label"
+msgstr "Get involved"
+
+msgid "au_tab1_text"
+msgstr "Librescan is a free software created to help in scanning books."
+
+msgid "au_developers"
+msgstr "Developers"
+
+# Translations for newProject.jade
+
+# Translations for capture.jade
+
+# Translations for processingPhase.jade
+
+# Translations for outputPreview.jade
+
+# Translations for contactUs.jade
+msgid "cu_title"
+msgstr "Contact Us"
+
+msgid "cu_title_footer"
+msgstr "We'll be happy to receive your message."
+
+msgid "cu_name_label"
+msgstr "Name"
+
+msgid "cu_email_label"
+msgstr "Email"
+
+msgid "cu_message_label"
+msgstr "Message"
+
+msgid "cu_send_button"
+msgstr "Send"
