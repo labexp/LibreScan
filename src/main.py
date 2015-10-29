@@ -14,13 +14,15 @@ def main():
     print("")
     project = Project(None, book_name, book_description, 'spa', None, ['pdfbeads'])
     project_path = ps.create(project)
+    print(project_path)
 
     # TaskManager instance will be used in the threads queue and it will generate the final product.
     t = TaskManager(project_path)
-    q = QueueService(t)
+    q = QueueService(p_task_manager=t)
 
     print("Preparando camaras....")
     cs = CameraService(project_path)
+    cs.set_camera_config()
     cs.prepare_cams()
 
     # The next code will take pictures until the user enters an s.

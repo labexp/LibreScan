@@ -1,15 +1,14 @@
 from queue import Queue
 import threading
 from patterns.singleton import Singleton
-from utils.taskManager import TaskManager
 
 
 class QueueService(metaclass=Singleton):
 
-    def __init__(self, p_worker_threads=2):
+    def __init__(self, p_worker_threads=2, p_task_manager=None):
         self.queue = Queue()
         self.worker_threads = p_worker_threads
-        self.task_manager = None
+        self.task_manager = p_task_manager
         for i in range(self.worker_threads):
             t = threading.Thread(target=self.start)
             t.setDaemon(True)
