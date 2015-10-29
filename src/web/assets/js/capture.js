@@ -19,7 +19,9 @@ $(document).ready(function(){
             method: 'post',
             url: '/photo'
         }).done(function(response) {
-
+            console.log(response);
+            $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
+            $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
         });
    });
 
@@ -28,6 +30,7 @@ $(document).ready(function(){
             method: 'get',
             url: '/photo'
         }).done(function(response) {
+            console.log(response);
             $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
             $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
         });
