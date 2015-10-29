@@ -1,10 +1,12 @@
 import os
+import subprocess
+import sys
 import yaml
 from patterns.singleton import Singleton
+import shutil
 
 
 class ProjectService(metaclass=Singleton):
-
     def __init__(self):
         self.config_folder = os.environ["HOME"] + "/.librescan"
 
@@ -73,7 +75,7 @@ class ProjectService(metaclass=Singleton):
         f.close()
         project_id = data_map['project']['last-id'] + 1
         data_map['project']['last-id'] = project_id
-        folder_name = "L"+str(project_id)
+        folder_name = "L" + str(project_id)
         f = open(p_path, 'w')
         f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
         f.close()
@@ -90,3 +92,12 @@ class ProjectService(metaclass=Singleton):
         f = open(p_projects_path, "a")
         f.write(yaml.dump(project, default_flow_style=False, allow_unicode=True))
         f.close()
+
+    def get_available_languages(self):
+        AVAILABLE_LANGS = (subprocess.Popen(['tesseract', "--list-langs"],
+                                            stderr=subprocess.STDOUT,
+                                            stdout=subprocess.PIPE)
+                           .communicate()[0].decode('utf-8')
+                           .split("\n")[1:-1])
+        print(AVAILABLE_LANGS)
+        return AVAILABLE_LANGS
