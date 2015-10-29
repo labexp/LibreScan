@@ -1,26 +1,66 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# MessageId standard
+# index.jade -> i_ + id
+# newProject.jade -> np_ + id
+# aboutUs.jade -> au_ + id
+# capture.jade -> c_ + id
+# contactUs.jade -> cu_ + id
+# outputPewview.jade -> op_ + id
+# processingPhase.jade -> pp_ + id
+
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-09-11 13:53+CEST\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: UTF-8\n"
-"Generated-By: pygettext.py 1.5\n"
+"Content-Type: text/plain; charset=utf-8\n"
+
+# Translations for index.jade
+
+msgid "i_ejemplo"
+msgstr "Ejemplo"
 
 
-msgid "hello"
-msgstr "Hola"
+# Translations for newProject.jade
 
-msgid "hello %(variable)s"
-msgstr "Hola %(variable)s"
+msgid "np_new_project"
+msgstr "Nuevo Proyecto"
 
-msgid "world"
-msgstr "Mundo"
+msgid "np_new_book_name_label"
+msgstr "Nombre del Libro"
+
+msgid "np_new_book_name_label"
+msgstr "Nombre del Libro"
+
+msgid "np_new_book_description_label"
+msgstr "Descripción del Libro"
+
+msgid "np_new_book_language"
+msgstr "Idioma del documento"
+
+msgid "np_new_book_create"
+msgstr "Crear"
+
+msgid "np_new_book_go_back"
+msgstr "Atras"
+
+msgid "np_new_book_config_modal_title"
+msgstr "Configuración avanzada"
+
+msgid "np_new_book_config_parameter_zoom"
+msgstr "Zoom"
+
+msgid "np_new_book_config_apply_button"
+msgstr "Aplicar"
+
+msgid "np_new_book_config_cancel_button"
+msgstr "Cancelar"
+
+# Translations for aboutUs.jade
+
+# Translations for newProject.jade
+
+# Translations for capture.jade
+
+# Translations for processingPhase.jade
+
+# Translations for outputPreview.jade
+
+# Translations for contactUs.jade
 
