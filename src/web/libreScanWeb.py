@@ -17,7 +17,7 @@ class LibreScanWeb:
 
     def __init__(self):
         self.host = '0.0.0.0'
-        self.port = '8185'
+        self.port = '8180'
         self.app = Bottle()
         self.default_language = 'spa'
         self.env = self.init_environment()
