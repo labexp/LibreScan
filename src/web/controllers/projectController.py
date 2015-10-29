@@ -31,4 +31,3 @@ class ProjectController:
 
         queue_service = QueueService()
         queue_service.task_manager = TaskManager(p_working_dir)
-

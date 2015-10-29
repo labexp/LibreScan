@@ -7,6 +7,15 @@ class CameraController:
         self.camera_service = p_camera_service
         self.queue_service = p_queue_service
 
-    def shoot(self):
-        return self.env.get_template('camera.jade').render()
+    def create(self):
+        pass
+
+    def update(self):
+        pass
+
+    def delete(self):
+        pass
+
+    def get(self):
+        pass
 

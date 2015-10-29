@@ -51,6 +51,21 @@ msgstr "Cancel"
 
 # Translations for aboutUs.jade
 
+msgid "au_tab1_label"
+msgstr "About LibreScan"
+
+msgid "au_tab2_label"
+msgstr "LibreScan Team"
+
+msgid "au_tab3_label"
+msgstr "Get involved"
+
+msgid "au_tab1_text"
+msgstr "Librescan is a free software created to help in scanning books."
+
+msgid "au_developers"
+msgstr "Developers"
+
 # Translations for newProject.jade
 
 # Translations for capture.jade
@@ -61,3 +76,20 @@ msgstr "Cancel"
 
 # Translations for contactUs.jade
 
+msgid "cu_title"
+msgstr "Contact Us"
+
+msgid "cu_title_footer"
+msgstr "We'll be happy to receive your message."
+
+msgid "cu_name_label"
+msgstr "Name"
+
+msgid "cu_email_label"
+msgstr "Email"
+
+msgid "cu_message_label"
+msgstr "Message"
+
+msgid "cu_send_button"
+msgstr "Send"

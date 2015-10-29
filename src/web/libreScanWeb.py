@@ -17,7 +17,7 @@ class LibreScanWeb:
 
     def __init__(self):
         self.host = '0.0.0.0'
-        self.port = '8181'
+        self.port = '8180'
         self.app = Bottle()
         self.default_language = 'spa'
         self.env = self.init_environment()
@@ -32,9 +32,10 @@ class LibreScanWeb:
         return env
 
     def init_routes(self):
+        self._init_camera_routes()
+        self._init_mail_routes()
+        self._init_navigation_routes()
         self.app.route('/assets/:p_file#.+#', name='static', callback=self.return_resource)
-        self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
-        self.app.route('/shoot', method="GET", callback=self.controllers['camera'].shoot)
         self.app.route('/language/<lang>', method="GET", callback=self.controllers['language'].change_language)
         self.init_project_routes()
 
@@ -45,6 +46,21 @@ class LibreScanWeb:
         self.app.route('/project', method="POST", callback=self.controllers['project'].create)
         self.app.route('/project/new', method="GET", callback=self.controllers['project'].new)
         self.app.route('/project/load', method="GET", callback=self.controllers['project'].load)
+
+    def _init_camera_routes(self):
+        self.app.route('/photo', method="POST", callback=self.controllers['camera'].create)  # Route to handle shoot.
+        self.app.route('/photo', method="PUT", callback=self.controllers['camera'].update)  # Route to handle recapture.
+        self.app.route('/photo', method="DELETE", callback=self.controllers['camera'].delete)  # Route to handle delete.
+        self.app.route('/photo', method="GET", callback=self.controllers['camera'].get)  # Route to handle get photo.
+
+    def _init_mail_routes(self):
+        self.app.route('/mail', method="POST", callback=self.controllers['mail'].create)
+
+    def _init_navigation_routes(self):
+        self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
+        self.app.route('/scan', method="GET", callback=self.controllers['navigation'].scan)
+        self.app.route('/about', method="GET", callback=self.controllers['navigation'].about)
+        self.app.route('/contact', method="GET", callback=self.controllers['navigation'].contact)
 
     def init_controllers(self):
         camera_service = CameraService()
@@ -65,7 +81,7 @@ class LibreScanWeb:
         return static_file(p_file, root='assets')
 
     def run_app(self):
-        PoParser.compilePoFiles()
+        PoParser.compile_po_files()
         self.app.run(host=self.host, port=self.port, quiet=False, debug=True)
 
 

@@ -5,7 +5,7 @@ import os
 class PoParser:
 
     @staticmethod
-    def compilePoFiles():
+    def compile_po_files():
         locale_path = os.getcwd() + '/i18n/locale'
         langs = os.listdir(locale_path)
         for lang in langs:
