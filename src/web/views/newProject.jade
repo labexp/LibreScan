@@ -1,2 +1,94 @@
+doctype html
+html
+  include ./layouts/head.jade
+  body
+    include ./layouts/topbar.jade
+    main.main-container
+      .container
+        .row
+          .col-md-10.col-md-offset-1.col-lg-10.col-lg-offset-1
+            a#new-project-config.pull-right(href='', data-toggle='modal', data-target='#configuration-modal')
+              i.fa.fa-cog.fa-3x
+            h2.form-h2 Nuevo Proyecto
+            hr
+            .col-md-8
+              form(action='capture.html')
+                .form-group
+                  label.form-label(for='newproject-name') Nombre del proyecto
+                  input#newproject-name.form-control.form-input(type='text')
+                .form-group
+                  label.form-label(for='newproject-directory') Carpeta
+                  input#newproject-directory.filestyle(type='file')
+                .form-group
+                  label.form-label(for='newproject-directory') Idioma del documento
+                  select#newproject-directory.form-control.form-input
+                    option Español
+                    option Portugués
+                    option Inglés
+                button.btn.btn-default.pull-right.create-project-button(type='submit') Crear
+                a.btn.btn-default.pull-right.goback-button(href='index.html') Atrás
+      // Advanced settings modal
+      #configuration-modal.modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+        .modal-dialog.modal-lg(role='document')
+          .modal-content
+            .modal-header
+              h3#config-modal-title.modal-title Configuración avanzada
+            .modal-body
+              .row
+                #left-col.col-md-6.col-sm-6.col-xs-6
+                  section
+                    .col-md-5
+                      | Zoom
+                    .col-md-1
+                      input.number-input(type='number', name='quantity', min='1', max='5')
+                  br
+                  br
+                  section
+                    .col-md-5
+                      | Distancia de enfoque
+                    .col-md-1
+                      input.number-input(type='number', size='5', name='quantity', min='1', max='5')
+                  br
+                  br
+                  section
+                    .col-md-5
+                      | Sensitividad
+                    .col-md-1
+                      input.number-input(type='number', size='5', name='quantity', min='1', max='5')
+                  br
+                  br
+                  section
+                    .col-md-5
+                      | DPI
+                    .col-md-1
+                      input.number-input(type='number', size='5', name='quantity', min='1', max='5')
+                  br
+                  br
+                  section
+                    .col-md-5
+                      | Velocidad de disparo
+                    .col-md-1
+                      input.number-input(type='number', size='5', name='quantity', min='1', max='5')
+                #right-col.col-md-6.col-sm-6.col-xs-6
+                  .col-md-5
+                    | Disparo "raw"
+                  .col-md-1
+                    input.toggle-input(type='checkbox', name='toggle-input', checked='', data-on-text='Sí', data-off-text='No')
+                  br
+                  br
+                  .col-md-5
+                    | Monocromático
+                  .col-md-1
+                    input.toggle-input(type='checkbox', name='toggle-input', checked='', data-on-text='Sí', data-off-text='No')
+                  br
+                  br
+                  .col-md-5
+                    | Voltear páginas objetivo
+                  .col-md-1
+                    input.toggle-input(type='checkbox', name='toggle-input', checked='', data-on-text='Sí', data-off-text='No')
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Cancelar
+              button.btn.btn-primary(type='button') Aplicar
+    include ./layouts/footer.jade
 
 

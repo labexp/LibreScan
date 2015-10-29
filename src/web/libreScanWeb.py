@@ -36,11 +36,15 @@ class LibreScanWeb:
         self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
         self.app.route('/shoot', method="GET", callback=self.controllers['camera'].shoot)
         self.app.route('/language/<lang>', method="GET", callback=self.controllers['language'].change_language)
+        self.init_project_routes()
+
+        # The other routes would go here.
+
+    def init_project_routes(self):
         self.app.route('/project/<id>/config', method="GET", callback=self.controllers['project'].get_config)
         self.app.route('/project', method="POST", callback=self.controllers['project'].create)
         self.app.route('/project/new', method="GET", callback=self.controllers['project'].new)
-
-        # The other routes would go here.
+        self.app.route('/project/load', method="GET", callback=self.controllers['project'].load)
 
     def init_controllers(self):
         camera_service = CameraService()
