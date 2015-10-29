@@ -28,13 +28,24 @@ class LibreScanWeb:
         return env
 
     def init_routes(self):
+        self._init_language_routes()
+        self._init_mail_routes()
         self.app.route('/assets/:p_file#.+#', name='static', callback=self.return_resource)
         self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
-        self.app.route('/shoot', method="GET", callback=self.controllers['camera'].shoot)
         self.app.route('/language/<lang>', method="GET", callback=self.controllers['language'].change_language)
         self.app.route('/project/<id>/config', method="GET", callback=self.controllers['project'].get_config)
         self.app.route('/project', method="POST", callback=self.controllers['project'].create)
         self.app.route('/project/new', method="GET", callback=self.controllers['project'].new)
+
+    def _init_language_routes(self):
+        self.app.route('/photo', method="POST", callback=self.controllers['camera'].create)  # Route to handle shoot.
+        self.app.route('/photo', method="PUT", callback=self.controllers['camera'].update)  # Route to handle recapture.
+        self.app.route('/photo', method="DELETE", callback=self.controllers['camera'].delete)  # Route to handle delete.
+        self.app.route('/photo', method="GET", callback=self.controllers['camera'].get)  # Route to handle get photo.
+
+    def _init_mail_routes(self):
+        self.app.route('/mail', method="POST", callback=self.controllers['mail'].create)
+
 
         # The other routes would go here.
 
@@ -54,7 +65,7 @@ class LibreScanWeb:
         return static_file(p_file, root='assets')
 
     def run_app(self):
-        PoParser.compilePoFiles()
+        PoParser.compile_po_files()
         self.app.run(host=self.host, port=self.port, quiet=False, debug=True)
 
 
