@@ -15,9 +15,9 @@ class CameraService(metaclass=Singleton):
 
     pic_number = 0
 
-    def __init__(self):
+    def __init__(self, p_save_path=None):
         self.cams = [Camera("head"), Camera("tail")]
-        self.save_path = None
+        self.save_path = p_save_path
         self.camera_config = None
 
     def set_save_path(self, p_working_dir):
@@ -27,8 +27,7 @@ class CameraService(metaclass=Singleton):
         self.camera_config = self.get_configuration()
 
     def get_configuration(self):
-        path_object = Path(self.save_path)
-        config_path = str(path_object.parents[0])+"/.projectConfig.yaml"
+        config_path = self.save_path + "/.projectConfig.yaml"
         f = open(config_path)
         data_map = yaml.safe_load(f)["camera"]
         f.close()
