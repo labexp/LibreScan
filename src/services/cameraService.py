@@ -1,5 +1,6 @@
 from threading import Thread
 import time
+import os
 
 from PIL import Image
 from pathlib import Path
@@ -67,3 +68,6 @@ class CameraService(metaclass=Singleton):
         left_photo.save(self.save_path + p_left_photo+".jpg")
         right_photo.save(self.save_path + p_right_photo+".jpg")
 
+    def delete_photos(self, p_photo_list):
+        for photo in p_photo_list:
+            os.remove(self.save_path + "/raw/" + photo + ".jpg")

@@ -103,7 +103,7 @@ msgid "au_tab3_label"
 msgstr "Involúcrate"
 
 msgid "au_tab1_text"
-msgstr "Librescan es un software libre creado para facilitar el proceso de escaneo de documentos"
+msgstr "Librescan es una herramienta de software libre creado para facilitar el proceso de escaneo de documentos"
 
 msgid "au_developers"
 msgstr "Desarrolladores"
@@ -142,13 +142,13 @@ msgid "cu_title"
 msgstr "Contáctenos"
 
 msgid "cu_title_footer"
-msgstr "Estaremos agradecidos de recibir cualquier mensaje o recomendacion."
+msgstr "Estaremos agradecidos de recibir cualquier mensaje o recomendación."
 
 msgid "cu_name_label"
 msgstr "Nombre"
 
 msgid "cu_email_label"
-msgstr "Correo"
+msgstr "Su correo"
 
 msgid "cu_message_label"
 msgstr "Mensaje"
