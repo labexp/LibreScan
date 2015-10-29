@@ -10,10 +10,12 @@ html
           .row
             .col-md-6.col-sm-6
               .box-photo
-                img.photo(src='/assets/images/cameraWatermark.png')
+                a(href='#')
+                  img.photo(src='/assets/images/cameraWatermark.png')
             .col-md-6.col-sm-6
               .box-photo
-                img.photo(src='/assets/images/cameraWatermark.png')
+                a(href='#')
+                  img.photo(src='/assets/images/cameraWatermark.png')
           .row
             .col-md-6.col-sm-6
               a(href='#')
@@ -37,7 +39,11 @@ html
                   img#loading-book-gif(src='/assets/images/loadingBook.gif')
                   img#loading-percentage-gif.pull-right(src='/assets/images/loadingPercentage.gif')
             .modal-footer
-              button.btn.btn-default(type='button', data-dismiss='modal') Cancelar
-              a.btn.btn-primary(href='outputPreview.html') Siguiente
+              button.btn.btn-default(type='button', data-dismiss='modal')= _('c_cancel')
+              a.btn.btn-primary(href='/outputPreview')= _('c_next')
+      #photo-modal.modal
+        .modal-dialog
+          .modal-content
+            .modal-body
 
     include ./layouts/footer.jade

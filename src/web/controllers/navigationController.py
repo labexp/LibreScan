@@ -17,3 +17,6 @@ class NavigationController:
     def scan(self):
         return self.env.get_template('capture.jade').render()
 
+    def output_preview(self):
+        return self.env.get_template('outputPreview.jade').render()
+

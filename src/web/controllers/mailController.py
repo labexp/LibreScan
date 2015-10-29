@@ -1,3 +1,5 @@
+from models.mail import Mail
+from bottle import request
 
 
 class MailController:
@@ -7,5 +9,9 @@ class MailController:
         self.mail_service = p_mail_service
 
     def create(self):
-        # Use of the mail service.
-        pass
+        name = request.params["name"]
+        sender_mail = request.params["email"]
+        phone = "88888888"
+        msg = request.params["message"]
+        mail = Mail(name, sender_mail, phone, msg)
+        self.mail_service.send(mail)

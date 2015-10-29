@@ -130,6 +130,8 @@ msgid "au_developers"
 msgstr "Developers"
 
 # Translations for contactUs.jade
+msgid "cu_success_sending"
+msgstr "Success sending email"
 
 msgid "cu_title"
 msgstr "Contact Us"
