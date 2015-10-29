@@ -1,5 +1,8 @@
+from models.cameraConfig import CameraConfig
+from models.project import Project
 from services.cameraService import CameraService
 from services.queueService import QueueService
+from services.projectService import ProjectService
 from utils.taskManager import TaskManager
 from bottle import request
 
@@ -17,19 +20,32 @@ class ProjectController:
         pass
 
     def new(self):
-        return self.env.get_template('newProject.jade').render()
+        avaible_langs = ProjectService().get_available_languages()
+        return self.env.get_template('newProject.jade').render(langs=avaible_langs )
 
     def create(self):
-        for params in request.params:
-            print(request.params[params])
-
+        for param in request.params:
+            print(param)
+            print(request.params[param])
+        params = request.params
+        print(params)
+        name = params['project_name']
+        description = params['project_description']
+        language = params['config[language]']
+        camera_config = CameraConfig(params['config[zoom]'], 0)
+        print(language)
+        project = Project(None, name, description, 'spa', camera_config, ['pdfbeads'])
+        project_path = self.project_service.create(project)
+        print(project_path)
+        self.set_new_project_config(project_path)
+        return {'status': '1'}
 
     def load(self):
         pass
 
     def set_new_project_config(self, p_working_dir):
         camera_service = CameraService()
-        camera_service.set_save_path(p_working_dir)
+        camera_service.working_dir = p_working_dir
         camera_service.set_camera_config()
 
         queue_service = QueueService()

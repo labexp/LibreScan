@@ -17,17 +17,14 @@ class CameraService(metaclass=Singleton):
 
     def __init__(self, p_save_path=None):
         self.cams = [Camera("head"), Camera("tail")]
-        self.save_path = p_save_path
+        self.working_dir = p_save_path
         self.camera_config = None
-
-    def set_save_path(self, p_working_dir):
-        self.save_path = p_working_dir + "/raw/"
 
     def set_camera_config(self):
         self.camera_config = self.get_configuration()
 
     def get_configuration(self):
-        config_path = self.save_path + "/.projectConfig.yaml"
+        config_path = self.working_dir + "/.projectConfig.yaml"
         f = open(config_path)
         data_map = yaml.safe_load(f)["camera"]
         f.close()
@@ -36,11 +33,12 @@ class CameraService(metaclass=Singleton):
     def take_pictures(self):
         jobs = []
         pic_names = []
+        save_path = self.working_dir + '/raw/'
         for cam in self.cams:
             CameraService.pic_number += 1
             pic_name = "lsp"+str(CameraService.pic_number).zfill(5)
             pic_names.append(pic_name)
-            process = Thread(target=Chdkptp.shoot, args=(cam, self.save_path + pic_name))
+            process = Thread(target=Chdkptp.shoot, args=(cam, save_path + pic_name))
             jobs.append(process)
             process.start()
             time.sleep(0.0005)
@@ -60,10 +58,10 @@ class CameraService(metaclass=Singleton):
             self.cams.reverse()
 
     def rotate(self, p_left_photo, p_right_photo):
-        left_photo = Image.open(self.save_path + p_left_photo+".jpg")
-        right_photo = Image.open(self.save_path + p_right_photo+".jpg")
+        left_photo = Image.open(self.working_dir + p_left_photo+".jpg")
+        right_photo = Image.open(self.working_dir + p_right_photo+".jpg")
         left_photo = left_photo.rotate(90)
         right_photo = right_photo.rotate(270)
-        left_photo.save(self.save_path + p_left_photo+".jpg")
-        right_photo.save(self.save_path + p_right_photo+".jpg")
+        left_photo.save(self.working_dir + p_left_photo+".jpg")
+        right_photo.save(self.working_dir + p_right_photo+".jpg")
 

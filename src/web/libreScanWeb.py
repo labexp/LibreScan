@@ -87,9 +87,8 @@ class LibreScanWeb:
         return static_file(p_file, root='assets')
 
     def run_app(self):
-        PoParser.compile_po_files()
         self.app.run(host=self.host, port=self.port, quiet=False, debug=True)
 
-
+PoParser.compile_po_files()
 app = LibreScanWeb()
 app.run_app()

@@ -17,12 +17,13 @@ html
                   label.form-label(for='newproject-name')= _('np_new_book_name_label')
                   input#newproject-name.form-control.form-input(type='text')
                 .form-group
-                  label.form-label(for='newproject-name')= _('np_new_book_description_label')
-                  input#newproject-name.form-control.form-input(type='text')
+                  label.form-label(for='newproject-description')= _('np_new_book_description_label')
+                  input#newproject-description.form-control.form-input(type='text')
                 .form-group
                   label.form-label(for='newproject-directory')= _('np_new_book_language')
-                  select#newproject-directory.form-control.form-input
-                    option Español
+                  select#newproject-language.form-control.form-input
+                    each val in langs
+                      option= val
                 #new-project-create.button.btn.btn-default.pull-right.create-project-button= _('np_new_book_create')
                 a.btn.btn-default.pull-right.goback-button= _('np_new_book_go_back')
       // Advanced settings modal
@@ -37,9 +38,9 @@ html
                   section
                     .col-md-5= _('np_new_book_config_parameter_zoom')
                     .col-md-1
-                      input.number-input(type='number', name='quantity', min='1', max='5')
+                      input#configuration-zoom.number-input(type='number', name='quantity', min='1', max='20', value='10' )
 
             .modal-footer
-              button.btn.btn-default(type='button', data-dismiss='modal')= _('np_new_book_config_cancel_button')
+              button#new-book-config-cancel.btn.btn-default(type='button', data-dismiss='modal')= _('np_new_book_config_cancel_button')
               #new-book-config-apply.button.btn.btn-primary(type='button')= _('np_new_book_config_apply_button')
     include ./layouts/footer.jade
