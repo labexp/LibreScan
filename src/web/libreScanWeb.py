@@ -1,5 +1,9 @@
 from gettext import translation
 from bottle import *
+from services.cameraService import CameraService
+from services.mailService import MailService
+from services.projectService import ProjectService
+from services.queueService import QueueService
 from jinja2 import Environment, FileSystemLoader
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
@@ -12,7 +16,7 @@ from web.i18n.PoParser import PoParser
 class LibreScanWeb:
 
     def __init__(self):
-        self.host = 'localhost'
+        self.host = '0.0.0.0'
         self.port = '8181'
         self.app = Bottle()
         self.default_language = 'spa'
@@ -33,9 +37,15 @@ class LibreScanWeb:
         self.app.route('/assets/:p_file#.+#', name='static', callback=self.return_resource)
         self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
         self.app.route('/language/<lang>', method="GET", callback=self.controllers['language'].change_language)
+        self.init_project_routes()
+
+        # The other routes would go here.
+
+    def init_project_routes(self):
         self.app.route('/project/<id>/config', method="GET", callback=self.controllers['project'].get_config)
         self.app.route('/project', method="POST", callback=self.controllers['project'].create)
         self.app.route('/project/new', method="GET", callback=self.controllers['project'].new)
+        self.app.route('/project/load', method="GET", callback=self.controllers['project'].load)
 
     def _init_camera_routes(self):
         self.app.route('/photo', method="POST", callback=self.controllers['camera'].create)  # Route to handle shoot.
@@ -46,22 +56,22 @@ class LibreScanWeb:
     def _init_mail_routes(self):
         self.app.route('/mail', method="POST", callback=self.controllers['mail'].create)
 
-
-        # The other routes would go here.
-
     def init_controllers(self):
+        camera_service = CameraService()
+        mail_service = MailService()
+        project_service = ProjectService()
+        queue_service = QueueService()
         controllers = {
             'navigation': NavigationController(self.env),
-            'camera': CameraController(self.env),
-            'project': ProjectController(self.env),
-            'mail': MailController(self.env),
+            'camera': CameraController(self.env, camera_service, queue_service),
+            'project': ProjectController(self.env, project_service),
+            'mail': MailController(self.env, mail_service),
             'language': LanguageController(self.env)
         }
 
         return controllers
 
     def return_resource(self, p_file):
-        print(p_file)
         return static_file(p_file, root='assets')
 
     def run_app(self):
