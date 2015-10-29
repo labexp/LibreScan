@@ -11,11 +11,11 @@ html
             .col-md-6.col-sm-6
               .box-photo
                 a(href='#')
-                  img.photo(src='/assets/images/cameraWatermark.png')
+                  img#photo1.photo(src='/assets/images/cameraWatermark.png')
             .col-md-6.col-sm-6
               .box-photo
                 a(href='#')
-                  img.photo(src='/assets/images/cameraWatermark.png')
+                  img#photo2.photo(src='/assets/images/cameraWatermark.png')
           .row
             .col-md-6.col-sm-6
               a(href='#')
@@ -37,10 +37,9 @@ html
               .row
                 .col-md-8.col-md-offset-2
                   img#loading-book-gif(src='/assets/images/loadingBook.gif')
-                  img#loading-percentage-gif.pull-right(src='/assets/images/loadingPercentage.gif')
             .modal-footer
               button.btn.btn-default(type='button', data-dismiss='modal')= _('c_cancel')
-              a.btn.btn-primary(href='/outputPreview')= _('c_next')
+              a.btn.btn-primary.disabled(href='/outputPreview')= _('c_next')
       #photo-modal.modal
         .modal-dialog
           .modal-content

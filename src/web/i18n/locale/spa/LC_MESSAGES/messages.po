@@ -137,6 +137,8 @@ msgid "op_modify_captures"
 msgstr "Modificar capturas"
 
 # Translations for contactUs.jade
+msgid "cu_success_sending"
+msgstr "Exito al enviar correo"
 
 msgid "cu_title"
 msgstr "Contáctenos"

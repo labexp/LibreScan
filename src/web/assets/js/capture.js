@@ -23,4 +23,14 @@ $(document).ready(function(){
         });
    });
 
+    $('body').on('click', '#process-btn', function() {
+        $.ajax({
+            method: 'get',
+            url: '/photo'
+        }).done(function(response) {
+            $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
+            $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
+        });
+    });
+
 })

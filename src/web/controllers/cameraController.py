@@ -31,5 +31,9 @@ class CameraController:
     def delete(self):
         pass
 
+    def stop_scanning(self):
+        self.queue_service.wait_process()
+        return {'ready': True}
+
     def get(self):
         pass
