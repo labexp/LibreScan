@@ -23,7 +23,7 @@ class ProjectController:
 
     def load(self):
         pass
-
+    
     def set_new_project_config(self, p_working_dir):
         camera_service = CameraService()
         camera_service.set_save_path(p_working_dir)
@@ -31,4 +31,3 @@ class ProjectController:
 
         queue_service = QueueService()
         queue_service.task_manager = TaskManager(p_working_dir)
-

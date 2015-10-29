@@ -6,5 +6,6 @@ class MailController:
         self.env = p_env
         self.mail_service = p_mail_service
 
-    def home(self):
-        return self.env.get_template('home.jade').render()
+    def create(self):
+        # Use of the mail service.
+        pass
