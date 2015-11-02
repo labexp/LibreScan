@@ -11,7 +11,7 @@ Actualmente se cuenta con una versión en línea de comandos. En la carpeta pres
 ### Instalación de LibreScan
 - Instalar dependencias que serán utilizadas:
 
-        # apt-get install python-pip lua5.2 liblua5.2 git-svn libusb-dev python3.4 libmagickwand-dev
+        # apt-get install python-pip lua5.2 liblua5.2 git-svn libusb-dev python3.4 python3.4-dev libmagickwand-dev
 
         # pip3 install pyYAML Pillow bottle pyjade jinja2 polib
 
