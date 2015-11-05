@@ -24,21 +24,15 @@ class ProjectController:
         return self.env.get_template('newProject.jade').render(langs=avaible_langs )
 
     def create(self):
-        for param in request.params:
-            print(param)
-            print(request.params[param])
         params = request.params
-        print(params)
         name = params['project_name']
         description = params['project_description']
         language = params['config[language]']
         camera_config = CameraConfig(params['config[zoom]'], 0)
-        print(language)
-        project = Project(None, name, description, 'spa', camera_config, ['pdfbeads'])
+        project = Project(None, name, description, language, camera_config, ['pdfbeads'])
         project_path = self.project_service.create(project)
-        print(project_path)
         self.set_new_project_config(project_path)
-        return {'status': '1'}
+        return {'status': 1}
 
     def load(self):
         pass
@@ -47,7 +41,7 @@ class ProjectController:
         camera_service = CameraService()
         camera_service.working_dir = p_working_dir
         camera_service.set_camera_config()
-        camera_service.prepare_cams()
+        #camera_service.prepare_cams()
 
         queue_service = QueueService()
         queue_service.task_manager = TaskManager(p_working_dir)

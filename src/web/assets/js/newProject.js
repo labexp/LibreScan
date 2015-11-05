@@ -9,8 +9,9 @@ var ready = function(){
             method: 'POST',
             url: '/project',
             data: {project_name: p_name, project_description: p_description, config:{zoom:zoom, language:p_language}}
-        }).done(function (response) {
-            alert(response);
+        }).done(function() {
+            window.location.href = '/scan';
+            console.log("The project was successfully created.");
         });
     });
 
