@@ -216,6 +216,8 @@ END of styles for about
     background: rgba(140, 105, 84, 0.4);
 }
 
-
+.center {
+	margin: 0 auto;
+}
 
 

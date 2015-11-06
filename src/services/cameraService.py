@@ -45,12 +45,13 @@ class CameraService(metaclass=Singleton):
             process = Thread(target=Chdkptp.shoot, args=(cam, save_path + pic_name))
             jobs.append(process)
             process.start()
-            time.sleep(0.0005)
+            time.sleep(0.000005)
 
         for j in jobs:
             j.join()
 
         self.rotate(pic_names[0], pic_names[1])
+
         return pic_names
 
     def prepare_cams(self):
@@ -63,20 +64,21 @@ class CameraService(metaclass=Singleton):
 
     def rotate(self, p_left_photo, p_right_photo):
         save_path = self.working_dir + '/raw/'
-        left_photo = Image.open(save_path + p_left_photo+".jpg")
-        right_photo = Image.open(save_path + p_right_photo+".jpg")
-        left_photo = left_photo.rotate(90)
-        right_photo = right_photo.rotate(270)
-        left_photo.save(save_path + p_left_photo+".jpg")
-        right_photo.save(save_path + p_right_photo+".jpg")
-        left_photo.close()
-        right_photo.close()
+        with Image.open(save_path + p_left_photo+".jpg") as left_photo:
+            left_photo = left_photo.rotate(90)
+            left_photo.save(save_path + p_left_photo+".jpg")
+            left_photo.close()
+        with Image.open(save_path + p_right_photo+".jpg") as right_photo:
+            right_photo = right_photo.rotate(270)
+            right_photo.save(save_path + p_right_photo+".jpg")
+            right_photo.close()
 
     def delete_photos(self, p_photo_list):
         for photo in p_photo_list:
             os.remove(self.working_dir + "/raw/" + photo + ".jpg")
 
     def encode_image(self, p_img_name):
-        with open(self.working_dir + '/raw/' + p_img_name + '.jpg', "rb") as image_file:
-            encoded_string = base64.b64encode(image_file.read())
-            return encoded_string.decode(encoding="UTF-8")  # convert it to string
+        image_file = open(self.working_dir + '/raw/' + p_img_name + '.jpg', "rb")
+        encoded_string = base64.b64encode(image_file.read())
+        image_file.close()
+        return encoded_string.decode(encoding="UTF-8")  # convert it to string
