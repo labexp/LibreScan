@@ -41,7 +41,7 @@ class ProjectController:
         camera_service = CameraService()
         camera_service.working_dir = p_working_dir
         camera_service.set_camera_config()
-        #camera_service.prepare_cams()
+        camera_service.prepare_cams()
 
         queue_service = QueueService()
         queue_service.task_manager = TaskManager(p_working_dir)

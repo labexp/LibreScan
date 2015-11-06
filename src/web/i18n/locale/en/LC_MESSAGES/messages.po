@@ -48,6 +48,9 @@ msgstr "Contact"
 msgid "tb_about_us"
 msgstr "About"
 
+msgid "tb_loading_cams"
+msgstr "Preparing cams"
+
 # Translations for index.jade
 
 msgid "i_scan"

@@ -30,13 +30,14 @@ class ProjectService(metaclass=Singleton):
         self.append_project(self.config_folder + "/projects.yaml", folder_name, p_project.name, p_project.description)
         return new_project_path
 
-    def remove(self, p_id, p_project_path):
+    def remove(self, p_id):
         config_path = self.config_folder + "/projects.yaml"
         f = open(config_path)
         data_map = yaml.safe_load(f)
         f.close()
         data_map.pop(p_id)
-        os.system("rm -rf " + p_project_path)
+        project_path = os.environ["HOME"] + '/LibreScanProjects/' + p_id
+        os.system("rm -rf " + project_path)
 
         f = open(config_path, 'w')
         f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))

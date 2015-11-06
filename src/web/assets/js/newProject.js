@@ -1,16 +1,18 @@
 var ready = function(){
-    //$('#configuration-zoom').val(10);
+
     $('body').on("click","#new-project-create",function(){
         var p_name = $('#newproject-name').val();
         var p_description = $('#newproject-description').val();
         var zoom = $('#configuration-zoom').val();
         var p_language = $('#newproject-language').val();
+        $("#loading-cams").css("display", "block");
         $.ajax({
             method: 'POST',
             url: '/project',
             data: {project_name: p_name, project_description: p_description, config:{zoom:zoom, language:p_language}}
         }).done(function() {
             window.location.href = '/scan';
+            $("#loading-cams").css("display", "none");
             console.log("The project was successfully created.");
         });
     });
