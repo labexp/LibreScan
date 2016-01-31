@@ -5,18 +5,21 @@ html
     include ./layouts/topbar.jade
 
     main.main-container
-      each val in projects
-        .row
-          .col-md-8.col-md-offset-2
-            .project-box
-              .project-info
-                h3= val[1]["name"]
-                h4= val[1]["description"]
-                h6= val[1]["creation_date"]
-              .project-buttons(id=val[0])
-                a.remove-project-btn(href="")
-                  img(src="../assets/images/remove.png")
-                a.load-project-btn(href="")
-                  img(src="../assets/images/openProject.png")
+      if projects == []:
+        h4.showProjectError= _('sp_no_saved_projects')
+      else:
+        each val in projects
+          .row
+            .col-md-8.col-md-offset-2
+              .project-box
+                .project-info
+                  h3= val[1]["name"]
+                  h4= val[1]["description"]
+                  h6= val[1]["creation_date"]
+                .project-buttons(id=val[0])
+                  a.remove-project-btn(href="", alt=_('sp_remove_project'), title=_('sp_remove_project'))
+                    img(src="../assets/images/remove.png")
+                  a.load-project-btn(href="", alt=_('sp_load_project'), title=_('sp_load_project'))
+                    img(src="../assets/images/openProject.png")
 
     include ./layouts/footer.jade

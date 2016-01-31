@@ -25,11 +25,11 @@ class ProjectController:
         return self.env.get_template('newProject.jade').render(langs=avaible_langs)
 
     def create(self):
-        params = request.params
+        params = request.json['postData']
         name = params['project_name']
         description = params['project_description']
-        language = params['config[language]']
-        camera_config = CameraConfig(params['config[zoom]'], 0)
+        language = params['config']['language']
+        camera_config = CameraConfig(params['config']['zoom'], 0)
         project = Project(None, name, description, language, camera_config, ['pdfbeads'])
         project_path = self.project_service.create(project)
         self.set_new_project_config(project_path)
@@ -37,7 +37,10 @@ class ProjectController:
 
     def show(self):
         projects_map = self.project_service.get_all()
-        project_list = sorted(list(projects_map.items()), key=lambda x: x[1]["creation_date"])
+        if projects_map is None:
+            project_list = []
+        else:
+            project_list = sorted(list(projects_map.items()), key=lambda x: x[1]["creation_date"])
         return self.env.get_template('showProjects.jade').render(projects=project_list)
 
     def set_new_project_config(self, p_working_dir):

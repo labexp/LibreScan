@@ -160,3 +160,14 @@ msgstr "Mensaje"
 
 msgid "cu_send_button"
 msgstr "Enviar"
+
+# Translations for showProject.jade
+
+msgid "sp_no_saved_projects"
+msgstr "No hay proyectos guardados."
+
+msgid "sp_remove_project"
+msgstr "Borrar proyecto."
+
+msgid "sp_load_project"
+msgstr "Cargar proyecto."

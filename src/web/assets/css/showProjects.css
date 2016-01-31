@@ -24,6 +24,10 @@
     border-radius: 3px;
 }
 
+.project-buttons a:hover {
+    opacity: 0.5;
+}
+
 .remove-project-btn {
     display:block;
     margin-bottom: 40px;
@@ -32,4 +36,10 @@
 
 .load-project-btn {
     display:block;
+}
+
+.showProjectError {
+    margin-top: 40px;
+    text-align: center;
+    color: #F2F2F2;
 }
