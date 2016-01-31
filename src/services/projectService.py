@@ -41,7 +41,11 @@ class ProjectService(metaclass=Singleton):
         os.system("rm -rf " + project_path)
 
         f = open(config_path, 'w')
-        f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
+        if data_map:
+            f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
+        else:
+            f.seek(0)
+            f.truncate()
         f.close()
         return 1
 

@@ -9,12 +9,12 @@ html
         h4.showProjectError= _('sp_no_saved_projects')
       else:
         each val in projects
-          .row
+          .row(class="project-row-"+val[0])
             .col-md-8.col-md-offset-2
               .project-box
                 .project-info
                   h3= val[1]["name"]
-                  h4= val[1]["description"]
+                  h5= val[1]["description"]
                   h6= val[1]["creation_date"]
                 .project-buttons(id=val[0])
                   a.remove-project-btn(href="", alt=_('sp_remove_project'), title=_('sp_remove_project'))
@@ -23,3 +23,4 @@ html
                     img(src="../assets/images/openProject.png")
 
     include ./layouts/footer.jade
+    script(src='/assets/js/showProjects.js')

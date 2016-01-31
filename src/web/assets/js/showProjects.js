@@ -1,0 +1,49 @@
+var ready = function(){
+
+    $('body').on("click","#new-project-create",function(){
+        var p_name = $('#newproject-name').val();
+        var p_description = $('#newproject-description').val();
+        var zoom = $('#configuration-zoom').val();
+        var p_language = $('#newproject-language').val();
+        $("#loading-cams").css("display", "block");
+        $.ajax({
+            method: 'POST',
+            url: '/project',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({postData: {project_name: p_name, project_description: p_description, config:{zoom:zoom, language:p_language}}})
+        }).done(function() {
+            window.location.href = '/scan';
+            $("#loading-cams").css("display", "none");
+            console.log("The project was successfully created.");
+        });
+    });
+
+    $('body').on("click", ".remove-project-btn", function(e){
+        e.preventDefault();
+        var projectId = $(this).parent().attr("id");
+        var $removedProject = $(".project-row-"+projectId);
+        $removedProject.fadeOut("slow", function() {
+            $removedProject.remove();
+            if($(".main-container").html().trim() == "") window.location.href = '/projects/show';;
+        });
+        $.ajax({
+            method: 'DELETE',
+            url: '/project',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({id: projectId})
+        }).done(function() {
+            console.log("We should show an alert, but the project was succesfully removed.");
+        });
+    });
+
+    $('body').on("click","#new-book-config-cancel",function(){
+        $('#configuration-zoom').val(10);
+    });
+
+
+};
+
+$(document).on('page:load', ready);
+$(document).ready(ready);

@@ -35,6 +35,11 @@ class ProjectController:
         self.set_new_project_config(project_path)
         return {'status': 1}
 
+    def remove(self):
+        project_id = request.json['id']
+        status = self.project_service.remove(project_id)
+        return {'status': status}
+
     def show(self):
         projects_map = self.project_service.get_all()
         if projects_map is None:
