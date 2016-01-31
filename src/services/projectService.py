@@ -4,6 +4,7 @@ import sys
 import yaml
 from patterns.singleton import Singleton
 import shutil
+import time
 
 
 class ProjectService(metaclass=Singleton):
@@ -48,7 +49,11 @@ class ProjectService(metaclass=Singleton):
         return 1
 
     def get_all(self):
-        return []
+        config_path = self.config_folder + "/projects.yaml"
+        f = open(config_path)
+        data_map = yaml.safe_load(f)
+        f.close()
+        return data_map
 
     def get_config(self, p_id):
         return 1
@@ -89,7 +94,8 @@ class ProjectService(metaclass=Singleton):
         return projects_path
 
     def append_project(self, p_projects_path, p_id, p_name, p_description):
-        project = {str(p_id): {'name': p_name, 'description': p_description}}
+        creation_date = time.strftime("%x %X")
+        project = {str(p_id): {'name': p_name, 'description': p_description, 'creation_date': creation_date}}
         f = open(p_projects_path, "a")
         f.write(yaml.dump(project, default_flow_style=False, allow_unicode=True))
         f.close()

@@ -1,0 +1,22 @@
+doctype html
+html
+  include ./layouts/head.jade
+  body
+    include ./layouts/topbar.jade
+
+    main.main-container
+      each val in projects
+        .row
+          .col-md-8.col-md-offset-2
+            .project-box
+              .project-info
+                h3= val[1]["name"]
+                h4= val[1]["description"]
+                h6= val[1]["creation_date"]
+              .project-buttons(id=val[0])
+                a.remove-project-btn(href="")
+                  img(src="../assets/images/remove.png")
+                a.load-project-btn(href="")
+                  img(src="../assets/images/openProject.png")
+
+    include ./layouts/footer.jade

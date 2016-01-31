@@ -6,7 +6,7 @@ class Chdkptp:
 
     # chdk_path to CHDKPTP
     global chdk_path
-    chdk_path = '/usr/bin/chdkptp'
+    chdk_path = '/usr/bin/chdkptp/chdkptp'
 
     @staticmethod
     def string_maker(p_usb_bus, p_usb_id, p_extra):

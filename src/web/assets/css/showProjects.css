@@ -1,0 +1,35 @@
+.project-box {
+    box-sizing: border-box;
+    border: 2px solid #2A2A2A;
+    border-radius: 5px;
+    height: 150px;
+    padding: 10px;
+    background-color: #e8e8e8;
+    color: #2A2A2A;
+    margin: 10px 0px 10px 0px;
+}
+
+.project-info {
+    float: left;
+}
+
+.project-buttons {
+    float: right;
+    width: 30px;
+    height: 60px;
+}
+
+.project-buttons a {
+    width: 24px;
+    border-radius: 3px;
+}
+
+.remove-project-btn {
+    display:block;
+    margin-bottom: 40px;
+    margin-top: 20px
+}
+
+.load-project-btn {
+    display:block;
+}

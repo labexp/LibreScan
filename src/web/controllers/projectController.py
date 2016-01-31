@@ -5,6 +5,7 @@ from services.queueService import QueueService
 from services.projectService import ProjectService
 from utils.taskManager import TaskManager
 from bottle import request
+import time
 
 
 class ProjectController:
@@ -21,7 +22,7 @@ class ProjectController:
 
     def new(self):
         avaible_langs = ProjectService().get_available_languages()
-        return self.env.get_template('newProject.jade').render(langs=avaible_langs )
+        return self.env.get_template('newProject.jade').render(langs=avaible_langs)
 
     def create(self):
         params = request.params
@@ -34,8 +35,10 @@ class ProjectController:
         self.set_new_project_config(project_path)
         return {'status': 1}
 
-    def load(self):
-        pass
+    def show(self):
+        projects_map = self.project_service.get_all()
+        project_list = sorted(list(projects_map.items()), key=lambda x: x[1]["creation_date"])
+        return self.env.get_template('showProjects.jade').render(projects=project_list)
 
     def set_new_project_config(self, p_working_dir):
         camera_service = CameraService()
