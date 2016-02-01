@@ -50,8 +50,10 @@ class LibreScanWeb:
     def init_project_routes(self):
         self.app.route('/project/<id>/config', method="GET", callback=self.controllers['project'].get_config)
         self.app.route('/project', method="POST", callback=self.controllers['project'].create)
+        self.app.route('/project/<id>', method="GET", callback=self.controllers['project'].load)
         self.app.route('/project/new', method="GET", callback=self.controllers['project'].new)
-        self.app.route('/project/load', method="GET", callback=self.controllers['project'].load)
+        self.app.route('/projects/show', method="GET", callback=self.controllers['project'].show)
+        self.app.route('/project', method="DELETE", callback=self.controllers['project'].remove)
 
     def _init_camera_routes(self):
         self.app.route('/photo', method="POST", callback=self.controllers['camera'].create)  # Route to handle shoot.

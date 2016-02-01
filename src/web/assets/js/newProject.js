@@ -9,7 +9,9 @@ var ready = function(){
         $.ajax({
             method: 'POST',
             url: '/project',
-            data: {project_name: p_name, project_description: p_description, config:{zoom:zoom, language:p_language}}
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({postData: {project_name: p_name, project_description: p_description, config:{zoom:zoom, language:p_language}}})
         }).done(function() {
             window.location.href = '/scan';
             $("#loading-cams").css("display", "none");
