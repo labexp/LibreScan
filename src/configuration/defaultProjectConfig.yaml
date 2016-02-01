@@ -1,6 +1,7 @@
 camera:
   zoom: 10
   iso: 0
+  last-pic-number: 0
 scantailor:
   l: 1.5
   margins-left: 2.5

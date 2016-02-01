@@ -14,12 +14,11 @@ from utils.chdkptp import Chdkptp
 
 class CameraService(metaclass=Singleton):
 
-    pic_number = 0
-
-    def __init__(self, p_working_dir=None):
+    def __init__(self, p_working_dir=None, p_pic_number=0):
         self.cams = [Camera("head"), Camera("tail")]
         self.working_dir = p_working_dir
         self.camera_config = None
+        self.pic_number = p_pic_number
 
     def set_save_path(self, p_working_dir):
         self.working_dir = p_working_dir + "/raw/"
@@ -39,8 +38,8 @@ class CameraService(metaclass=Singleton):
         pic_names = []
         save_path = self.working_dir + '/raw/'
         for cam in self.cams:
-            CameraService.pic_number += 1
-            pic_name = "lsp"+str(CameraService.pic_number).zfill(5)
+            self.pic_number += 1
+            pic_name = "lsp"+str(self.pic_number).zfill(5)
             pic_names.append(pic_name)
             process = Thread(target=Chdkptp.shoot, args=(cam, save_path + pic_name))
             jobs.append(process)
@@ -50,7 +49,9 @@ class CameraService(metaclass=Singleton):
         for j in jobs:
             j.join()
 
+        self.update_last_pic_number(self.pic_number)
         self.rotate(pic_names[0], pic_names[1])
+
 
         return pic_names
 
@@ -82,3 +83,14 @@ class CameraService(metaclass=Singleton):
         encoded_string = base64.b64encode(image_file.read())
         image_file.close()
         return encoded_string.decode(encoding="UTF-8")  # convert it to string
+
+    def update_last_pic_number(self, p_pic_number):
+        config_path = self.working_dir + "/.projectConfig.yaml"
+        f = open(config_path)
+        data_map = yaml.safe_load(f)
+        f.close()
+        data_map['camera']['last-pic-number'] = p_pic_number
+        f = open(config_path, 'w')
+        f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
+        f.close()
+
