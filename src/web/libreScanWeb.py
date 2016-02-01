@@ -12,7 +12,6 @@ from web.controllers.cameraController import CameraController
 from web.controllers.projectController import ProjectController
 from web.i18n.PoParser import PoParser
 
-
 class LibreScanWeb:
 
     def __init__(self):
