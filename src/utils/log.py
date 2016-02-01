@@ -1,10 +1,15 @@
 import logging
 import os.path
-homedir = os.path.expanduser('~')
 
-#create logging types
-#log into file
-logging.basicConfig(filename=homedir + '/.librescan/librescan.log',format = '%(asctime) - s %(levelname)s:%(message)s',level=logging.DEBUG)
+
+class Log:
+    def __init__(self):
+        homedir = os.path.expanduser('~')
+        logging.basicConfig(filename=homedir + '/.librescan/librescan.log',format = '%(asctime) - s %(levelname)s:%(message)s',level=logging.DEBUG)
+
+
+    def log_error(self, p_message):
+        logging.error(p_message)
 
 #logger types
 #logging.debug('debug message')
