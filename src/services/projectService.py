@@ -50,7 +50,8 @@ class ProjectService(metaclass=Singleton):
         return 1
 
     def load(self, p_id):
-        return 1
+        # project_path =
+        pass
 
     def get_all(self):
         config_path = self.config_folder + "/projects.yaml"
@@ -111,3 +112,11 @@ class ProjectService(metaclass=Singleton):
                            .communicate()[0].decode('utf-8')
                            .split("\n")[1:-1])
         return available_langs
+
+    def get_project_last_pic(self, p_id):
+        config_path = os.environ["HOME"] + '/LibreScanProjects/' + p_id + '/.projectConfig.yaml'
+        f = open(config_path)
+        last_pic_number = yaml.safe_load(f)['camera']['last-pic-number']
+        f.close()
+        return last_pic_number
+
