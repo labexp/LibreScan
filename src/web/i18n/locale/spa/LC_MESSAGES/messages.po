@@ -171,3 +171,13 @@ msgstr "Borrar proyecto."
 
 msgid "sp_load_project"
 msgstr "Cargar proyecto."
+
+# Translations for camera errors modal
+msgid "ce_camera_error"
+msgstr "Error
+
+msgid "ce_retry"
+msgstr "Reintentar"
+
+msgid "ce_cancel"
+msgstr "Cancelar"
