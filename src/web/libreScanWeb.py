@@ -13,7 +13,6 @@ from web.controllers.projectController import ProjectController
 from web.controllers.taskController import TaskController
 from web.i18n.PoParser import PoParser
 
-
 class LibreScanWeb:
 
     def __init__(self):

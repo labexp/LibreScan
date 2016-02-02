@@ -12,10 +12,15 @@ var ready = function(){
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify({post_data: {project_name: p_name, project_description: p_description, config:{zoom:zoom, language:p_language}}})
-        }).done(function() {
-            window.location.href = '/scan';
-            $("#loading-cams").css("display", "none");
-            console.log("The project was successfully created.");
+        }).done(function(data) {
+            if(data.status == 1){
+                window.location.href = '/scan';
+                $("#loading-cams").css("display", "none");
+                console.log("The project was successfully created.");
+            }else{
+                $("#loading-cams").css("display", "none");
+                $('#camera-error').modal('show');
+            }
         });
     });
 

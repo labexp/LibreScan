@@ -1,4 +1,6 @@
 import os
+import sys
+from utils.log import Log
 from models.cameraConfig import CameraConfig
 from models.project import Project
 from services.cameraService import CameraService
@@ -30,15 +32,29 @@ class ProjectController:
         camera_config = CameraConfig(params['config']['zoom'], 0)
         project = Project(None, name, description, language, camera_config, ['pdfbeads'])
         project_path = self.project_service.create(project)
-        self.set_new_project_config(project_path)
-        return {'status': 1}
+        status = self.set_services_working_dir(project_path)
+        return {'status': status}
 
     def load(self, id):
         project_id = id
         project_path = os.environ["HOME"] + '/LibreScanProjects/' + project_id
         last_pic_number = self.project_service.get_project_last_pic(project_id)
-        self.set_new_project_config(project_path, last_pic_number)
-        return {'status': 1, 'lastPicNumber': last_pic_number}
+        status = self.set_services_working_dir(project_path, last_pic_number)
+        return {'status': status}
+
+    def prepare_devices(self):
+        try:
+            camera_service = CameraService()
+            camera_service.set_camera_config()
+            camera_service.prepare_cams()
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            log = Log()
+            log.log_error('Error in the method set_new_project_config')
+            return {'status': -1}
+        return {'status': 1}
+
+
 
     def remove(self):
         project_id = request.json['id']
@@ -53,13 +69,10 @@ class ProjectController:
             project_list = sorted(list(projects_map.items()), key=lambda x: x[1]["creation_date"], reverse=True)
         return self.env.get_template('showProjects.jade').render(projects=project_list)
 
-    def set_new_project_config(self, p_working_dir, p_pic_number=0):
+    def set_services_working_dir(self, p_working_dir, p_pic_number=0):
         camera_service = CameraService(p_pic_number=p_pic_number)
         camera_service.working_dir = p_working_dir
-        camera_service.set_camera_config()
-        # camera_service.prepare_cams()
-
         queue_service = QueueService()
         queue_service.task_manager = TaskManager(p_working_dir)
-
         output_service = OutputService(p_working_dir)
+        return 1
