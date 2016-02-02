@@ -34,6 +34,3 @@ class QueueService(metaclass=Singleton):
     def wait_process(self):
         print("Processing...")
         self.queue.join()
-
-    def get_active_threads(self):
-        return threading.active_count()

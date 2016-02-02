@@ -26,7 +26,7 @@ $(document).ready(function(){
 
     $('body').on('click', '.recapture-btn' ,function(){
         $.ajax({
-            method: 'PUT',
+            method: 'put',
             url: '/photo'
         }).done(function(response) {
             $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
@@ -34,12 +34,12 @@ $(document).ready(function(){
         });
    });
 
+
     $('body').on('click', '#process-btn', function() {
         $.ajax({
-            method: 'get',
-            url: '/photo'
+            method: 'post',
+            url: '/output'
         }).done(function(response) {
-            console.log(response);
             $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
             $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
         });

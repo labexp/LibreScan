@@ -4,9 +4,9 @@ from models.project import Project
 from services.cameraService import CameraService
 from services.queueService import QueueService
 from services.projectService import ProjectService
+from services.outputService import OutputService
 from utils.taskManager import TaskManager
 from bottle import request
-import time
 
 
 class ProjectController:
@@ -15,18 +15,15 @@ class ProjectController:
         self.env = p_env
         self.project_service = p_project_service
 
-    def home(self):
-        return self.env.get_template('home.jade').render()
-
     def get_config(self):
         pass
 
     def new(self):
-        avaible_langs = ProjectService().get_available_languages()
-        return self.env.get_template('newProject.jade').render(langs=avaible_langs)
+        available_langs = ProjectService().get_available_languages()
+        return self.env.get_template('newProject.jade').render(langs=available_langs)
 
     def create(self):
-        params = request.json['postData']
+        params = request.json['post_data']
         name = params['project_name']
         description = params['project_description']
         language = params['config']['language']
@@ -64,3 +61,5 @@ class ProjectController:
 
         queue_service = QueueService()
         queue_service.task_manager = TaskManager(p_working_dir)
+
+        output_service = OutputService(p_working_dir)
