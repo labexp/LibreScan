@@ -107,5 +107,5 @@ class ChdkptpPT(CameraDriver):
     def _execute(self, command):
         cams = self.cams
         for cam in cams:
-            cam.sendline(command)
+            cams[cam].sendline(command)
         self._cameras_wait()
