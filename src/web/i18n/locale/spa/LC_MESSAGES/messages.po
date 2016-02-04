@@ -172,12 +172,22 @@ msgstr "Borrar proyecto."
 msgid "sp_load_project"
 msgstr "Cargar proyecto."
 
-# Translations for camera errors modal
-msgid "ce_camera_error"
-msgstr "Error
+# Translations for prepare cameras modal
 
-msgid "ce_retry"
-msgstr "Reintentar"
+msgid "pcm_camera_error"
+msgstr "Hubo un error al preparar las cámaras. Asegúrese que estén conectadas y encendidas."
 
-msgid "ce_cancel"
-msgstr "Cancelar"
+msgid "pcm_project_created"
+msgstr "El proyecto fue creado exitosamente. Conecte y encienda las cámaras para prepararlas."
+
+msgid "pcm_project_loaded"
+msgstr "El proyecto fue cargado exitosamente. Conecte y encienda las cámaras para prepararlas."
+
+msgid "pcm_return"
+msgstr "Regresar"
+
+msgid "pcm_continue"
+msgstr "Continuar"
+
+msgid "pcm_title"
+msgstr "Preparar cámaras"

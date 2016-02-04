@@ -59,6 +59,7 @@ class LibreScanWeb:
         self.app.route('/photo', method="PUT", callback=self.controllers['camera'].update)  # Route to handle recapture.
         self.app.route('/photo', method="DELETE", callback=self.controllers['camera'].delete)  # Route to handle delete.
         self.app.route('/photo', method="GET", callback=self.controllers['camera'].get)  # Route to handle get photo.
+        self.app.route('/camera', method="POST", callback=self.controllers['camera'].prepare_devices)  # Route to handle cam preparation.
 
     def _init_mail_routes(self):
         self.app.route('/mail', method="GET", callback=self.controllers['mail'].create)
