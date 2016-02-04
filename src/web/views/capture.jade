@@ -27,6 +27,7 @@ html
                 .recapture-btn.action-btn.round
                   span= _('c_repeat')
                     i.fa.fa-repeat
+
       a#process-btn.btn.btn-default.pull-right(href='', data-toggle='modal', data-target='#processing-modal')= _('c_next')
       #processing-modal.modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', data-backdrop="static")
         .modal-dialog.modal-lg(role='document')
@@ -39,7 +40,7 @@ html
                   img#loading-book-gif(src='/assets/images/loadingBook.gif')
             .modal-footer
               button.btn.btn-default(type='button', data-dismiss='modal')= _('c_cancel')
-              a.btn.btn-primary.disabled(href='/outputPreview')= _('c_next')
+              a#show-output.button.btn.pull-right.btn-primary.disabled(href="/outputPreview")= _('c_next')
       #photo-modal.modal
         .modal-dialog
           .modal-content

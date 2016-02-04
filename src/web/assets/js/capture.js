@@ -37,12 +37,15 @@ $(document).ready(function(){
 
     $('body').on('click', '#process-btn', function() {
         $.ajax({
-            method: 'post',
+            method: 'get',
             url: '/output'
-        }).done(function(response) {
-            $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
-            $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
+        }).done(function(output) {
+            localStorage.setItem('output', output);
+            $("#show-output").removeClass('disabled');
+        }).fail(function(){
+            alert("Algo no salio bien");
         });
+
     });
 
-})
+});

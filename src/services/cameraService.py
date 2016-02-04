@@ -33,7 +33,7 @@ class CameraService(metaclass=Singleton):
         f.close()
         return CameraConfig(data_map["zoom"], data_map["iso"])
 
-    def take_pictures(self):
+    def take_pictures(self, p_last_pic_index=-1):
         jobs = []
         pic_names = []
         save_path = self.working_dir + '/raw/'
@@ -50,8 +50,8 @@ class CameraService(metaclass=Singleton):
             j.join()
 
         self.update_last_pic_number(self.pic_number)
+        self.insert_pics_to_file(p_last_pic_index, pic_names)
         self.rotate(pic_names[0], pic_names[1])
-
 
         return pic_names
 
@@ -75,8 +75,20 @@ class CameraService(metaclass=Singleton):
             right_photo.close()
 
     def delete_photos(self, p_photo_list):
+        pics_file = self.working_dir + '/.pics.ls'
+        f = open(pics_file, "r")
+        contents = f.readlines()
+        f.close()
+
+        print(contents)
+
         for photo in p_photo_list:
             os.remove(self.working_dir + "/raw/" + photo + ".jpg")
+            contents.remove(photo + '\n')
+
+        f = open(pics_file, "w")
+        f.writelines(contents)
+        f.close()
 
     def encode_image(self, p_img_name):
         image_file = open(self.working_dir + '/raw/' + p_img_name + '.jpg', "rb")
@@ -93,4 +105,22 @@ class CameraService(metaclass=Singleton):
         f = open(config_path, 'w')
         f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
         f.close()
+
+    def insert_pics_to_file(self, p_index, pic_list):
+        pics_file = self.working_dir + '/.pics.ls'
+        f = open(pics_file, "r")
+        contents = f.readlines()
+        f.close()
+
+        if p_index == -1:
+            p_index = len(contents) - 1
+
+        for pic in pic_list:
+            contents.insert(p_index+1, pic + '\n')
+            p_index += 1
+
+        f = open(pics_file, "w")
+        f.writelines(contents)
+        f.close()
+
 
