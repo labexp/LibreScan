@@ -20,21 +20,22 @@ var ready = function(){
     });
 
 
-    $('body').on("click", ".load-project-btn", function(e){
+    $('body').on("click", ".load-project-btn",function(e){
         e.preventDefault();
         var projectId = $(this).parent().attr("id");
-        //$("#loading-cams").css("display", "block");
         $.ajax({
             method: 'GET',
             url: '/project/' + projectId
         }).done(function(data) {
-            $("#loading-cams").css("display", "none");
-            window.location.href = '/scan';
-            console.log("We should show an alert, but the project was loaded.");
-            console.log(data);
+            if(data.status == 1){
+                $('#prepare-cams-modal').modal('show');
+                $('#modal-pcm-loaded').css('display', 'block');
+                console.log("The project was successfully loaded.");
+            }else{
+                alert('Error cargando proyecto');
+            }
         });
     });
-
 
 };
 

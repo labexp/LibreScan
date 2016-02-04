@@ -1,6 +1,4 @@
 import os
-import sys
-from utils.log import Log
 from models.cameraConfig import CameraConfig
 from models.project import Project
 from services.cameraService import CameraService
@@ -8,7 +6,6 @@ from services.queueService import QueueService
 from services.projectService import ProjectService
 from utils.taskManager import TaskManager
 from bottle import request
-import time
 
 
 class ProjectController:
@@ -44,20 +41,6 @@ class ProjectController:
         last_pic_number = self.project_service.get_project_last_pic(project_id)
         status = self.set_services_working_dir(project_path, last_pic_number)
         return {'status': status}
-
-    def prepare_devices(self):
-        try:
-            camera_service = CameraService()
-            camera_service.set_camera_config()
-            camera_service.prepare_cams()
-        except:
-            print("Unexpected error:", sys.exc_info()[0])
-            log = Log()
-            log.log_error('Error in the method set_new_project_config')
-            return {'status': -1}
-        return {'status': 1}
-
-
 
     def remove(self):
         project_id = request.json['id']

@@ -23,6 +23,8 @@ class ProjectService(metaclass=Singleton):
         src = self.config_folder + "/defaultProjectConfig.yaml"
         destiny = new_project_path + "/.projectConfig.yaml"
         os.system("cp " + src + " " + destiny)
+        os.system("touch " + new_project_path + "/.pics.ls")
+        os.system("touch " + new_project_path + "/.toDelete.ls")
 
         # Update project configuration
         self.change_config(p_project, destiny)
@@ -120,3 +122,18 @@ class ProjectService(metaclass=Singleton):
         f.close()
         return last_pic_number
 
+    def remove_file_pics(self, p_index=-1):
+        pics_file = self.working_dir + '/.pics.ls'
+        f = open(pics_file, "r")
+        contents = f.readlines()
+        f.close()
+
+        if p_index == -1:
+            p_index = len(contents) - 2
+
+        contents.pop(p_index)
+        contents.pop(p_index+1)
+
+        f = open(pics_file, "w")
+        f.writelines(contents)
+        f.close()

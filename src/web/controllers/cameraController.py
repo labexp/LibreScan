@@ -1,3 +1,7 @@
+import sys
+from utils.log import Log
+
+
 class CameraController:
     def __init__(self, p_env, p_camera_service, p_queue_service):
         self.env = p_env
@@ -27,6 +31,17 @@ class CameraController:
                                   'content': self.camera_service.encode_image(pic_names[1])}
                        }
         return base64_dict
+
+    def prepare_devices(self):
+        try:
+            self.camera_service.set_camera_config()
+            self.camera_service.prepare_cams()
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            log = Log()
+            log.log_error('Error in the method set_new_project_config')
+            return {'status': -1}
+        return {'status': 1}
 
     def delete(self):
         pass

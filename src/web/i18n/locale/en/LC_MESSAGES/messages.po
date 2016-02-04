@@ -158,13 +158,22 @@ msgstr "Message"
 msgid "cu_send_button"
 msgstr "Send"
 
-# Translations for showProject.jade
+# Translations for prepare cameras modal
 
-msgid "sp_no_saved_projects"
-msgstr "There are no saved projects."
+msgid "pcm_camera_error"
+msgstr "There was an error while preparing cameras. Make sure they are connected and turned on."
 
-msgid "sp_remove_project"
-msgstr "Remove project."
+msgid "pcm_project_created"
+msgstr "The project was succesfully created. Connect and turn the cameras on to prepare them."
 
-msgid "sp_load_project"
-msgstr "Load project."
+msgid "pcm_project_loaded"
+msgstr "The project was succesfully loaded. Connect and turn the cameras on to prepare them."
+
+msgid "pcm_return"
+msgstr "Return"
+
+msgid "pcm_continue"
+msgstr "Continue"
+
+msgid "pcm_title"
+msgstr "Prepare cameras"
