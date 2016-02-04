@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-   $('body').on('click', '.photo' ,function(){
+    $('body').on('click', '.photo' ,function(){
         var src = $(this).attr('src');
         var img = '<img src="' + src + '" class="img-responsive"/>';
 
@@ -12,9 +12,9 @@ $(document).ready(function(){
             $('#photo-modal .modal-body').html('');
         });
        $('#photo-modal').modal();
-   });
+    });
 
-   $('body').on('click', '.capture-btn' ,function(){
+    $('body').on('click', '.capture-btn' ,function(){
         $.ajax({
             method: 'post',
             url: '/photo'
@@ -22,7 +22,7 @@ $(document).ready(function(){
             $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
             $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
         });
-   });
+    });
 
     $('body').on('click', '.recapture-btn' ,function(){
         $.ajax({
@@ -32,20 +32,6 @@ $(document).ready(function(){
             $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
             $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
         });
-   });
-
-
-    $('body').on('click', '#process-btn', function() {
-        $.ajax({
-            method: 'get',
-            url: '/output'
-        }).done(function(output) {
-            localStorage.setItem('output', output);
-            $("#show-output").removeClass('disabled');
-        }).fail(function(){
-            alert("Algo no salio bien");
-        });
-
     });
 
 });
