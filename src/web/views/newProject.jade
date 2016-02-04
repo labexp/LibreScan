@@ -24,7 +24,7 @@ html
                   select#newproject-language.form-control.form-input
                     each val in langs
                       option= val
-                #new-project-create.button.btn.btn-default.pull-right.create-project-button= _('np_new_book_create')
+                #new-project-create.button.btn.btn-default.pull-right= _('np_new_book_create')
                 a(href='/').btn.btn-default.pull-right.goback-button= _('np_new_book_go_back')
       // Advanced settings modal
       #configuration-modal.modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')

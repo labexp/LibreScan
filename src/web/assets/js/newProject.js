@@ -5,7 +5,9 @@ var ready = function(){
         var p_description = $('#newproject-description').val();
         var zoom = $('#configuration-zoom').val();
         var p_language = $('#newproject-language').val();
+
         $("#loading-cams").css("display", "block");
+
         $.ajax({
             method: 'POST',
             url: '/project',
@@ -22,6 +24,7 @@ var ready = function(){
                 $('#camera-error').modal('show');
             }
         });
+
     });
 
     $('body').on("click","#new-book-config-apply",function(){

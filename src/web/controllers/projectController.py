@@ -74,5 +74,5 @@ class ProjectController:
         camera_service.working_dir = p_working_dir
         queue_service = QueueService()
         queue_service.task_manager = TaskManager(p_working_dir)
-        output_service = OutputService(p_working_dir)
+        output_service = OutputService(p_working_dir, "out")
         return 1

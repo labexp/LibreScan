@@ -4,6 +4,7 @@ from services.cameraService import CameraService
 from services.mailService import MailService
 from services.projectService import ProjectService
 from services.queueService import QueueService
+from services.outputService import OutputService
 from jinja2 import Environment, FileSystemLoader
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
@@ -66,20 +67,21 @@ class LibreScanWeb:
         self.app.route('/outputPreview', method="GET", callback=self.controllers['navigation'].output_preview)
 
     def _init_task_routes(self):
-        self.app.route('/output', method="POST", callback=self.controllers['task'].generate_output)
+        self.app.route('/output', method="GET", callback=self.controllers['task'].generate_output)
 
     def init_controllers(self):
         camera_service = CameraService()
         mail_service = MailService()
         project_service = ProjectService()
         queue_service = QueueService()
+        output_service = OutputService()
         controllers = {
             'navigation': NavigationController(self.env),
             'camera': CameraController(self.env, camera_service, queue_service),
             'project': ProjectController(self.env, project_service),
             'mail': MailController(self.env, mail_service),
             'language': LanguageController(self.env),
-            'task': TaskController(self.env),
+            'task': TaskController(self.env, output_service, queue_service)
         }
 
         return controllers
