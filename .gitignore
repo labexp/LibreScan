@@ -4,3 +4,4 @@ src/.idea/
 src/services/main.py
 *.pyc
 *.mo
+.idea/

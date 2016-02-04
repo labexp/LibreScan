@@ -1,9 +1,7 @@
 import os
 import subprocess
-import sys
 import yaml
 from patterns.singleton import Singleton
-import shutil
 import time
 
 

@@ -4,13 +4,18 @@ from services.cameraService import CameraService
 from services.mailService import MailService
 from services.projectService import ProjectService
 from services.queueService import QueueService
+from services.outputService import OutputService
+from services.ocrEditorService import OcrEditorService
 from jinja2 import Environment, FileSystemLoader
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
 from web.controllers.navigationController import NavigationController
 from web.controllers.cameraController import CameraController
 from web.controllers.projectController import ProjectController
+from web.controllers.taskController import TaskController
+from web.controllers.ocrEditorController import OcrEditorController
 from web.i18n.PoParser import PoParser
+
 
 class LibreScanWeb:
 
@@ -34,19 +39,14 @@ class LibreScanWeb:
         self._init_camera_routes()
         self._init_mail_routes()
         self._init_navigation_routes()
+        self._init_project_routes()
+        self._init_task_routes()
+        self._init_ocr_editor_routes()
         self.app.route('/assets/:p_file#.+#', name='static', callback=self.return_resource)
         self.app.route('/language/<lang>', method="GET", callback=self.controllers['language'].change_language)
-        self.init_project_routes()
-
         # The other routes would go here.
 
-    def _init_navigation_routes(self):
-        self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
-        self.app.route('/scan', method="GET", callback=self.controllers['navigation'].scan)
-        self.app.route('/about', method="GET", callback=self.controllers['navigation'].about)
-        self.app.route('/contact', method="GET", callback=self.controllers['navigation'].contact)
-
-    def init_project_routes(self):
+    def _init_project_routes(self):
         self.app.route('/project/<id>/config', method="GET", callback=self.controllers['project'].get_config)
         self.app.route('/project', method="POST", callback=self.controllers['project'].create)
         self.app.route('/project/<id>', method="GET", callback=self.controllers['project'].load)
@@ -72,19 +72,28 @@ class LibreScanWeb:
         self.app.route('/contact', method="GET", callback=self.controllers['navigation'].contact)
         self.app.route('/outputPreview', method="GET", callback=self.controllers['navigation'].output_preview)
 
+    def _init_task_routes(self):
+        self.app.route('/output', method="GET", callback=self.controllers['task'].generate_output)
+
+    def _init_ocr_editor_routes(self):
+        self.app.route('/ocrs', method="GET", callback=self.controllers['ocr_editor'].show)
+
     def init_controllers(self):
         camera_service = CameraService()
         mail_service = MailService()
         project_service = ProjectService()
         queue_service = QueueService()
+        output_service = OutputService()
+        ocr_editor_service = OcrEditorService()
         controllers = {
             'navigation': NavigationController(self.env),
             'camera': CameraController(self.env, camera_service, queue_service),
             'project': ProjectController(self.env, project_service),
             'mail': MailController(self.env, mail_service),
-            'language': LanguageController(self.env)
+            'language': LanguageController(self.env),
+            'task': TaskController(self.env, output_service, queue_service),
+            'ocr_editor': OcrEditorController(self.env, ocr_editor_service)
         }
-
         return controllers
 
     def return_resource(self, p_file):

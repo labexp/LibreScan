@@ -177,3 +177,24 @@ msgstr "Continue"
 
 msgid "pcm_title"
 msgstr "Prepare cameras"
+
+
+# Translations for checkOcr.jade
+
+msgid "co_showing"
+msgstr "Showing page "
+
+msgid "co_of"
+msgstr " of "
+
+msgid "co_pages"
+msgstr " pages."
+
+msgid "co_prev"
+msgstr "Previous"
+
+msgid "co_next"
+msgstr "Next"
+
+msgid "co_save"
+msgstr "Save"

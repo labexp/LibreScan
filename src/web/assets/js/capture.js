@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 
+
    $('body').on('click', '.photo' ,function(){
        var name = $(this).attr('name');
         var src = '/photo/'+name;
@@ -13,9 +14,9 @@ $(document).ready(function(){
             $('#photo-modal .modal-body').html('');
         });
        $('#photo-modal').modal();
-   });
+    });
 
-   $('body').on('click', '.capture-btn' ,function(){
+    $('body').on('click', '.capture-btn' ,function(){
         $.ajax({
             method: 'post',
             url: '/photo'
@@ -26,7 +27,7 @@ $(document).ready(function(){
             $('#photo1').attr( "name", response.photo1);
             $('#photo2').attr( "name", response.photo2);
         });
-   });
+    });
 
     $('body').on('click', '.recapture-btn' ,function(){
         $.ajax({
@@ -41,17 +42,4 @@ $(document).ready(function(){
         });
    });
 
-    $('body').on('click', '#process-btn', function() {
-        $.ajax({
-            method: 'get',
-            url: '/photo'
-        }).done(function(response) {
-            console.log('Done');
-            $('#photo1').attr( "src", "/thumbnail/" + response.photo1);
-            $('#photo2').attr( "src", "/thumbnail/"+ response.photo2);
-            $('#photo1').attr( "name", response.photo1);
-            $('#photo2').attr( "name", response.photo2);
-        });
-    });
-
-})
+});
