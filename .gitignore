@@ -1,6 +1,2 @@
-chdkptp/
 src/.idea/
 **/__pycache__/
-src/services/main.py
-*.pyc
-*.mo
