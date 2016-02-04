@@ -25,10 +25,3 @@ class TaskManager:
         data_map = yaml.safe_load(f)
         f.close()
         return data_map
-
-'''
-Example:
-    t = TaskManager("/home/diugalde/Desktop")
-    t.process(['015', '016'])
-    t.generate()
-'''

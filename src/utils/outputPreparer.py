@@ -1,5 +1,6 @@
 import os
 
+
 class OutputPreparer:
 
     def __init__(self, p_path):
@@ -31,8 +32,3 @@ class OutputPreparer:
     def run(self):
         self._delete_pics()
         self._rename_pics()
-
-"""
-o = OutputPreparer("/home/melalonso/LibreScanProjects/L1")
-o.run()
-"""

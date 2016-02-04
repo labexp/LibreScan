@@ -1,0 +1,32 @@
+
+.ocr-container{
+    margin: 0 20px 10px 20px;
+}
+
+#curr-page-input{
+    width: 40px;
+    text-align: center;
+}
+
+#paging-parent-div{
+    text-align: center;
+}
+
+#ocr-paging-div{
+    margin: 15px auto !important;
+    display: inline-block;
+}
+
+#page-ocr-textarea{
+    width: 49%;
+    height: 400px;
+}
+
+#page-tiff-img{
+    width: 49%;
+    height: 400px;
+}
+
+#save-ocr-btn{
+    margin: 15px 0;
+}

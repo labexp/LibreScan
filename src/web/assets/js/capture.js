@@ -1,8 +1,10 @@
 
 $(document).ready(function(){
 
-    $('body').on('click', '.photo' ,function(){
-        var src = $(this).attr('src');
+
+   $('body').on('click', '.photo' ,function(){
+       var name = $(this).attr('name');
+        var src = '/photo/'+name;
         var img = '<img src="' + src + '" class="img-responsive"/>';
 
         $('#photo-modal').on('shown.bs.modal', function(){
@@ -19,19 +21,25 @@ $(document).ready(function(){
             method: 'post',
             url: '/photo'
         }).done(function(response) {
-            $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
-            $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
+            console.log('Done cap');
+            $('#photo1').attr( "src", "/thumbnail/" + response.photo1);
+            $('#photo2').attr( "src", "/thumbnail/"+ response.photo2);
+            $('#photo1').attr( "name", response.photo1);
+            $('#photo2').attr( "name", response.photo2);
         });
     });
 
     $('body').on('click', '.recapture-btn' ,function(){
         $.ajax({
-            method: 'put',
+            method: 'PUT',
             url: '/photo'
         }).done(function(response) {
-            $('#photo1').attr( "src", "data:image/jpg;base64," + response.photo1.content);
-            $('#photo2').attr( "src", "data:image/jpg;base64," + response.photo2.content);
+            console.log('Done recap');
+            $('#photo1').attr( "src", "/thumbnail/" + response.photo1);
+            $('#photo2').attr( "src", "/thumbnail/"+ response.photo2);
+            $('#photo1').attr( "name", response.photo1);
+            $('#photo2').attr( "name", response.photo2);
         });
-    });
+   });
 
 });

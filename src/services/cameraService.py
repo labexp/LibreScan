@@ -9,16 +9,17 @@ import base64
 from models.camera import Camera
 from models.cameraConfig import CameraConfig
 from patterns.singleton import Singleton
-from utils.chdkptp import Chdkptp
+from utils.chdkptpPT import ChdkptpPT
+from jpegtran import JPEGImage
 
 
 class CameraService(metaclass=Singleton):
-
     def __init__(self, p_working_dir=None, p_pic_number=0):
         self.cams = [Camera("head"), Camera("tail")]
         self.working_dir = p_working_dir
         self.camera_config = None
         self.pic_number = p_pic_number
+        self.cam_driver = ChdkptpPT()
 
     def set_save_path(self, p_working_dir):
         self.working_dir = p_working_dir + "/raw/"
@@ -33,46 +34,38 @@ class CameraService(metaclass=Singleton):
         f.close()
         return CameraConfig(data_map["zoom"], data_map["iso"])
 
-    def take_pictures(self, p_last_pic_index=-1):
-        jobs = []
+    def take_pictures(self):
         pic_names = []
         save_path = self.working_dir + '/raw/'
-        for cam in self.cams:
-            self.pic_number += 1
-            pic_name = "lsp"+str(self.pic_number).zfill(5)
-            pic_names.append(pic_name)
-            process = Thread(target=Chdkptp.shoot, args=(cam, save_path + pic_name))
-            jobs.append(process)
-            process.start()
-            time.sleep(0.000005)
 
-        for j in jobs:
-            j.join()
-
+        self.pic_number += 1
+        pic_names.append("lsp" + str(self.pic_number).zfill(5))
+        self.pic_number += 1
+        pic_names.append("lsp" + str(self.pic_number).zfill(5))
+        self.cam_driver.shoot(save_path, pic_names)
+        self.insert_pics_to_file(-1, pic_names)
         self.update_last_pic_number(self.pic_number)
-        self.insert_pics_to_file(p_last_pic_index, pic_names)
-        self.rotate(pic_names[0], pic_names[1])
+        try:
+            self.rotate(pic_names[0], pic_names[1])
+        except:
+            time.sleep(0.4)
+            self.rotate(pic_names[0], pic_names[1])
 
         return pic_names
 
     def prepare_cams(self):
-        for cam in self.cams:
-            Chdkptp.prepare(cam, self.camera_config)
-        for cam in self.cams:
-            Chdkptp.rec_mode(cam)
-        if self.cams[0].orientation == "left":
-            self.cams.reverse()
+        self.cam_driver.detect_cams()
+        self.cam_driver.prepare(self.camera_config)
 
     def rotate(self, p_left_photo, p_right_photo):
+        time.sleep(0.2)
         save_path = self.working_dir + '/raw/'
-        with Image.open(save_path + p_left_photo+".jpg") as left_photo:
-            left_photo = left_photo.rotate(90)
-            left_photo.save(save_path + p_left_photo+".jpg")
-            left_photo.close()
-        with Image.open(save_path + p_right_photo+".jpg") as right_photo:
-            right_photo = right_photo.rotate(270)
-            right_photo.save(save_path + p_right_photo+".jpg")
-            right_photo.close()
+
+        left = JPEGImage(save_path + p_left_photo + ".jpg")
+        right = JPEGImage(save_path + p_right_photo + ".jpg")
+
+        left.rotate(90).save(save_path + p_left_photo + ".jpg")
+        right.rotate(270).save(save_path + p_right_photo + ".jpg")
 
     def delete_photos(self, p_photo_list):
         pics_file = self.working_dir + '/.pics.ls'
@@ -92,7 +85,9 @@ class CameraService(metaclass=Singleton):
 
     def encode_image(self, p_img_name):
         image_file = open(self.working_dir + '/raw/' + p_img_name + '.jpg', "rb")
+        print('Encoding Image')
         encoded_string = base64.b64encode(image_file.read())
+        print("Encoded...")
         image_file.close()
         return encoded_string.decode(encoding="UTF-8")  # convert it to string
 
@@ -116,11 +111,9 @@ class CameraService(metaclass=Singleton):
             p_index = len(contents) - 1
 
         for pic in pic_list:
-            contents.insert(p_index+1, pic + '\n')
+            contents.insert(p_index + 1, pic + '\n')
             p_index += 1
 
         f = open(pics_file, "w")
         f.writelines(contents)
         f.close()
-
-

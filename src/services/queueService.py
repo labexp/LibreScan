@@ -32,5 +32,4 @@ class QueueService(metaclass=Singleton):
         return not(self.queue.empty())
 
     def wait_process(self):
-        print("Processing...")
         self.queue.join()

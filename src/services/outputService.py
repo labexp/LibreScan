@@ -22,6 +22,5 @@ class OutputService(metaclass=Singleton):
             t.start()
 
     def wait_process(self):
-        print("Esperando que se generen los output...")
         for g in self.generators:
             g.join()

@@ -104,13 +104,12 @@
 }
 
 .photo {
-    width: 60%;
-    height: 60%;
+    width: 85%;
+    height: 85%;
     background-position: center;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    opacity: 0.5;
 }
 
 
