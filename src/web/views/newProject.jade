@@ -44,17 +44,6 @@ html
               button#new-book-config-cancel.btn.btn-default(type='button', data-dismiss='modal')= _('np_new_book_config_cancel_button')
               #new-book-config-apply.button.btn.btn-primary(type='button')= _('np_new_book_config_apply_button')
 
-      #camera-error.modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', data-backdrop="static")
-        .modal-dialog.modal-lg(role='document')
-          .modal-content
-            .modal-header
-              h3#config-modal-title.modal-title= _('c_processing_phase')
-            .modal-body
-              .row
-                .col-md-8.col-md-offset-2
-                  img#loading-book-gif(src='/assets/images/loadingBook.gif')
-            .modal-footer
-              button.btn.btn-default(type='button', data-dismiss='modal')= _('ce_cancel')
-              a.btn.btn-primary.disabled(href='/outputPreview')= _('ce_retry')
+      include ./layouts/modalPrepareCams.jade
 
     include ./layouts/footer.jade

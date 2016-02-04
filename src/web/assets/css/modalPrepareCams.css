@@ -1,0 +1,12 @@
+.modal-pcm-text {
+    display: none;
+    text-align: center;
+}
+
+#modal-pcm-error {
+    color: red;
+}
+
+#modal-pcm-created, #modal-pcm-loaded {
+    color: #2A2A2A;
+}
