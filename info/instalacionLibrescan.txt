@@ -1,8 +1,10 @@
 - Instalar dependencias que serán utilizadas:
 
-# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3
+# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg0-dev
 
-# pip3 install pyYAML Pillow bottle pyjade jinja2 polib pexpect
+# pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
+
+# pip3 install jpegtran-cffi==0.5.2
 
 --------------------------------------------------------------------------------------------
 
