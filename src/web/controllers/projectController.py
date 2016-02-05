@@ -36,6 +36,7 @@ class ProjectController:
     def load(self, id):
         project_id = id
         project_path = os.environ["HOME"] + '/LibreScanProjects/' + project_id
+        self.project_service.load(project_id)
         last_pic_number = self.project_service.get_project_last_pic(project_id)
         status = self.set_services_working_dir(project_path, last_pic_number)
         return {'status': status}

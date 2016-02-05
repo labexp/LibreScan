@@ -37,13 +37,14 @@ class CameraController:
             print("Unexpected error:", sys.exc_info()[0])
             log = Log()
             log.log_error('Error in the method set_new_project_config')
-            return {'status': -1}
+            return {'status': 1}
         return {'status': 1}
 
     def delete(self):
         pass
 
     def stop_scanning(self):
+        self.queue_service.push(self.pending_pics)
         self.queue_service.wait_process()
         return {'ready': True}
 

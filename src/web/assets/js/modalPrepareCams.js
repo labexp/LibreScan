@@ -8,8 +8,9 @@ var ready = function(){
             url: '/camera'
         }).done(function(data) {
             $("#loading-cams").css("display", "none");
-            if(data.status == 1){
+            if(data.status == 1) {
                 window.location.href = '/scan';
+                console.log("hoasds");
             }else{
                 console.log(data);
                 $('.modal-pcm-text').css('display', 'none');
