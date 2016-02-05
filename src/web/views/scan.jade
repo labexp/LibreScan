@@ -11,11 +11,18 @@ html
             .col-md-6.col-sm-6
               .box-photo
                 a(href='#')
-                  img#photo1.photo(src='/assets/images/cameraWatermark.png')
+                  if last_pics != []:
+                    img#photo1.photo(src='/thumbnail/{0}'.format(last_pics[0]), name=last_pics[0])
+                  else:
+                    img#photo1.photo(src='/assets/images/cameraWatermark.png')
             .col-md-6.col-sm-6
               .box-photo
                 a(href='#')
-                  img#photo2.photo(src='/assets/images/cameraWatermark.png')
+                  if last_pics != []:
+                    img#photo2.photo(src='/thumbnail/{0}'.format(last_pics[1]), name=last_pics[1])
+                  else:
+                    img#photo2.photo(src='/assets/images/cameraWatermark.png')
+
           .row
             .col-md-6.col-sm-6
               a(href='#')
@@ -24,8 +31,13 @@ html
                     i.fa.fa-camera
             .col-md-6.col-sm-6
               a(href='#')
-                .recapture-btn.action-btn.round.btn-disabled
-                  span= _('c_repeat')
+                if last_pics != []:
+                  .recapture-btn.action-btn.round
+                    span= _('c_repeat')
+                    i.fa.fa-repeat
+                else:
+                  .recapture-btn.action-btn.round.btn-disabled
+                    span= _('c_repeat')
                     i.fa.fa-repeat
         #photo-modal.modal
           .modal-dialog

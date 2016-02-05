@@ -1,7 +1,7 @@
 import os
 from models.cameraConfig import CameraConfig
 from models.project import Project
-from services.cameraService import CameraService
+from services.scannerService import ScannerService
 from services.queueService import QueueService
 from services.projectService import ProjectService
 from services.outputService import OutputService
@@ -55,8 +55,8 @@ class ProjectController:
         return self.env.get_template('showProjects.jade').render(projects=project_list)
 
     def set_services_working_dir(self, p_working_dir, p_pic_number=0):
-        camera_service = CameraService(p_pic_number=p_pic_number)
-        camera_service.working_dir = p_working_dir
+        scanner_service = ScannerService(p_pic_number=p_pic_number)
+        scanner_service.working_dir = p_working_dir
         queue_service = QueueService()
         queue_service.task_manager = TaskManager(p_working_dir)
         output_service = OutputService(p_working_dir, "out")
