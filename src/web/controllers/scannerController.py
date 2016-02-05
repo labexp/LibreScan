@@ -22,6 +22,8 @@ class ScannerController:
 
         pic_names = self.scanner_service.take_pictures()
 
+        if pic_names == -1:
+            return {'status': -1, 'message': _('error_message')}
         if len(self.pending_pics) != 0:
             self.queue_service.push(self.pending_pics)
         self.pending_pics = pic_names
@@ -36,14 +38,13 @@ class ScannerController:
 
     def prepare_devices(self):
         try:
-            pass
             self.scanner_service.set_camera_config()
             self.scanner_service.prepare_cams()
         except:
             print("Unexpected error:", sys.exc_info()[0])
             log = Log()
             log.log_error('Error in the method set_new_project_config')
-            return {'status': 1}
+            return {'status': -1}
         return {'status': 1}
 
     # Delete a pair of photos.

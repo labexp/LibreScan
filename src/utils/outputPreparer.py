@@ -19,15 +19,17 @@ class OutputPreparer:
     def _rename_pics(self):
         rename_pics_file = self.working_dir + "/.pics.ls"
         pic_number = 1
+
         with open(rename_pics_file) as f:
             for filename in f:
                 filename = filename[:-1]
                 pic_name = self.working_dir + "/processed/" + filename
                 new_pic_name = "rlsp"+str(pic_number).zfill(5)
                 new_pic_name = self.working_dir + "/processed/" + new_pic_name
-                os.rename(pic_name + ".hocr", new_pic_name + ".hocr")
-                os.rename(pic_name + ".tif", new_pic_name + ".tif")
-                pic_number += 1
+                if os.path.isfile(pic_name):
+                    os.rename(pic_name + ".hocr", new_pic_name + ".hocr")
+                    os.rename(pic_name + ".tif", new_pic_name + ".tif")
+                    pic_number += 1
 
     def run(self):
         self._delete_pics()

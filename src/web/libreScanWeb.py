@@ -93,7 +93,7 @@ class LibreScanWeb:
             'project': ProjectController(self.env, project_service),
             'mail': MailController(self.env, mail_service),
             'language': LanguageController(self.env),
-            'task': TaskController(self.env, output_service, queue_service),
+            'task': TaskController(self.env, output_service),
             'ocr_editor': OcrEditorController(self.env, ocr_editor_service)
         }
         return controllers

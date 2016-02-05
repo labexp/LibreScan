@@ -42,9 +42,7 @@ class ScannerService(metaclass=Singleton):
         try:
             self.rotate_photos(pic_names[0], pic_names[1])
         except:
-            print("Exception, pictures were not found yet.")
-            time.sleep(1)
-            self.rotate_photos(pic_names[0], pic_name[1])
+            return -1
         return pic_names
 
     def prepare_cams(self):
@@ -52,14 +50,24 @@ class ScannerService(metaclass=Singleton):
         self.cam_driver.prepare(self.camera_config)
 
     def rotate_photos(self, p_left_photo, p_right_photo):
-        time.sleep(0.4)
-        save_path = self.working_dir + '/raw/'
+        pictures_found = False
+        tries = 0
+        while not pictures_found:
+            try:
+                save_path = self.working_dir + '/raw/'
 
-        left = JPEGImage(save_path + p_left_photo + ".jpg")
-        right = JPEGImage(save_path + p_right_photo + ".jpg")
+                left = JPEGImage(save_path + p_left_photo + ".jpg")
+                right = JPEGImage(save_path + p_right_photo + ".jpg")
 
-        left.rotate(90).save(save_path + p_left_photo + ".jpg")
-        right.rotate(270).save(save_path + p_right_photo + ".jpg")
+                left.rotate(270).save(save_path + p_left_photo + ".jpg")
+                right.rotate(90).save(save_path + p_right_photo + ".jpg")
+                pictures_found = True
+            except:
+                print('Pictures not found yet')
+                time.sleep(0.5)
+                if tries > 5:
+                    raise Exception
+            tries += 1
 
     def delete_photos(self, p_photo_list):
         pics_file = self.working_dir + '/.pics.ls'
