@@ -3,7 +3,7 @@
 #           index.jade -> i_ + id
 #           newProject.jade -> np_ + id
 #           aboutUs.jade -> au_ + id
-#           capture.jade -> c_ + id
+#           scan.jade -> c_ + id
 #           contactUs.jade -> cu_ + id
 #           outputPewview.jade -> op_ + id
 #           processingPhase.jade -> pp_ + id
@@ -108,7 +108,7 @@ msgstr "Librescan es una herramienta de software libre creado para facilitar el 
 msgid "au_developers"
 msgstr "Desarrolladores"
 
-# Translations for capture.jade
+# Translations for scan.jade
 
 msgid "c_capture"
 msgstr "Capturar "

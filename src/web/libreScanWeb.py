@@ -1,16 +1,17 @@
 from gettext import translation
 from bottle import *
-from services.cameraService import CameraService
 from services.mailService import MailService
 from services.projectService import ProjectService
 from services.queueService import QueueService
 from services.outputService import OutputService
 from services.ocrEditorService import OcrEditorService
 from jinja2 import Environment, FileSystemLoader
+
+from services.scannerService import ScannerService
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
 from web.controllers.navigationController import NavigationController
-from web.controllers.cameraController import CameraController
+from web.controllers.scannerController import ScannerController
 from web.controllers.projectController import ProjectController
 from web.controllers.taskController import TaskController
 from web.controllers.ocrEditorController import OcrEditorController
@@ -36,7 +37,7 @@ class LibreScanWeb:
         return env
 
     def init_routes(self):
-        self._init_camera_routes()
+        self._init_scanner_routes()
         self._init_mail_routes()
         self._init_navigation_routes()
         self._init_project_routes()
@@ -54,21 +55,21 @@ class LibreScanWeb:
         self.app.route('/projects/show', method="GET", callback=self.controllers['project'].show)
         self.app.route('/project', method="DELETE", callback=self.controllers['project'].remove)
 
-    def _init_camera_routes(self):
-        self.app.route('/photo', method="POST", callback=self.controllers['camera'].create)  # Route to handle shoot.
-        self.app.route('/photo', method="PUT", callback=self.controllers['camera'].update)  # Route to handle recapture.
-        self.app.route('/photo', method="DELETE", callback=self.controllers['camera'].delete)  # Route to handle delete.
-        self.app.route('/photo/<id>', method="GET", callback=self.controllers['camera'].get_photo)  # Route to handle get photo.
-        self.app.route('/thumbnail/<id>', method="GET", callback=self.controllers['camera'].get_thumbnail)  # Route to handle get thumbnail.
-        self.app.route('/camera', method="POST", callback=self.controllers['camera'].prepare_devices)  # Route to handle cam preparation.
-        self.app.route('/scan/halt', method="POST", callback=self.controllers['camera'].stop_scanning)
+    def _init_scanner_routes(self):
+        self.app.route('/photo', method="POST", callback=self.controllers['scanner'].create_photos)  # Route to handle shoot.
+        self.app.route('/photo', method="PUT", callback=self.controllers['scanner'].update_photos)  # Route to handle recapture.
+        self.app.route('/photo', method="DELETE", callback=self.controllers['scanner'].delete_photos)  # Route to handle delete.
+        self.app.route('/photo/<id>', method="GET", callback=self.controllers['scanner'].get_photo)  # Route to handle get photo.
+        self.app.route('/thumbnail/<id>', method="GET", callback=self.controllers['scanner'].get_thumbnail)  # Route to handle get thumbnail.
+        self.app.route('/camera', method="POST", callback=self.controllers['scanner'].prepare_devices)  # Route to handle cam preparation.
+        self.app.route('/scan', method="GET", callback=self.controllers['scanner'].scan)
+        self.app.route('/scan/halt', method="POST", callback=self.controllers['scanner'].stop_scanning)
 
     def _init_mail_routes(self):
         self.app.route('/mail', method="GET", callback=self.controllers['mail'].create)
 
     def _init_navigation_routes(self):
         self.app.route('/', method="GET", callback=self.controllers['navigation'].home)
-        self.app.route('/scan', method="GET", callback=self.controllers['navigation'].scan)
         self.app.route('/about', method="GET", callback=self.controllers['navigation'].about)
         self.app.route('/contact', method="GET", callback=self.controllers['navigation'].contact)
         self.app.route('/outputPreview', method="GET", callback=self.controllers['navigation'].output_preview)
@@ -80,7 +81,7 @@ class LibreScanWeb:
         self.app.route('/ocrs', method="GET", callback=self.controllers['ocr_editor'].show)
 
     def init_controllers(self):
-        camera_service = CameraService()
+        scanner_service = ScannerService()
         mail_service = MailService()
         project_service = ProjectService()
         queue_service = QueueService()
@@ -88,7 +89,7 @@ class LibreScanWeb:
         ocr_editor_service = OcrEditorService()
         controllers = {
             'navigation': NavigationController(self.env),
-            'camera': CameraController(self.env, camera_service, queue_service),
+            'scanner': ScannerController(self.env, scanner_service, queue_service),
             'project': ProjectController(self.env, project_service),
             'mail': MailController(self.env, mail_service),
             'language': LanguageController(self.env),
