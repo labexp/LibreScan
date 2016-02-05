@@ -35,11 +35,22 @@ $(document).ready(function(){
         });
     });
 
+    $('body').on('click', '#check-ocr-btn' ,function(){
+
+        $.ajax({
+            method: 'post',
+            url: '/scan/halt'
+        }).done(function(response) {
+            if(response.ready) {
+                window.location.href = '/ocrs';
+            }
+        });
+    });
+
     $('body').on('click', '.recapture-btn' ,function(){
         if ($(this).hasClass('btn-disabled')){
             return;
         }
-
         $.ajax({
             method: 'PUT',
             url: '/photo'

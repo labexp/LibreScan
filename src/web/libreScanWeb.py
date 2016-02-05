@@ -61,6 +61,7 @@ class LibreScanWeb:
         self.app.route('/photo/<id>', method="GET", callback=self.controllers['camera'].get_photo)  # Route to handle get photo.
         self.app.route('/thumbnail/<id>', method="GET", callback=self.controllers['camera'].get_thumbnail)  # Route to handle get thumbnail.
         self.app.route('/camera', method="POST", callback=self.controllers['camera'].prepare_devices)  # Route to handle cam preparation.
+        self.app.route('/scan/halt', method="POST", callback=self.controllers['camera'].stop_scanning)
 
     def _init_mail_routes(self):
         self.app.route('/mail', method="GET", callback=self.controllers['mail'].create)

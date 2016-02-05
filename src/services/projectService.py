@@ -8,11 +8,13 @@ import time
 class ProjectService(metaclass=Singleton):
     def __init__(self):
         self.config_folder = os.environ["HOME"] + "/.librescan"
+        self.project_path = None
 
     def create(self, p_project):
         path = self.config_folder + "/config.yaml"
         folder_name = self.get_folder_name(path)
         new_project_path = self.get_projects_path(path) + "/" + folder_name
+        self.project_path = new_project_path
         os.mkdir(new_project_path)
         os.mkdir(new_project_path + "/raw")
         os.mkdir(new_project_path + "/processed")
@@ -50,8 +52,7 @@ class ProjectService(metaclass=Singleton):
         return 1
 
     def load(self, p_id):
-        # project_path =
-        pass
+        self.project_path = os.environ["HOME"] + '/LibreScanProjects/' + p_id
 
     def get_all(self):
         config_path = self.config_folder + "/projects.yaml"
