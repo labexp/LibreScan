@@ -5,6 +5,12 @@ var ready = function(){
         var p_description = $('#newproject-description').val();
         var zoom = $('#configuration-zoom').val();
         var p_language = $('#newproject-language').val();
+        if (p_name.trim()=='' || p_description.trim()=='') {
+            var message = $('#empty_field_error').text();
+            generateNotification('error', message);
+            return;
+        }
+
         $.ajax({
             method: 'POST',
             url: '/project',

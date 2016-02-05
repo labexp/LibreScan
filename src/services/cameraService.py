@@ -48,7 +48,7 @@ class CameraService(metaclass=Singleton):
         try:
             self.rotate(pic_names[0], pic_names[1])
         except:
-            time.sleep(0.4)
+            time.sleep(0.5)
             self.rotate(pic_names[0], pic_names[1])
 
         return pic_names
@@ -58,7 +58,7 @@ class CameraService(metaclass=Singleton):
         self.cam_driver.prepare(self.camera_config)
 
     def rotate(self, p_left_photo, p_right_photo):
-        time.sleep(0.2)
+        time.sleep(0.4)
         save_path = self.working_dir + '/raw/'
 
         left = JPEGImage(save_path + p_left_photo + ".jpg")

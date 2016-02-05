@@ -16,7 +16,7 @@ class CameraController:
         pic_names = self.camera_service.take_pictures()
 
         if len(self.pending_pics) != 0:
-            self.queue_service.push(pic_names)
+            self.queue_service.push(self.pending_pics)
         self.pending_pics = pic_names
 
         return {'photo1': pic_names[0], 'photo2': pic_names[1], 'status': 1}

@@ -24,10 +24,13 @@ html
                     i.fa.fa-camera
             .col-md-6.col-sm-6
               a(href='#')
-                .recapture-btn.action-btn.round
+                .recapture-btn.action-btn.round.btn-disabled
                   span= _('c_repeat')
                     i.fa.fa-repeat
-
+        #photo-modal.modal
+          .modal-dialog
+            .modal-content
+              .modal-body
       a#check-ocr-btn.btn.btn-default.pull-right(href='/ocrs')= _('c_next')
 
 
