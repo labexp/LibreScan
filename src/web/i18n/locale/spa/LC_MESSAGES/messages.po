@@ -94,6 +94,9 @@ msgstr "Aplicar"
 msgid "np_new_book_config_cancel_button"
 msgstr "Cancelar"
 
+msgid "np_new_book_empty_info_error"
+msgstr "Por favor complete todos los campos."
+
 # Translations for aboutUs.jade
 
 msgid "au_tab1_label"

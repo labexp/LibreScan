@@ -4,6 +4,7 @@ $(document).ready(function(){
 
    $('body').on('click', '.photo' ,function(){
        var name = $(this).attr('name');
+       if (!name) return;
         var src = '/photo/'+name;
         var img = '<img src="' + src + '" class="img-responsive"/>';
 
@@ -17,6 +18,11 @@ $(document).ready(function(){
     });
 
     $('body').on('click', '.capture-btn' ,function(){
+
+        if ($('.recapture-btn').hasClass('btn-disabled')) {
+            $('.recapture-btn').removeClass('btn-disabled');
+        }
+
         $.ajax({
             method: 'post',
             url: '/photo'
@@ -30,6 +36,10 @@ $(document).ready(function(){
     });
 
     $('body').on('click', '.recapture-btn' ,function(){
+        if ($(this).hasClass('btn-disabled')){
+            return;
+        }
+
         $.ajax({
             method: 'PUT',
             url: '/photo'

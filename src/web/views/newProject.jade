@@ -43,7 +43,7 @@ html
             .modal-footer
               button#new-book-config-cancel.btn.btn-default(type='button', data-dismiss='modal')= _('np_new_book_config_cancel_button')
               #new-book-config-apply.button.btn.btn-primary(type='button')= _('np_new_book_config_apply_button')
-
+      label#empty_field_error.system-message.hidden= _('np_new_book_empty_info_error')
       include ./layouts/modalPrepareCams.jade
 
     include ./layouts/footer.jade
