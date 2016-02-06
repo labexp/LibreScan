@@ -1,21 +1,15 @@
-from threading import Thread
 import time
 import os
-
-from PIL import Image
 import yaml
-import base64
 
-from models.camera import Camera
 from models.cameraConfig import CameraConfig
 from patterns.singleton import Singleton
 from utils.chdkptpPT import ChdkptpPT
 from jpegtran import JPEGImage
 
 
-class CameraService(metaclass=Singleton):
+class ScannerService(metaclass=Singleton):
     def __init__(self, p_working_dir=None, p_pic_number=0):
-        self.cams = [Camera("head"), Camera("tail")]
         self.working_dir = p_working_dir
         self.camera_config = None
         self.pic_number = p_pic_number
@@ -46,18 +40,18 @@ class CameraService(metaclass=Singleton):
         self.insert_pics_to_file(-1, pic_names)
         self.update_last_pic_number(self.pic_number)
         try:
-            self.rotate(pic_names[0], pic_names[1])
+            self.rotate_photos(pic_names[0], pic_names[1])
         except:
-            time.sleep(0.5)
-            self.rotate(pic_names[0], pic_names[1])
-
+            print("Exception, pictures were not found yet.")
+            time.sleep(1)
+            self.rotate_photos(pic_names[0], pic_name[1])
         return pic_names
 
     def prepare_cams(self):
         self.cam_driver.detect_cams()
         self.cam_driver.prepare(self.camera_config)
 
-    def rotate(self, p_left_photo, p_right_photo):
+    def rotate_photos(self, p_left_photo, p_right_photo):
         time.sleep(0.4)
         save_path = self.working_dir + '/raw/'
 
@@ -73,8 +67,6 @@ class CameraService(metaclass=Singleton):
         contents = f.readlines()
         f.close()
 
-        print(contents)
-
         for photo in p_photo_list:
             os.remove(self.working_dir + "/raw/" + photo + ".jpg")
             contents.remove(photo + '\n')
@@ -82,14 +74,6 @@ class CameraService(metaclass=Singleton):
         f = open(pics_file, "w")
         f.writelines(contents)
         f.close()
-
-    def encode_image(self, p_img_name):
-        image_file = open(self.working_dir + '/raw/' + p_img_name + '.jpg', "rb")
-        print('Encoding Image')
-        encoded_string = base64.b64encode(image_file.read())
-        print("Encoded...")
-        image_file.close()
-        return encoded_string.decode(encoding="UTF-8")  # convert it to string
 
     def update_last_pic_number(self, p_pic_number):
         config_path = self.working_dir + "/.projectConfig.yaml"
@@ -117,3 +101,14 @@ class CameraService(metaclass=Singleton):
         f = open(pics_file, "w")
         f.writelines(contents)
         f.close()
+
+    def get_last_photo_names(self):
+        pics_file = self.working_dir + '/.pics.ls'
+        f = open(pics_file, "r")
+        contents = f.readlines()
+        f.close()
+
+        last_pics = []
+        if len(contents) > 1:
+            last_pics = contents[-2:]
+        return last_pics

@@ -13,6 +13,7 @@ class ChdkptpPT(CameraDriver):
 
     def detect_cams(self):
         cameras = self.devices_list()
+        print(cameras)
         expression = r"(?P<bus>b=[0-9]+) (?P<dev>d=[0-9]+)"
 
         result = re.search(expression, cameras[0])
@@ -61,7 +62,6 @@ class ChdkptpPT(CameraDriver):
         chdkptp.expect("-1:.*", timeout=20)
         cams = chdkptp.after.decode()
         chdkptp.kill(0)
-        # print(cams)
         return cams.split('\n')[:-1]
 
     def rec_mode(self):
