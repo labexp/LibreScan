@@ -4,6 +4,10 @@ html
   body
     include ./layouts/topbar.jade
     main.main-container
+      div#loading-div
+        div#loading-msg
+          img#loading-img(src="/assets/images/loading.gif")
+          h4#loading-cams-msg= _('tb_loading_cams')
       .container
         .row
           .col-md-10.col-md-offset-1.col-lg-10.col-lg-offset-1

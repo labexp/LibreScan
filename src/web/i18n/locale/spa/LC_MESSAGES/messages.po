@@ -131,6 +131,12 @@ msgstr "Cancelar"
 msgid "c_processing_phase"
 msgstr "Fase de procesamiento"
 
+msgid "c_processing_pics"
+msgstr "Procesando las imágenes. Ítems restantes: "
+
+msgid "c_generating_output"
+msgstr "Las imágenes han sido procesadas. Se está generando el documento final. Cuando se habilite el botón, haga clic en 'Siguiente' para visualizar el PDF."
+
 # Translations for outputPreview.jade
 
 msgid "op_title"
@@ -180,11 +186,14 @@ msgstr "Cargar proyecto."
 msgid "pcm_camera_error"
 msgstr "Hubo un error al preparar las cámaras. Asegúrese que estén conectadas y encendidas."
 
+msgid "pcm_capture_error"
+msgstr "Hubo un error al capturar las fotos. Asegúrese que las cámaras estén funcionando. Haga clic en 'Continuar' para prepararlas nuevamente y seguir con el proceso de escaneo. Para configurar el enfoque debe colocar el libro en el escáner."
+
 msgid "pcm_project_created"
-msgstr "El proyecto fue creado exitosamente. Conecte y encienda las cámaras para prepararlas."
+msgstr "El proyecto fue creado exitosamente. Conecte y encienda las cámaras para prepararlas. Para configurar el enfoque debe colocar el libro en el escáner."
 
 msgid "pcm_project_loaded"
-msgstr "El proyecto fue cargado exitosamente. Conecte y encienda las cámaras para prepararlas."
+msgstr "El proyecto fue cargado exitosamente. Conecte y encienda las cámaras para prepararlas. Para configurar el enfoque debe colocar el libro en el escáner."
 
 msgid "pcm_return"
 msgstr "Regresar"

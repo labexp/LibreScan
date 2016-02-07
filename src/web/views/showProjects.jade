@@ -5,6 +5,10 @@ html
     include ./layouts/topbar.jade
 
     main.main-container
+      div#loading-div
+        div#loading-msg
+          img#loading-img(src="/assets/images/loading.gif")
+          h4#loading-cams-msg= _('tb_loading_cams')
       if projects == []:
         h4.showProjectError= _('sp_no_saved_projects')
       else:

@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-#modal-pcm-error {
+#modal-pcm-error, #modal-pcm-capture-error {
     color: red;
 }
 

@@ -1,5 +1,6 @@
 import sys
 from bottle import HTTPResponse
+import time
 from utils.log import Log
 from jpegtran import JPEGImage
 
@@ -23,18 +24,21 @@ class ScannerController:
         pic_names = self.scanner_service.take_pictures()
 
         if pic_names == -1:
-            return {'status': -1, 'message': _('error_message')}
+            return {'status': -1}
         if len(self.pending_pics) != 0:
             self.queue_service.push(self.pending_pics)
         self.pending_pics = pic_names
 
-        return {'photo1': pic_names[0], 'photo2': pic_names[1], 'status': 1}
+        return {'status': 1, 'photo1': pic_names[0], 'photo2': pic_names[1], 'status': 1}
 
     def update_photos(self):
         pic_names = self.scanner_service.take_pictures()
+
+        if pic_names == -1:
+            return {'status': -1}
         self.scanner_service.delete_photos(self.pending_pics)
         self.pending_pics = pic_names
-        return {'photo1': pic_names[0], 'photo2': pic_names[1], 'status': 1}
+        return {'status': 1, 'photo1': pic_names[0], 'photo2': pic_names[1], 'status': 1}
 
     def prepare_devices(self):
         try:
@@ -51,9 +55,15 @@ class ScannerController:
     def delete_photos(self):
         pass
 
+    def get_process_progress(self):
+        items_left = self.queue_service.queue.qsize()
+        return {'itemsLeft': items_left}
+
     def stop_scanning(self):
-        self.queue_service.push(self.pending_pics)
-        self.queue_service.wait_process()
+        if self.pending_pics != []:
+            self.queue_service.push(self.pending_pics)
+        # self.queue_service.wait_process()
+        # time.sleep(5)
         return {'ready': True}
 
     def get_thumbnail(self, id):
