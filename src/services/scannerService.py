@@ -29,16 +29,20 @@ class ScannerService(metaclass=Singleton):
         return CameraConfig(data_map["zoom"], data_map["iso"])
 
     def take_pictures(self):
-        pic_names = []
-        save_path = self.working_dir + '/raw/'
+        try:
+            pic_names = []
+            save_path = self.working_dir + '/raw/'
 
-        self.pic_number += 1
-        pic_names.append("lsp" + str(self.pic_number).zfill(5))
-        self.pic_number += 1
-        pic_names.append("lsp" + str(self.pic_number).zfill(5))
-        self.cam_driver.shoot(save_path, pic_names)
-        self.insert_pics_to_file(-1, pic_names)
-        self.update_last_pic_number(self.pic_number)
+            self.pic_number += 1
+            pic_names.append("lsp" + str(self.pic_number).zfill(5))
+            self.pic_number += 1
+            pic_names.append("lsp" + str(self.pic_number).zfill(5))
+            self.cam_driver.shoot(save_path, pic_names)
+            self.insert_pics_to_file(-1, pic_names)
+            self.update_last_pic_number(self.pic_number)
+        except:
+            print("Exception while taking pictures.")
+            return -1
         try:
             self.rotate_photos(pic_names[0], pic_names[1])
         except:

@@ -5,6 +5,12 @@ html
     include ./layouts/topbar.jade
 
     main.main-container
+      div#loading-div
+        div#loading-msg
+          img#loading-img(src="/assets/images/loading.gif")
+          h4#loading-cams-msg.loading-text= _('tb_loading_cams')
+          h4#loading-process-msg.loading-text= _('c_processing_pics')
+            span#left-items-span
       .row.main-photo-container
         .col-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2
           .row
@@ -44,6 +50,7 @@ html
             .modal-content
               .modal-body
       a#check-ocr-btn.btn.btn-default.pull-right(href='/ocrs')= _('c_next')
+      include ./layouts/modalPrepareCams.jade
 
 
     include ./layouts/footer.jade
