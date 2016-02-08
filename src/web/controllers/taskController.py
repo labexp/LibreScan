@@ -1,5 +1,7 @@
 import base64
 
+from bottle import HTTPResponse
+
 
 class TaskController:
 
@@ -10,9 +12,14 @@ class TaskController:
     def generate_output(self):
         self.output_service.generate()
         self.output_service.wait_process()  # wait for generating process to end
+        return {'status': 1}
+
+    def get_pdf(self):
         working_dir = self.output_service.working_dir
         output_name = self.output_service.output_name
         output_file = open(working_dir + '/' + output_name + '.pdf', "rb")
-        encoded_string = base64.b64encode(output_file.read())
-        output_file.close()
-        return encoded_string.decode(encoding="UTF-8")  # convert it to string
+        headers = {
+            'Content-Type': 'application/pdf'
+        }
+        body = output_file
+        return HTTPResponse(body, **headers)
