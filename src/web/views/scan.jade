@@ -1,0 +1,56 @@
+doctype html
+html
+  include ./layouts/head.jade
+  body
+    include ./layouts/topbar.jade
+
+    main.main-container
+      div#loading-div
+        div#loading-msg
+          img#loading-img(src="/assets/images/loading.gif")
+          h4#loading-cams-msg.loading-text= _('tb_loading_cams')
+          h4#loading-process-msg.loading-text= _('c_processing_pics')
+            span#left-items-span
+      .row.main-photo-container
+        .col-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2
+          .row
+            .col-md-6.col-sm-6
+              .box-photo
+                a(href='#')
+                  if last_pics != []:
+                    img#photo1.photo(src='/thumbnail/{0}'.format(last_pics[0]), name=last_pics[0])
+                  else:
+                    img#photo1.photo(src='/assets/images/cameraWatermark.png')
+            .col-md-6.col-sm-6
+              .box-photo
+                a(href='#')
+                  if last_pics != []:
+                    img#photo2.photo(src='/thumbnail/{0}'.format(last_pics[1]), name=last_pics[1])
+                  else:
+                    img#photo2.photo(src='/assets/images/cameraWatermark.png')
+
+          .row
+            .col-md-6.col-sm-6
+              a(href='#')
+                .capture-btn.action-btn
+                  span= _('c_capture')
+                    i.fa.fa-camera
+            .col-md-6.col-sm-6
+              a(href='#')
+                if last_pics != []:
+                  .recapture-btn.action-btn.round
+                    span= _('c_repeat')
+                    i.fa.fa-repeat
+                else:
+                  .recapture-btn.action-btn.round.btn-disabled
+                    span= _('c_repeat')
+                    i.fa.fa-repeat
+        #photo-modal.modal
+          .modal-dialog
+            .modal-content
+              .modal-body
+      a#check-ocr-btn.btn.btn-default.pull-right(href='/ocrs')= _('c_next')
+      include ./layouts/modalPrepareCams.jade
+
+
+    include ./layouts/footer.jade
