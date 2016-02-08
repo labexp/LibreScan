@@ -76,7 +76,8 @@ class LibreScanWeb:
         self.app.route('/outputPreview', method="GET", callback=self.controllers['navigation'].output_preview)
 
     def _init_task_routes(self):
-        self.app.route('/output', method="GET", callback=self.controllers['task'].generate_output)
+        self.app.route('/output', method="POST", callback=self.controllers['task'].generate_output)
+        self.app.route('/pdf', method="GET", callback=self.controllers['task'].get_pdf)
 
     def _init_ocr_editor_routes(self):
         self.app.route('/ocrs', method="GET", callback=self.controllers['ocr_editor'].show)

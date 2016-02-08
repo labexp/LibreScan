@@ -1,8 +1,7 @@
 
 var ready = function() {
 
-	var output = localStorage.getItem('output');
-    $('#pdf-preview').attr( "src", "data:application/pdf;base64," + output);
+    $('#pdf-preview').attr( "src", "/pdf");
 
 };
 

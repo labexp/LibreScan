@@ -60,10 +60,7 @@ class ScannerController:
         return {'itemsLeft': items_left}
 
     def stop_scanning(self):
-        if self.pending_pics != []:
-            self.queue_service.push(self.pending_pics)
-        # self.queue_service.wait_process()
-        # time.sleep(5)
+        self.queue_service.push(self.pending_pics)
         return {'ready': True}
 
     def get_thumbnail(self, id):
