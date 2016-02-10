@@ -64,11 +64,11 @@ Modificar la línea que dice
 
     #CHDKPTP_DIR=/path/to/chdkptp
 
-    por: 
+por: 
 	
-	CHDKPTP_DIR=/home/folderclonado/chdkptp (Y guardamos los cambios)
-    
-    nota: /home/folderclonado/chdkptp es la dirección donde se haya clonado el chdkptp (en el primer paso de esta sección). 
+	CHDKPTP_DIR=<FolderClonado>/chdkptp (Y guardamos los cambios)
+
+nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp (en el primer paso de esta sección). 
 
 		# ln -s /usr/bin/chdkptp/chdkptp /bin
 
