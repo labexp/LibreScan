@@ -1,16 +1,18 @@
+# LibreScan
+
 - Instalar dependencias que serán utilizadas:
 
-# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg0-dev
+		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg0-dev
 
-# pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
+		# pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
 
-# pip3 install jpegtran-cffi==0.5.2
+		# pip3 install jpegtran-cffi==0.5.2
 
 --------------------------------------------------------------------------------------------
 
 - Instalar tesseract-ocr para el reconocimiento de texto:
 
-# apt-get install tesseract-ocr
+		# apt-get install tesseract-ocr
 
 	Nota: Para más idiomas se instala de esta forma (Ejemplo con español): 
 
@@ -20,7 +22,7 @@
 
 - Instalar scantailor para el procesamiento de las fotos:
 
-# apt-get install scantailor
+		# apt-get install scantailor
 	
 	Nota: Si no se encuentra en los repositorios agregar este a /etc/apt/sources.list: 
 
@@ -32,31 +34,31 @@
 
 - Instalar pdfbeads para generar pdfs a partir de tifs+hocr:
 
-# apt-get install ruby ruby-dev ruby-rmagick 
-# gem install iconv pdfbeads
+		# apt-get install ruby ruby-dev ruby-rmagick 
+		# gem install iconv pdfbeads
 
 
 --------------------------------------------------------------------------------------------
 - En cuanto a las cámaras hay que instalar el CHDKPTP en el sistema.
 
-$ git svn clone http://subversion.assembla.com/svn/chdkptp/trunk chdkptp
+		$ git svn clone http://subversion.assembla.com/svn/chdkptp/trunk chdkptp
 
-$ cd chdkptp
+		$ cd chdkptp
 
     -- nota: al 01.02.2015 Checked out HEAD:
        http://subversion.assembla.com/svn/chdkptp/trunk r694
 
-$ mv config-sample-linux.mk config.mk
+		$ mv config-sample-linux.mk config.mk
 
-$ make
+		$ make
 
-# mkdir /usr/bin/chdkptp
+		# mkdir /usr/bin/chdkptp
 
-# cp chdkptp-sample.sh /usr/bin/chdkptp/chdkptp
+		# cp chdkptp-sample.sh /usr/bin/chdkptp/chdkptp
 
       -- nota: chdkptp-sample.sh está en la dirección donde se descargó el chdkptp.
 
-# nano /usr/bin/chdkptp/chdkptp
+		# nano /usr/bin/chdkptp/chdkptp
 
 Modificar la línea que dice
 
@@ -68,7 +70,7 @@ Modificar la línea que dice
     
     nota: /home/folderclonado/chdkptp es la dirección donde se haya clonado el chdkptp (en el primer paso de esta sección). 
 
-# ln -s /usr/bin/chdkptp/chdkptp /bin
+		# ln -s /usr/bin/chdkptp/chdkptp /bin
 
 --------------------------------------------------------------------------------------------
 - Para reconocer cuál cámara es la derecha y cuál es la izquierda hacemos uso de un archivo 'orientation.txt', que se encuentra almacenado la raíz de la tarjeta SD de cada cámara. Por ahora este proceso se debe hacer manualmente, introduciendo la SD en la computadora y creando el archivo manualmente. Pasos:
@@ -84,15 +86,13 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 --------------------------------------------------------------------------------------------
 - Una vez instaladas todas las dependencias, procedemos a clonar el repositorio de LibreScan (por ahora del branch develop).
 
-$ git clone https://github.com/LabExperimental-SIUA/LibreScan/tree/develop
+		$ git clone https://github.com/LabExperimental-SIUA/LibreScan/tree/develop
 
 - Nos metemos a la carpeta clonada, y al código fuente.
 
-$ cd LibreScan
-
-$ cd src
+		$ cd LibreScan/src
 
 - Corremos el setup para la creación de carpetas y archivos de configuración.
 
-$ python3 setup.py
+		$ python3 setup.py
 
