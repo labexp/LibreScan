@@ -21,20 +21,20 @@ html
                         textarea#page-ocr-textarea.pull-right
                         img#page-tiff-img.pull-left
 
-            a#process-btn.btn.btn-default.pull-right(href='', data-toggle='modal', data-target='#processing-modal')= _('c_next')
+            a#process-btn.btn.btn-default.pull-right(href='', data-toggle='modal', data-target='#processing-modal')= _('s_next')
             #processing-modal.modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', data-backdrop="static")
               .modal-dialog.modal-lg(role='document')
                 .modal-content
                   .modal-header
-                    h3#config-modal-title.modal-title= _('c_processing_phase')
+                    h3#config-modal-title.modal-title= _('s_processing_phase')
                   .modal-body
                     .row
                       .col-md-8.col-md-offset-2
-                        h5= _('c_generating_output')
+                        h5= _('s_generating_output')
                         img#loading-book-gif(src='/assets/images/loadingBook.gif')
                   .modal-footer
-                    button.btn.btn-default(type='button', data-dismiss='modal')= _('c_cancel')
-                    a#show-output.button.btn.pull-right.btn-primary.disabled(href="/outputPreview")= _('c_next')
+                    button.btn.btn-default(type='button', data-dismiss='modal')= _('s_cancel')
+                    a#show-output.button.btn.pull-right.btn-primary.disabled(href="/outputPreview")= _('s_next')
             #photo-modal.modal
               .modal-dialog
                 .modal-content

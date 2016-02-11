@@ -61,7 +61,8 @@ class LibreScanWeb:
         self.app.route('/photo', method="DELETE", callback=self.controllers['scanner'].delete_photos)  # Route to handle delete.
         self.app.route('/photo/<id>', method="GET", callback=self.controllers['scanner'].get_photo)  # Route to handle get photo.
         self.app.route('/thumbnail/<id>', method="GET", callback=self.controllers['scanner'].get_thumbnail)  # Route to handle get thumbnail.
-        self.app.route('/camera', method="POST", callback=self.controllers['scanner'].prepare_devices)  # Route to handle cam preparation.
+        self.app.route('/camera/prepare', method="POST", callback=self.controllers['scanner'].prepare_devices)  # Route to handle cam preparation.
+        self.app.route('/camera/calibrate', method="POST", callback=self.controllers['scanner'].recalibrate_cams)  # Route to handle cam preparation.
         self.app.route('/scan', method="GET", callback=self.controllers['scanner'].scan)
         self.app.route('/scan/halt', method="POST", callback=self.controllers['scanner'].stop_scanning)
         self.app.route('/progress', method="GET", callback=self.controllers['scanner'].get_process_progress)

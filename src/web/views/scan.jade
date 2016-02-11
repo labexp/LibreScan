@@ -9,8 +9,16 @@ html
         div#loading-msg
           img#loading-img(src="/assets/images/loading.gif")
           h4#loading-cams-msg.loading-text= _('tb_loading_cams')
-          h4#loading-process-msg.loading-text= _('c_processing_pics')
-            span#left-items-span
+          h4#loading-process-msg.loading-text= _('s_processing_pics')
+            span#left-items-span= _('s_calculating_progress')
+      .row
+        .scan-buttons
+          a#remove-photos-btn.hidden(href="")
+            img(src="../assets/images/remove.png")
+          a#calibrate-btn(href="")
+            img(src="../assets/images/calibrate.png")
+            label#calibrate-message.hidden= _('s_calibrate_message')
+            label#calibrate-success-message.hidden= _('s_calibrate_success_message')
       .row.main-photo-container
         .col-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2
           .row
@@ -33,23 +41,23 @@ html
             .col-md-6.col-sm-6
               a(href='#')
                 .capture-btn.action-btn
-                  span= _('c_capture')
+                  span= _('s_capture')
                     i.fa.fa-camera
             .col-md-6.col-sm-6
               a(href='#')
                 if last_pics != []:
                   .recapture-btn.action-btn.round
-                    span= _('c_repeat')
+                    span= _('s_repeat')
                     i.fa.fa-repeat
                 else:
                   .recapture-btn.action-btn.round.btn-disabled
-                    span= _('c_repeat')
+                    span= _('s_repeat')
                     i.fa.fa-repeat
         #photo-modal.modal
           .modal-dialog
             .modal-content
               .modal-body
-      a#check-ocr-btn.btn.btn-default.pull-right(href='/ocrs')= _('c_next')
+      a#check-ocr-btn.btn.btn-default.pull-right(href='/ocrs')= _('s_next')
       include ./layouts/modalPrepareCams.jade
 
 

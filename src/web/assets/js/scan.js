@@ -70,7 +70,7 @@ $(document).ready(function(){
                 $("#left-items-span").html(itemsLeft);
                 checkProgress(itemsLeft);
             });
-        }, 4000);
+        }, 2000);
     }
 
     function progressCompleted() {
@@ -104,5 +104,30 @@ $(document).ready(function(){
             }
         });
    });
+
+    $('body').on('click', '#calibrate-btn' ,function(e){
+        e.preventDefault();
+        $.ajax({
+            method: 'POST',
+            url: '/camera/calibrate'
+        }).done(function(response){
+            if(response.status == -1) {
+                alert('SIASPOMSC');
+                $('#prepare-cams-modal').modal('show');
+                $('#modal-pcm-capture-error').css('display', 'block');
+            }else{
+                var message = $('#calibrate-success-message').text()
+                generateNotification('success', message, 'topRight', 2000);
+            }
+        });
+
+    });
+
+    $('#calibrate-btn').hover(function(){
+        var message = $('#calibrate-message').text();
+        generateNotification('information', message, 'topCenter', 6000);
+    });
+
+
 
 });
