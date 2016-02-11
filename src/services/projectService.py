@@ -1,7 +1,9 @@
 import os
+from os.path import exists as f_checker
 import subprocess
 import yaml
 from patterns.singleton import Singleton
+from services.queueService import QueueService
 import time
 
 
@@ -51,8 +53,25 @@ class ProjectService(metaclass=Singleton):
         f.close()
         return 1
 
-    def load(self, p_id):
-        self.project_path = os.environ["HOME"] + '/LibreScanProjects/' + p_id
+    def load(self, p_project_path):
+        self.project_path = p_project_path
+        pics_file = self.project_path + '/.pics.ls'
+        print(pics_file)
+        f = open(pics_file, "r")
+        contents = f.readlines()
+        f.close()
+        index = 1
+        queue_service = QueueService()
+        processed_path = self.project_path + "/processed/"
+        for c in contents:
+            pic_path = processed_path + c[:-1]
+            if (not f_checker(pic_path + ".tif") or
+                    not f_checker(pic_path + ".hocr")):
+                if (not f_checker(processed_path + "rlsp" + str(index).zfill(5) + ".tif") or
+                        not f_checker(processed_path + "rlsp" + str(index).zfill(5) + ".hocr")):
+                    queue_service.push([c[:-1]])
+                    print("Pushing " + c[:-1])
+            index += 1
 
     def get_all(self):
         config_path = self.config_folder + "/projects.yaml"
