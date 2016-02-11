@@ -4,13 +4,13 @@ $(document).ready(function() {
 });
 
 // Shows notification on the top right of the screen.
- function generateNotification(notificationType, message) {
+ function generateNotification(notificationType, message, position, timeout) {
   notyObject = noty({
    text        : message,
    type        : notificationType,
    theme       : 'relax',
    dismissQueue: true,
-   layout      : 'topRight',
+   layout      : position,
    timeout   : false,
    maxVisible  : 1,
    killer   : true,
@@ -19,5 +19,5 @@ $(document).ready(function() {
     close : 'animated flipOutX'
    }
   });
-  notyObject.setTimeout(4000);
+  notyObject.setTimeout(timeout);
  }

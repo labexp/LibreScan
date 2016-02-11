@@ -124,3 +124,6 @@ class ScannerService(metaclass=Singleton):
         if len(contents) > 1:
             last_pics = contents[-2:]
         return last_pics
+
+    def recalibrate(self):
+        return self.cam_driver.calibrate()

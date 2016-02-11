@@ -5,7 +5,7 @@ from abc import ABCMeta, abstractmethod
 class CameraDriver(metaclass=ABCMeta):
 
     @abstractmethod
-    def detect_cams(self, params):
+    def detect(self, params):
         pass
 
     @abstractmethod
@@ -33,6 +33,9 @@ class CameraDriver(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def set_focus(self, p_focus_distance=None):
+    def calibrate(self):
         pass
 
+    @abstractmethod
+    def set_focus(self, p_focus_distance):
+        pass

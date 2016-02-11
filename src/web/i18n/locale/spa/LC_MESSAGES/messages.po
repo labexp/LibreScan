@@ -3,7 +3,7 @@
 #           index.jade -> i_ + id
 #           newProject.jade -> np_ + id
 #           aboutUs.jade -> au_ + id
-#           scan.jade -> c_ + id
+#           scan.jade -> s_ + id
 #           contactUs.jade -> cu_ + id
 #           outputPewview.jade -> op_ + id
 #           processingPhase.jade -> pp_ + id
@@ -30,10 +30,10 @@ msgstr "¿Cómo armar el escaner?"
 msgid "tb_languages"
 msgstr "Idiomas"
 
-msgid "tb_spanish_lang"
+msgid "tb_spaniss_lang"
 msgstr "Español"
 
-msgid "tb_english_lang"
+msgid "tb_engliss_lang"
 msgstr "Inglés"
 
 msgid "tb_portuguese_lang"
@@ -116,26 +116,35 @@ msgstr "Desarrolladores"
 
 # Translations for scan.jade
 
-msgid "c_capture"
+msgid "s_capture"
 msgstr "Capturar "
 
-msgid "c_repeat"
+msgid "s_repeat"
 msgstr "Repetir"
 
-msgid "c_next"
+msgid "s_next"
 msgstr "Siguiente"
 
-msgid "c_cancel"
+msgid "s_cancel"
 msgstr "Cancelar"
 
-msgid "c_processing_phase"
+msgid "s_processing_phase"
 msgstr "Fase de procesamiento"
 
-msgid "c_processing_pics"
+msgid "s_processing_pics"
 msgstr "Procesando las imágenes. Ítems restantes: "
 
-msgid "c_generating_output"
+msgid "s_generating_output"
 msgstr "Las imágenes han sido procesadas. Se está generando el documento final. Cuando se habilite el botón, haga clic en 'Siguiente' para visualizar el PDF."
+
+msgid "s_calculating_progress"
+msgstr "Calculando..."
+
+msgid "s_calibrate_message"
+msgstr "Este botón calibrará las cámaras, antes de presionarlo, coloque el libro en el escáner como si fuese a tomar una foto"
+
+msgid "s_calibrate_success_message"
+msgstr "Las cámaras fueron calibradas correctamente"
 
 # Translations for outputPreview.jade
 
@@ -187,7 +196,7 @@ msgid "pcm_camera_error"
 msgstr "Hubo un error al preparar las cámaras. Asegúrese que estén conectadas y encendidas."
 
 msgid "pcm_capture_error"
-msgstr "Hubo un error al capturar las fotos. Asegúrese que las cámaras estén funcionando. Haga clic en 'Continuar' para prepararlas nuevamente y seguir con el proceso de escaneo. Para configurar el enfoque debe colocar el libro en el escáner."
+msgstr "Hubo un error de comunicación con las cámaras. Asegúrese que las cámaras estén funcionando. Haga clic en 'Continuar' para prepararlas nuevamente y seguir con el proceso de escaneo. Para configurar el enfoque debe colocar el libro en el escáner."
 
 msgid "pcm_project_created"
 msgstr "El proyecto fue creado exitosamente. Conecte y encienda las cámaras para prepararlas. Para configurar el enfoque debe colocar el libro en el escáner."
@@ -203,6 +212,9 @@ msgstr "Continuar"
 
 msgid "pcm_title"
 msgstr "Preparar cámaras"
+
+msgid "pcm_continue_no_cams"
+msgstr "Continuar sin cámaras"
 
 
 # Translations for checkOcr.jade
