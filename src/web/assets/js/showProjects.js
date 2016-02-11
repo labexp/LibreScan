@@ -6,7 +6,7 @@ var ready = function(){
         var $removedProject = $(".project-row-"+projectId);
         $removedProject.fadeOut("slow", function() {
             $removedProject.remove();
-            if($(".main-container").html().trim() == "") window.location.href = '/projects/show';;
+            if($(".projects-section").html().trim() == "") window.location.href = '/projects/show';;
         });
         $.ajax({
             method: 'DELETE',
@@ -16,6 +16,7 @@ var ready = function(){
             data: JSON.stringify({id: projectId})
         }).done(function() {
             console.log("We should show an alert, but the project was succesfully removed.");
+
         });
     });
 

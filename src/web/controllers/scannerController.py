@@ -1,6 +1,5 @@
 import sys
 from bottle import HTTPResponse
-import time
 from utils.log import Log
 from jpegtran import JPEGImage
 
@@ -48,7 +47,7 @@ class ScannerController:
             print("Unexpected error:", sys.exc_info()[0])
             log = Log()
             log.log_error('Error in the method set_new_project_config')
-            return {'status': -1}
+            return {'status': 1}
         return {'status': 1}
 
     # Delete a pair of photos.
