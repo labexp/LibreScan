@@ -77,7 +77,6 @@ class ScannerController:
         image = JPEGImage(path)
         if thumb:
             image = image.downscale(500, 375)
-            
         body = image.as_blob()
         return HTTPResponse(body, **headers)
 
