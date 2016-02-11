@@ -125,6 +125,9 @@ msgstr "Cancel"
 msgid "c_processing_phase"
 msgstr "Processing Phase"
 
+msgid "c_calculating_progress"
+msgstr "Calculating..."
+
 # Translations for outputPreview.jade
 
 msgid "op_title"

@@ -76,6 +76,11 @@ class ScannerController:
         }
         image = JPEGImage(path)
         if thumb:
-            image = image.exif_thumbnail
+            image = image.downscale(500, 375)
+            
         body = image.as_blob()
         return HTTPResponse(body, **headers)
+
+    def recalibrate_cams(self):
+        status = self.scanner_service.recalibrate()
+        return {'status': status}

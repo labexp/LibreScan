@@ -29,12 +29,19 @@ var ready = function(){
         }).done(function(data) {
             if(data.status == 1){
                 $('#prepare-cams-modal').modal('show');
+                $('#no-cam-continue-btn').removeClass('hidden');
                 $('#modal-pcm-loaded').css('display', 'block');
                 console.log("The project was successfully loaded.");
             }else{
                 alert('Error cargando proyecto');
             }
         });
+    });
+
+
+    $('body').on("click", "#no-cam-continue-btn", function(e){
+        e.preventDefault();
+        window.location.href = '/scan';
     });
 
 };

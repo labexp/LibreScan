@@ -5,12 +5,11 @@ var ready = function(){
         $("#loading-div").css("display", "block");
         $.ajax({
             method: 'POST',
-            url: '/camera'
+            url: '/camera/prepare'
         }).done(function(data) {
             $("#loading-div").css("display", "none");
             if(data.status == 1) {
                 window.location.href = '/scan';
-                console.log("hoasds");
             }else{
                 console.log(data);
                 $('.modal-pcm-text').css('display', 'none');

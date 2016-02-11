@@ -7,7 +7,7 @@ var ready = function(){
         var p_language = $('#newproject-language').val();
         if (p_name.trim()=='' || p_description.trim()=='') {
             var message = $('#empty_field_error').text();
-            generateNotification('error', message);
+            generateNotification('error', message, 'topRight', 4000);
             return;
         }
 
@@ -28,6 +28,7 @@ var ready = function(){
         });
 
     });
+
 
     $('body').on("click","#new-book-config-apply",function(){
         $('#configuration-modal').modal('hide');
