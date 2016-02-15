@@ -112,7 +112,6 @@ $(document).ready(function(){
             url: '/camera/calibrate'
         }).done(function(response){
             if(response.status == -1) {
-                alert('SIASPOMSC');
                 $('#prepare-cams-modal').modal('show');
                 $('#modal-pcm-capture-error').css('display', 'block');
             }else{

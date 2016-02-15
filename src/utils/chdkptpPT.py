@@ -103,6 +103,11 @@ class ChdkptpPT(CameraDriver):
 
     def _execute(self, command):
         cams = self.cams
+        if not cams:
+            print ('excepcion')
+            raise Exception
+
+        print ('sigue')
         for cam in cams:
             cams[cam].sendline(command)
         self._cameras_wait()
