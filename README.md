@@ -94,5 +94,5 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 
 - Corremos el setup para la creación de carpetas y archivos de configuración.
 
-		$ python3 setup.py
+		$ python3.4 setup.py
 
