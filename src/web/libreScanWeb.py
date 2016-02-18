@@ -15,7 +15,6 @@ from web.controllers.scannerController import ScannerController
 from web.controllers.projectController import ProjectController
 from web.controllers.taskController import TaskController
 from web.controllers.ocrEditorController import OcrEditorController
-from web.i18n.PoParser import PoParser
 
 
 class LibreScanWeb:
@@ -30,9 +29,9 @@ class LibreScanWeb:
         self.init_routes()
 
     def init_environment(self):
-        env = Environment(loader=FileSystemLoader(searchpath='views/'),
+        env = Environment(loader=FileSystemLoader(searchpath='web/views/'),
                             extensions=['pyjade.ext.jinja.PyJadeExtension', 'jinja2.ext.i18n'])
-        translations = translation(domain='messages', localedir='./i18n/locale', languages=[self.default_language])
+        translations = translation(domain='messages', localedir='./web/i18n/locale', languages=[self.default_language])
         env.install_gettext_translations(translations)
         return env
 
@@ -102,11 +101,7 @@ class LibreScanWeb:
         return controllers
 
     def return_resource(self, p_file):
-        return static_file(p_file, root='assets')
+        return static_file(p_file, root='web/assets')
 
     def run_app(self):
         self.app.run(host=self.host, port=self.port, quiet=False, debug=True)
-
-PoParser.compile_po_files()
-app = LibreScanWeb()
-app.run_app()

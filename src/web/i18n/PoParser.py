@@ -6,9 +6,10 @@ class PoParser:
 
     @staticmethod
     def compile_po_files():
-        locale_path = os.getcwd() + '/i18n/locale'
-        langs = os.listdir(locale_path)
+        file_path = os.path.realpath(__file__)
+        locale_path = os.path.dirname(file_path)
+        langs = os.listdir('{0}/locale'.format(locale_path))
         for lang in langs:
-            path = './i18n/locale/' + lang + '/LC_MESSAGES/messages'
+            path = '{0}/locale/{1}/LC_MESSAGES/messages'.format(locale_path, lang)
             po = polib.pofile(path + '.po')
             po.save_as_mofile(path + '.mo')

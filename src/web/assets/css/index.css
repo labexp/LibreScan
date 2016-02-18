@@ -256,3 +256,17 @@ END of styles for about
 .modal-backdrop {
     opacity: 0.99 !important;
 }
+
+/*
+============================
+Disabled style
+============================
+*/
+
+a[disabled] {
+    pointer-events: none;
+}
+
+.disabled:hover {
+	cursor: not-allowed !important;
+}
