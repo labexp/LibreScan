@@ -7,6 +7,6 @@ class LanguageController:
         self.env = p_env
 
     def change_language(self, lang):
-        translations = translation(domain='messages', localedir='./i18n/locale', languages=[lang])
+        translations = translation(domain='messages', localedir='web/i18n/locale', languages=[lang])
         self.env.install_gettext_translations(translations)
         return self.env.get_template('index.jade').render()

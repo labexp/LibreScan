@@ -30,10 +30,10 @@ nav.navbar.navbar-default.navbar-static-top.custom-navbar.header-navbar
               a(href='/language/spa')= _('tb_spanish_lang')
             li
               a(href='/language/en')= _('tb_english_lang')
-            li
-              a(href='/language/pt')= _('tb_portuguese_lang')
-            li
-              a(href='/language/gn')= _('tb_guarani_lang')
+            li.disabled
+              a(href='/language/pt', disabled='disabled')= _('tb_portuguese_lang')
+            li.disabled
+              a(href='/language/gn', disabled='disabled')= _('tb_guarani_lang')
         li
           a(href='/contact')= _('tb_contact_us')
         li

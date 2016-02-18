@@ -27,7 +27,7 @@ html
                   label.form-label(for='newproject-directory')= _('np_new_book_language')
                   select#newproject-language.form-control.form-input
                     each val in langs
-                      option= val
+                      option(value=val)= _(val)
                 #new-project-create.button.btn.btn-default.pull-right= _('np_new_book_create')
                 a(href='/').btn.btn-default.pull-right.goback-button= _('np_new_book_go_back')
       // Advanced settings modal
