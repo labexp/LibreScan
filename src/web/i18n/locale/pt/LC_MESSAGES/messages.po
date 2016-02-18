@@ -3,7 +3,7 @@
 #           index.jade -> i_ + id
 #           newProject.jade -> np_ + id
 #           aboutUs.jade -> au_ + id
-#           scan.jade -> c_ + id
+#           scan.jade -> s_ + id
 #           contactUs.jade -> cu_ + id
 #           outputPewview.jade -> op_ + id
 #           processingPhase.jade -> pp_ + id
@@ -67,9 +67,6 @@ msgstr "Nuevo Proyecto"
 msgid "np_new_book_name_label"
 msgstr "Nombre del Libro"
 
-msgid "np_new_book_name_label"
-msgstr "Nombre del Libro"
-
 msgid "np_new_book_description_label"
 msgstr "Descripción del Libro"
 
@@ -94,6 +91,9 @@ msgstr "Aplicar"
 msgid "np_new_book_config_cancel_button"
 msgstr "Cancelar"
 
+msgid "np_new_book_empty_info_error"
+msgstr "Por favor complete todos los campos."
+
 # Translations for aboutUs.jade
 
 msgid "au_tab1_label"
@@ -113,20 +113,35 @@ msgstr "Desarrolladores"
 
 # Translations for scan.jade
 
-msgid "c_capture"
+msgid "s_capture"
 msgstr "Capturar "
 
-msgid "c_repeat"
-msgstr "Repetir "
+msgid "s_repeat"
+msgstr "Repetir"
 
-msgid "c_next"
+msgid "s_next"
 msgstr "Siguiente"
 
-msgid "c_cancel"
+msgid "s_cancel"
 msgstr "Cancelar"
 
-msgid "c_processing_phase"
+msgid "s_processing_phase"
 msgstr "Fase de procesamiento"
+
+msgid "s_processing_pics"
+msgstr "Procesando las imágenes. Ítems restantes: "
+
+msgid "s_generating_output"
+msgstr "Las imágenes han sido procesadas. Se está generando el documento final. Cuando se habilite el botón, haga clic en 'Siguiente' para visualizar el PDF."
+
+msgid "s_calculating_progress"
+msgstr "Calculando..."
+
+msgid "s_calibrate_message"
+msgstr "Este botón calibrará las cámaras, antes de presionarlo, coloque el libro en el escáner como si fuese a tomar una foto"
+
+msgid "s_calibrate_success_message"
+msgstr "Las cámaras fueron calibradas correctamente"
 
 # Translations for outputPreview.jade
 
@@ -140,6 +155,8 @@ msgid "op_modify_captures"
 msgstr "Modificar capturas"
 
 # Translations for contactUs.jade
+msgid "cu_success_sending"
+msgstr "Exito al enviar correo"
 
 msgid "cu_title"
 msgstr "Contáctenos"
@@ -159,22 +176,42 @@ msgstr "Mensaje"
 msgid "cu_send_button"
 msgstr "Enviar"
 
+# Translations for showProject.jade
+
+msgid "sp_no_saved_projects"
+msgstr "No hay proyectos guardados."
+
+msgid "sp_remove_project"
+msgstr "Borrar proyecto."
+
+msgid "sp_load_project"
+msgstr "Cargar proyecto."
+
 # Translations for prepare cameras modal
 
 msgid "pcm_camera_error"
 msgstr "Hubo un error al preparar las cámaras. Asegúrese que estén conectadas y encendidas."
 
+msgid "pcm_capture_error"
+msgstr "Hubo un error de comunicación con las cámaras. Asegúrese que las cámaras estén funcionando. Haga clic en 'Continuar' para prepararlas nuevamente y seguir con el proceso de escaneo. Para configurar el enfoque debe colocar el libro en el escáner."
+
 msgid "pcm_project_created"
-msgstr "El proyecto fue creado exitosamente. Conecte y encienda las cámaras para prepararlas."
+msgstr "El proyecto fue creado exitosamente. Conecte y encienda las cámaras para prepararlas. Para configurar el enfoque debe colocar el libro en el escáner."
 
 msgid "pcm_project_loaded"
-msgstr "El proyecto fue cargado exitosamente. Conecte y encienda las cámaras para prepararlas."
+msgstr "El proyecto fue cargado exitosamente. Conecte y encienda las cámaras para prepararlas. Para configurar el enfoque debe colocar el libro en el escáner."
 
 msgid "pcm_return"
 msgstr "Regresar"
 
 msgid "pcm_continue"
 msgstr "Continuar"
+
+msgid "pcm_title"
+msgstr "Preparar cámaras"
+
+msgid "pcm_continue_no_cams"
+msgstr "Continuar sin cámaras"
 
 
 # Translations for checkOcr.jade
@@ -196,3 +233,14 @@ msgstr "Siguiente"
 
 msgid "co_save"
 msgstr "Guardar"
+
+# Tesseract languages
+
+msgid "spa"
+msgstr "Español"
+
+msgid "eng"
+msgstr "Inglés"
+
+msgid "por"
+msgstr "Portugués"

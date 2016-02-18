@@ -3,7 +3,7 @@
 #           index.jade -> i_ + id
 #           newProject.jade -> np_ + id
 #           aboutUs.jade -> au_ + id
-#           scan.jade -> c_ + id
+#           scan.jade -> s_ + id
 #           contactUs.jade -> cu_ + id
 #           outputPewview.jade -> op_ + id
 #           processingPhase.jade -> pp_ + id
@@ -16,16 +16,16 @@ msgstr ""
 # Translations for topbar.jade
 
 msgid "tb_guides"
-msgstr "Guides"
+msgstr "Guide"
 
 msgid "tb_how_to_scan"
 msgstr "How to scan?"
 
 msgid "tb_chdk_installation"
-msgstr "CHDK Installation"
+msgstr "Install CHDK"
 
 msgid "tb_set_scanner"
-msgstr "How to assemble the scanner?"
+msgstr "How to build a scanner"
 
 msgid "tb_languages"
 msgstr "Languages"
@@ -40,16 +40,16 @@ msgid "tb_portuguese_lang"
 msgstr "Portuguese"
 
 msgid "tb_guarani_lang"
-msgstr "Guarani"
+msgstr "Guaraní"
 
 msgid "tb_contact_us"
 msgstr "Contact"
 
 msgid "tb_about_us"
-msgstr "About"
+msgstr "About us"
 
 msgid "tb_loading_cams"
-msgstr "Preparing cams"
+msgstr "Preparing cameras"
 
 # Translations for index.jade
 
@@ -57,7 +57,7 @@ msgid "i_scan"
 msgstr "Scan"
 
 msgid "i_prev_scan"
-msgstr "Previous scans"
+msgstr "Load projects"
 
 # Translations for newProject.jade
 
@@ -65,13 +65,13 @@ msgid "np_new_project"
 msgstr "New Project"
 
 msgid "np_new_book_name_label"
-msgstr "Book's name"
+msgstr "Book's Name"
 
 msgid "np_new_book_description_label"
-msgstr "Book's description"
+msgstr "Book's Description"
 
 msgid "np_new_book_language"
-msgstr "Document's language"
+msgstr "Book's Language"
 
 msgid "np_new_book_create"
 msgstr "Create"
@@ -80,7 +80,7 @@ msgid "np_new_book_go_back"
 msgstr "Back"
 
 msgid "np_new_book_config_modal_title"
-msgstr "Advanced configuration"
+msgstr "Advance configuration"
 
 msgid "np_new_book_config_parameter_zoom"
 msgstr "Zoom"
@@ -91,42 +91,57 @@ msgstr "Apply"
 msgid "np_new_book_config_cancel_button"
 msgstr "Cancel"
 
+msgid "np_new_book_empty_info_error"
+msgstr "Please complete all form fields"
+
 # Translations for aboutUs.jade
 
 msgid "au_tab1_label"
 msgstr "About LibreScan"
 
 msgid "au_tab2_label"
-msgstr "Out team"
+msgstr "Our Team"
 
 msgid "au_tab3_label"
-msgstr "Get involved"
+msgstr "Get involve"
 
 msgid "au_tab1_text"
-msgstr "LibreScan is a free software tool created to ease the document scanning process"
+msgstr "Librescan is a free software developed to ease document scanning process"
 
 msgid "au_developers"
 msgstr "Developers"
 
 # Translations for scan.jade
 
-msgid "c_capture"
+msgid "s_capture"
 msgstr "Capture "
 
-msgid "c_repeat"
-msgstr "Repeat "
+msgid "s_repeat"
+msgstr "Repeat"
 
-msgid "c_next"
+msgid "s_next"
 msgstr "Next"
 
-msgid "c_cancel"
+msgid "s_cancel"
 msgstr "Cancel"
 
-msgid "c_processing_phase"
-msgstr "Processing Phase"
+msgid "s_processing_phase"
+msgstr "Processing phase"
 
-msgid "c_calculating_progress"
+msgid "s_processing_pics"
+msgstr "Processing pictures. Left items: "
+
+msgid "s_generating_output"
+msgstr "The pictures have been processed. Generating final document. When the button is enabled, click 'Next' to see the PDF."
+
+msgid "s_calculating_progress"
 msgstr "Calculating..."
+
+msgid "s_calibrate_message"
+msgstr "This button will calibrate the cameras, before pressing it, place the book on scanner like if you were going to take a picture."
+
+msgid "s_calibrate_success_message"
+msgstr "The cameras where calibrated successfully"
 
 # Translations for outputPreview.jade
 
@@ -137,23 +152,23 @@ msgid "op_finish"
 msgstr "Finish"
 
 msgid "op_modify_captures"
-msgstr "Modificar capturas"
+msgstr "Modify captures"
 
 # Translations for contactUs.jade
 msgid "cu_success_sending"
-msgstr "Success sending email"
+msgstr "Mail send successfully"
 
 msgid "cu_title"
 msgstr "Contact us"
 
 msgid "cu_title_footer"
-msgstr "We will be grateful to receive any message or recommendation."
+msgstr "We'll be please to receive any recommendation."
 
 msgid "cu_name_label"
 msgstr "Name"
 
 msgid "cu_email_label"
-msgstr "Your email"
+msgstr "Email"
 
 msgid "cu_message_label"
 msgstr "Message"
@@ -161,25 +176,42 @@ msgstr "Message"
 msgid "cu_send_button"
 msgstr "Send"
 
+# Translations for showProject.jade
+
+msgid "sp_no_saved_projects"
+msgstr "There are no projects to load"
+
+msgid "sp_remove_project"
+msgstr "Erase project"
+
+msgid "sp_load_project"
+msgstr "Load project"
+
 # Translations for prepare cameras modal
 
 msgid "pcm_camera_error"
-msgstr "There was an error while preparing cameras. Make sure they are connected and turned on."
+msgstr "An error occurred while preparing cameras. Make sure they are connected and turned on."
+
+msgid "pcm_capture_error"
+msgstr "A communication error occurred with the cameras. Make sure the cameras are working fine. Click 'Continue' to prepare them again and continue the scan process. To configure the cameras' focus distance again place a book in the scanner."
 
 msgid "pcm_project_created"
-msgstr "The project was succesfully created. Connect and turn the cameras on to prepare them."
+msgstr "Project created successfully. Connect and turn on the cameras to prepare them. To configure the cameras' focus distance place a book on the scanner."
 
 msgid "pcm_project_loaded"
-msgstr "The project was succesfully loaded. Connect and turn the cameras on to prepare them."
+msgstr "Project loaded successfully. Please connect and turn on the cameras to configure them. To configure the cameras' focus distance place a book on the scanner."
 
 msgid "pcm_return"
-msgstr "Return"
+msgstr "Back"
 
 msgid "pcm_continue"
 msgstr "Continue"
 
 msgid "pcm_title"
 msgstr "Prepare cameras"
+
+msgid "pcm_continue_no_cams"
+msgstr "Continue without cameras"
 
 
 # Translations for checkOcr.jade
@@ -194,10 +226,21 @@ msgid "co_pages"
 msgstr " pages."
 
 msgid "co_prev"
-msgstr "Previous"
+msgstr "Previews"
 
 msgid "co_next"
 msgstr "Next"
 
 msgid "co_save"
 msgstr "Save"
+
+# Tesseract languages
+
+msgid "spa"
+msgstr "Spanish"
+
+msgid "eng"
+msgstr "English"
+
+msgid "por"
+msgstr "Portuguese"

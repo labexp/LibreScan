@@ -20,6 +20,8 @@ class ProjectController:
 
     def new(self):
         available_langs = ProjectService().get_available_languages()
+        black_list = ['equ', 'osd']
+        available_langs = {x for x in available_langs if x not in black_list}
         return self.env.get_template('newProject.jade').render(langs=available_langs)
 
     def create(self):
