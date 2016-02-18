@@ -95,4 +95,10 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 - Corremos el setup para la creación de carpetas y archivos de configuración.
 
 		$ python3.4 setup.py
+		
+- Para ejecutar la aplicación web
+
+		$ python3.4 main.py web
+
+- Por último, abrimos el navegador en http://0.0.0.0:8180
 
