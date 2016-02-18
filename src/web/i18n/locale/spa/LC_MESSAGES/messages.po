@@ -30,10 +30,10 @@ msgstr "¿Cómo armar el escaner?"
 msgid "tb_languages"
 msgstr "Idiomas"
 
-msgid "tb_spaniss_lang"
+msgid "tb_spanish_lang"
 msgstr "Español"
 
-msgid "tb_engliss_lang"
+msgid "tb_english_lang"
 msgstr "Inglés"
 
 msgid "tb_portuguese_lang"
@@ -63,9 +63,6 @@ msgstr "Escaneos anteriores"
 
 msgid "np_new_project"
 msgstr "Nuevo Proyecto"
-
-msgid "np_new_book_name_label"
-msgstr "Nombre del Libro"
 
 msgid "np_new_book_name_label"
 msgstr "Nombre del Libro"
@@ -237,3 +234,13 @@ msgstr "Siguiente"
 msgid "co_save"
 msgstr "Guardar"
 
+# Tesseract languages
+
+msgid "spa"
+msgstr "Español"
+
+msgid "eng"
+msgstr "Inglés"
+
+msgid "por"
+msgstr "Portugués"

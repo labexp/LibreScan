@@ -1,43 +1,19 @@
-from models.project import Project
-from services.scannerService import CameraService
-from services.projectService import ProjectService
-from services.queueService import QueueService
-from utils.taskManager import TaskManager
+#!/usr/bin/python
 
+from web.i18n.PoParser import PoParser
+from web.libreScanWeb import LibreScanWeb
+import sys
 
-def main():
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print('You most provide at least one argument.')
+        print('Usted debe de proveer al menos un argumento.')
+        sys.exit(0)
 
-    # Project service in charge of creating the new project
-    ps = ProjectService()
-    book_name = input("Ingrese el nombre del libro que va a escanear: ")
-    book_description = input("Ingrese alguna descripcion adicional: ")
-    print("")
-    project = Project(None, book_name, book_description, 'spa', None, ['pdfbeads'])
-    project_path = ps.create(project)
-    print(project_path)
-
-    # TaskManager instance will be used in the threads queue and it will generate the final product.
-    t = TaskManager(project_path)
-    q = QueueService(p_task_manager=t)
-
-    print("Preparando camaras....")
-    cs = CameraService(project_path)
-    cs.set_camera_config()
-    cs.prepare_cams()
-
-    # The next code will take pictures until the user enters an s.
-    user_input = input("Presione una tecla para tomar una foto o s para salir: ")
-    while user_input != "s":
-        taken_pictures = cs.take_pictures()
-        q.push(taken_pictures)
-        user_input = input("Presione una tecla para tomar una foto o s para salir: ")
-
-    # Blocks the program until the queue threads finish their job.
-    q.wait_process()
-
-    # Generates the final products and place them in the new project path's root.
-    t.generate()
-
-    print("Producto finalizado, puede observarlo en la ruta " + project_path)
-
-main()
+    if sys.argv[1] == 'web':
+        PoParser.compile_po_files()
+        app = LibreScanWeb()
+        app.run_app()
+    else:
+        print('Argument not valid.')
+        print('El argumento ingresado no es válido.')
