@@ -1,5 +1,7 @@
 # LibreScan
 
+### Instalación
+
 - Instalar dependencias que serán utilizadas:
 
 		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg1-dev
@@ -84,6 +86,9 @@ nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp 
 Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario conecte las cámaras y decida la orientación sin crear el archivo manualmente.
 
 --------------------------------------------------------------------------------------------
+### Configuración y Uso
+
+
 - Una vez instaladas todas las dependencias, procedemos a clonar el repositorio de LibreScan (por ahora del branch develop).
 
 		$ git clone https://github.com/LabExperimental-SIUA/LibreScan/tree/develop
@@ -95,6 +100,8 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 - Corremos el setup para la creación de carpetas y archivos de configuración.
 
 		$ python3.4 setup.py
+		
+**NOTA: los pasos anteriores solo deben ser ejecutados una vez.**
 		
 - Para ejecutar la aplicación web
 
