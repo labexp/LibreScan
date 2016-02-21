@@ -101,6 +101,7 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 
 		$ python3.4 setup.py
 		
+
 **NOTA: los pasos anteriores solo deben ser ejecutados una vez.**
 		
 - Para ejecutar la aplicación web
@@ -108,4 +109,6 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 		$ python3.4 main.py web
 
 - Por último, abrimos el navegador en http://0.0.0.0:8180
+
+- Para ejecutar la aplicación web
 
