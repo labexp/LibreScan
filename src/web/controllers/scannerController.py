@@ -56,9 +56,12 @@ class ScannerController:
 
     def get_process_progress(self):
         items_left = self.queue_service.queue.qsize()
+        if items_left == 0:
+            self.queue_service.wait_process()
         return {'itemsLeft': items_left}
 
     def stop_scanning(self):
+        print(self.pending_pics)
         self.queue_service.push(self.pending_pics)
         return {'ready': True}
 

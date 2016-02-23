@@ -50,7 +50,7 @@ class ScannerService(metaclass=Singleton):
         return pic_names
 
     def prepare_cams(self):
-        self.cam_driver.detect_cams()
+        self.cam_driver.detect()
         self.cam_driver.prepare(self.camera_config)
 
     def rotate_photos(self, p_left_photo, p_right_photo):
