@@ -76,7 +76,7 @@ note: <ClonedFolder>/chdkptp is the directory where CHDKPTP was cloned (the firs
 
 --------------------------------------------------------------------------------------------
 
-Its necessary to have CHDK installed in the cameras. (In case of not having it you can follow this guide. We recommend to use the method "a"):
+It's necessary to have CHDK installed in the cameras. (In case of not having it you can follow this guide. We recommend to use the method "a"):
 https://github.com/LabExperimental-SIUA/ilt/wiki/Instalaci%C3%B3n-de-CHDK 
 
 To know which camera is the right one or the left one we create a file called
