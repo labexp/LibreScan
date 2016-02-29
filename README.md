@@ -73,6 +73,9 @@ nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp 
 		# ln -s /usr/bin/chdkptp/chdkptp /bin
 
 --------------------------------------------------------------------------------------------
+- Es necesario tener CHDK instalado en las cámaras. (En caso de no tenerlo se puede seguir esta guía. Se recomienda usar el método "a"): 
+https://github.com/LabExperimental-SIUA/ilt/wiki/Instalaci%C3%B3n-de-CHDK 
+
 - Para reconocer cuál cámara es la derecha y cuál es la izquierda hacemos uso de un archivo 'orientation.txt', que se encuentra almacenado la raíz de la tarjeta SD de cada cámara. Por ahora este proceso se debe hacer manualmente, introduciendo la SD en la computadora y creando el archivo manualmente. Pasos:
 	
 	1. Asegurarse que la SD esté desbloqueada.
