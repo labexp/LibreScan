@@ -87,9 +87,9 @@ https://github.com/LabExperimental-SIUA/ilt/wiki/Instalaci%C3%B3n-de-CHDK
 Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario conecte las cámaras y decida la orientación sin crear el archivo manualmente.
 
 --------------------------------------------------------------------------------------------
-- Una vez instaladas todas las dependencias, procedemos a clonar el repositorio de LibreScan (por ahora del branch develop).
+- Una vez instaladas todas las dependencias, procedemos a clonar el repositorio de LibreScan.
 
-		$ git clone https://github.com/LabExperimental-SIUA/LibreScan/tree/develop
+		$ git clone https://github.com/LabExperimental-SIUA/LibreScan.git
 
 - Nos metemos a la carpeta clonada, y al código fuente.
 
