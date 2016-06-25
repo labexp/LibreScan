@@ -1,6 +1,6 @@
 ﻿# LibreScan
 
-### Instalation
+### Installation
 
 - Install the dependencies that will be used.
 
