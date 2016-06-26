@@ -121,7 +121,7 @@ Actualmente el software funciona en el sistema operativo Debian 8 Jessie. Existe
 --------------------------------------------------------------------------------------------
 ## Configuración y Uso
 
-- Nos metemos al código fuente de la carpeta clonada:
+- Ingresamos al código fuente del repositorio clonado:
 
 		$ cd LibreScan/src
 
