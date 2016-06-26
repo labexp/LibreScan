@@ -9,18 +9,23 @@ Actualmente el software funciona en el sistema operativo Debian 8 Jessie. Existe
 1. Forma resumida:
 
 - Clonar este repositorio:
+
 		$ git clone https://github.com/LabExperimental-SIUA/LibreScan.git
 
 - Entrar en la carpeta clonada:
+
 		$ cd LibreScan
 
 - Como root, sobreescribir el sources.list del sistema operativo
+
 		# cp apt.sources /etc/apt/sources.list
 
 - Dar permisos de ejecución al script Dependencies.sh:
+
 		# chmod +x Dependencies.sh
 
 - Ejecutar el script de instalación de dependencias:
+
 		# sh Dependencies.sh
 
 2. Forma manual:
