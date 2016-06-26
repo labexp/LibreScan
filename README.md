@@ -20,6 +20,10 @@ Actualmente el software funciona en el sistema operativo Debian 8 Jessie. Existe
 	
 			# cp apt.sources /etc/apt/sources.list
 	
+	- Actualizar lista de paquetes de los repositorios:
+	
+			# apt-get update
+	
 	- Dar permisos de ejecución al script Dependencies.sh:
 	
 			# chmod +x Dependencies.sh
