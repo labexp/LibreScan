@@ -3,8 +3,8 @@
 ### Installation
 
 - Install the dependencies that will be used.
-
-		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg1-dev
+		
+		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libffi-dev libturbojpeg1-dev libssl-dev libjpeg8-dev libjpeg8
 
 		# pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
 
@@ -25,10 +25,6 @@
 - Install scantailor for photo processing:
 
 		# apt-get install scantailor
-	
-	Note: If it is not found using the currrent repositories, add the following line to /etc/apt/sources.list: 
-
-		- deb http://http.debian.net/debian wheezy-backports main
 
 		Remember to use # apt-get update
 
