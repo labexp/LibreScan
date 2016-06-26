@@ -11,3 +11,7 @@ deb http://security.debian.org/ jessie/updates main contrib non-free
 deb http://ftp.au.debian.org/debian/ jessie-proposed-updates main contrib non-free 
 deb-src http://security.debian.org/ jessie/updates main contrib non-free 
 deb-src http://ftp.au.debian.org/debian/ jessie-proposed-updates main contrib non-free 
+
+###### Wheezy repositories
+deb http://ftp.debian.org/debian/ wheezy main
+deb-src http://ftp.debian.org/debian/ wheezy main
