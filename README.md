@@ -114,6 +114,7 @@ https://github.com/LabExperimental-SIUA/ilt/wiki/Instalaci%C3%B3n-de-CHDK
 Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario conecte las cámaras y decida la orientación sin crear el archivo manualmente.
 
 - Clonar el repositorio:
+
 		$ git clone https://github.com/LabExperimental-SIUA/LibreScan.git
 
 --------------------------------------------------------------------------------------------
