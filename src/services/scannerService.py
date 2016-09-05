@@ -4,7 +4,7 @@ import yaml
 
 from models.cameraConfig import CameraConfig
 from patterns.singleton import Singleton
-from utils.chdkptpPT import ChdkptpPT
+from utils.camera.impl.chdkptpPT import ChdkptpPT
 from jpegtran import JPEGImage
 
 
@@ -46,6 +46,7 @@ class ScannerService(metaclass=Singleton):
         try:
             self.rotate_photos(pic_names[0], pic_names[1])
         except:
+            print("Exception while rotating pictures.")
             return -1
         return pic_names
 
@@ -69,7 +70,7 @@ class ScannerService(metaclass=Singleton):
             except:
                 print('Pictures not found yet')
                 time.sleep(0.5)
-                if tries > 5:
+                if tries > 20:
                     raise Exception
             tries += 1
 

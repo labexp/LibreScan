@@ -1,7 +1,5 @@
-import os
 import subprocess
-
-from utils.outputMaker import OutputMaker
+from utils.output.outputMaker import OutputMaker
 
 
 class PDFBeads(OutputMaker):

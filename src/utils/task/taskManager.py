@@ -1,6 +1,6 @@
 import yaml
-from utils.scantailor import Scantailor
-from utils.tesseract import Tesseract
+from utils.task.impl.scantailor import Scantailor
+from utils.task.impl.tesseract import Tesseract
 
 
 class TaskManager:

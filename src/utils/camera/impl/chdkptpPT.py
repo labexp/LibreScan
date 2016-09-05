@@ -1,10 +1,8 @@
 import re
 from subprocess import check_output
 from time import sleep
-
 from pexpect import spawn as shell
-
-from utils.cameraDriver import CameraDriver
+from utils.camera.cameraDriver import CameraDriver
 
 
 class ChdkptpPT(CameraDriver):
@@ -19,7 +17,7 @@ class ChdkptpPT(CameraDriver):
     def prepare(self, p_cam_config):
         zoom = p_cam_config.zoom
         self.rec_mode()
-        self.set_quality()
+        # self.set_quality()
         self.set_zoom(zoom)
         self.calibrate()
 
@@ -57,9 +55,9 @@ class ChdkptpPT(CameraDriver):
 
     def rec_mode(self):
         self._execute('rec')
-        print("Se puso en rec")
 
     def shoot(self, p_save_path, p_pic_names):
+        # remoteshoot /home/user/lsp00001 -tv=1/25 -sv=80
         cams = self.cams
         cams['right'].sendline('remoteshoot {0}{1} -tv=1/25 -sv={2}'.format(p_save_path, p_pic_names[0], str(80)))
         cams['left'].sendline('remoteshoot {0}{1} -tv=1/25 -sv={2}'.format(p_save_path, p_pic_names[1], str(80)))
@@ -79,11 +77,10 @@ class ChdkptpPT(CameraDriver):
         cam.sendline('download orientation.txt /tmp/')
         cam.expect('A/.*', timeout=5)
 
-        print(cam.after.decode())
-
-        orientation = check_output('cat /tmp/orientation.txt', shell=True).decode()
+        orientation = check_output('cat /tmp/orientation.txt', shell=True).decode().strip()
         self.cams[orientation] = cam
 
+    # Figure out why is affecting a2200
     def set_quality(self):
         cams = self.cams
         command = ("luar props=require('propcase'); "
@@ -99,15 +96,12 @@ class ChdkptpPT(CameraDriver):
     def _cameras_wait(self):
         cams = self.cams
         for cam in cams:
-            cams[cam].expect('con .*> ', timeout=5)
+            cams[cam].expect('con .*> ', timeout=10)
 
     def _execute(self, command):
         cams = self.cams
         if not cams:
-            print ('excepcion')
             raise Exception
-
-        print ('sigue')
         for cam in cams:
             cams[cam].sendline(command)
         self._cameras_wait()
