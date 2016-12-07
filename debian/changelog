@@ -1,0 +1,5 @@
+librescan (1.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Jose Paulo <yock@unknown>  Tue, 23 Aug 2016 18:16:28 -0600
