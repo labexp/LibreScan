@@ -20,8 +20,8 @@ from web.controllers.ocrEditorController import OcrEditorController
 class LibreScanWeb:
 
     def __init__(self):
-        self.host = '0.0.0.0'
-        self.port = '8180'
+        self.host = '127.0.0.1'
+        self.port = '3333'
         self.app = Bottle()
         self.default_language = 'spa'
         self.env = self.init_environment()

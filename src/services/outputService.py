@@ -1,5 +1,5 @@
-from utils.pdfBeads import PDFBeads
-from utils.outputPreparer import OutputPreparer
+from utils.output.impl.pdfBeads import PDFBeads
+from utils.output.outputPreparer import OutputPreparer
 from patterns.singleton import Singleton
 import threading
 

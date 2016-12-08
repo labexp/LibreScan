@@ -1,4 +1,4 @@
-apt-get -y install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg1-dev
+apt-get -y install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libjpeg8-dev libssl-dev libffi-dev libturbojpeg1-dev
 pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
 pip3 install jpegtran-cffi==0.5.2
 

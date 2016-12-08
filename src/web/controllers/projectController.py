@@ -5,7 +5,7 @@ from services.scannerService import ScannerService
 from services.queueService import QueueService
 from services.projectService import ProjectService
 from services.outputService import OutputService
-from utils.taskManager import TaskManager
+from utils.task.taskManager import TaskManager
 from bottle import request
 
 
@@ -29,7 +29,8 @@ class ProjectController:
         name = params['project_name']
         description = params['project_description']
         language = params['config']['language']
-        camera_config = CameraConfig(params['config']['zoom'], 0)
+        zoom = int(params['config']['zoom'])
+        camera_config = CameraConfig(zoom, 0)
         project = Project(None, name, description, language, camera_config, ['pdfbeads'])
         project_path = self.project_service.create(project)
         status = self.prepare_services(project_path)

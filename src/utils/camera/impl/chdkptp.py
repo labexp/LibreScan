@@ -2,9 +2,10 @@
 import subprocess
 from subprocess import call
 from model.camera import Camera
+from utils.cameraDriver import CameraDriver
 
 
-class Chdkptp:
+class Chdkptp(CameraDriver):
 
     # chdk_path to CHDKPTP
     global chdk_path

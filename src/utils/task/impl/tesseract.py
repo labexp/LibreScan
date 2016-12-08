@@ -1,5 +1,5 @@
 import subprocess
-from utils.task import Task
+from utils.task.task import Task
 
 
 class Tesseract(Task):

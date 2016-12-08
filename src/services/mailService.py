@@ -7,7 +7,7 @@ class MailService(metaclass=Singleton):
     server = "localhost"
 
     def get_email_receiver(self):
-        return "melvin.aep@hotmail.com"
+        return "librescan@gmail.com"
 
     # Formats the mail msg with the sender information and the body msg.
     def prepare_msg(self, p_name, p_msg, p_phone, p_from):
@@ -16,7 +16,6 @@ class MailService(metaclass=Singleton):
         Tel: %s
         Cuerpo del mensaje: %s
         """ % (p_name, p_from, p_phone, p_msg)
-        print(msg)
         return msg
 
     def send(self, mail):
