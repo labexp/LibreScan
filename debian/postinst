@@ -10,5 +10,9 @@ pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
 pip3 install jpegtran-cffi==0.5.2
 
 # Create symlink to /usr/bin
-ln -s /usr/share/LibreScan/bin/librescan
+ln -s /usr/share/LibreScan/bin/librescan.sh /usr/bin/librescan
+
+# Compiling locales
+cd /usr/share/LibreScan/src/
+python3 compile_messages.py
 
