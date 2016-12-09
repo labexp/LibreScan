@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# Kill all other running instances
+
+kill `ps aux | grep main.py | awk '{print $2}' | xargs`
+
+# Run the application
+python3 /usr/share/LibreScan/src/main.py web
+
+# Run web browser
+/usr/bin/www-browser http://localhost:8180/

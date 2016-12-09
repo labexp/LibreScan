@@ -1,15 +1,13 @@
-Source: librescan
+Package: librescan
+Version: 1.1.0-0
+Architecture: all
+Maintainer: Laboratorio Experimental ITCR <librescan@gmail.com>
+Installed-Size: 21239
+Depends: python3-pip, lua5.2, liblua5.2-0, git-svn, libusb-dev, python3, python-dev, libturbojpeg, libjpeg62, libjpeg62-dev, libssl-dev, libffi-dev, tesseract-ocr, tesseract-ocr-spa, scantailor, ruby, ruby-dev, ruby-rmagick
 Section: text
 Priority: optional
-Maintainer: Laboratorio Experimental ITCR <librescan@gmail.com>
-Build-Depends: debhelper (>=9)
-Standards-Version: 3.9.6
 Homepage: http://labexperimental-siua.github.io/LibreScan/
-
-Package: librescan
-Architecture: all
-Depends: python3-pip, lua5.2, liblua5.2-0, git-svn, libusb-dev, python3, python-dev, libturbojpeg, libjpeg62, libjpeg62-dev, libssl-dev, libffi-dev, tesseract-ocr, tesseract-ocr-spa, scantailor, ruby, ruby-dev, ruby-rmagick
-Description:  Herramienta para digitalización de textos impresos
+Description: Herramienta para digitalización de textos impresos
  LibreScan es un proyecto de Software Libre desarrollado en el Laboratorio
  Experimental del Centro Académico de Alajuela, sede del Instituto Tecnológico
  de Costa Rica cuyo objetivo es promover el acceso libre al conocimento y la

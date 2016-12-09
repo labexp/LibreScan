@@ -1,0 +1,5 @@
+#!/bin/sh
+
+gem install iconv pdfbeads
+pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
+pip3 install jpegtran-cffi==0.5.2
