@@ -11,7 +11,6 @@ if __name__ == '__main__':
         sys.exit(0)
 
     if sys.argv[1] == 'web':
-        PoParser.compile_po_files()
         app = LibreScanWeb()
         app.run_app()
     else:
