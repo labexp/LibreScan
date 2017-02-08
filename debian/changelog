@@ -1,0 +1,11 @@
+librescan (1.1.0-0) stable; urgency=low
+
+  * Bug fix
+
+ -- Equipo LibreScan <librescan@gmail.com>  Fri, 09 Dec 2016 07:56:34 -0600 
+ 
+librescan (1.0.0-0) stable; urgency=low
+
+  * Initial release 
+
+ -- Equipo LibreScan <librescan@gmail.com>  Fri, 09 Jul 2016 07:56:34 -0600 
