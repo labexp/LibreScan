@@ -5,14 +5,12 @@
 # Ruby
 gem install iconv pdfbeads
 
-# Python3
-pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
-pip3 install jpegtran-cffi==0.5.2
+cd /usr/share/LibreScan/src/
+# Python dependencies
+pip3 install -r requirements.txt
+
+# Compiling locales
+python3 setup.py
 
 # Create symlink to /usr/bin
 ln -s /usr/share/LibreScan/bin/librescan.sh /usr/bin/librescan
-
-# Compiling locales
-cd /usr/share/LibreScan/src/
-python3 compile_messages.py
-
