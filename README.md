@@ -4,10 +4,6 @@
 
 		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg1-dev
 
-		# pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
-
-		# pip3 install jpegtran-cffi==0.5.2
-
 --------------------------------------------------------------------------------------------
 
 - Instalar tesseract-ocr para el reconocimiento de texto:
@@ -94,6 +90,10 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 - Nos metemos a la carpeta clonada, y al código fuente.
 
 		$ cd LibreScan/src
+
+- Instalamos las dependencias de Python
+        
+        $ pip3 install -r requirements.txt
 
 - Corremos el setup para la creación de carpetas y archivos de configuración.
 
