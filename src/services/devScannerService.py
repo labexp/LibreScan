@@ -1,11 +1,10 @@
 import time
 import os
 import yaml
-
+from jpegtran import JPEGImage
 from shutil import copyfile
 from models.cameraConfig import CameraConfig
 from patterns.singleton import Singleton
-from jpegtran import JPEGImage
 
 
 class DevScannerService(metaclass=Singleton):
@@ -40,7 +39,7 @@ class DevScannerService(metaclass=Singleton):
             self.pic_number += 1
             pic_names.append("lsp" + str(self.pic_number).zfill(5))
 
-            # Copy development pictures (/resources/devModePics) in the raw directory.
+            # Copy development pics (/resources/devModePics) in the raw dir.
             dev_pic = self.dev_pics_dir + self.dev_pics[self.dev_pics_index[0]]
             dest_path = save_path + pic_names[0] + ".jpg"
             copyfile(dev_pic, dest_path)
@@ -49,8 +48,10 @@ class DevScannerService(metaclass=Singleton):
             copyfile(dev_pic, dest_path)
 
             # Increase the dev pictures index (in a circular way).
-            self.dev_pics_index[0] = (self.dev_pics_index[0] + 2) % len(self.dev_pics)
-            self.dev_pics_index[1] = (self.dev_pics_index[1] + 2) % len(self.dev_pics)
+            self.dev_pics_index[0] = ((self.dev_pics_index[0] + 2)
+                                      % len(self.dev_pics))
+            self.dev_pics_index[1] = ((self.dev_pics_index[1] + 2)
+                                      % len(self.dev_pics))
 
             self.insert_pics_to_file(-1, pic_names)
             self.update_last_pic_number(self.pic_number)
@@ -108,7 +109,8 @@ class DevScannerService(metaclass=Singleton):
         f.close()
         data_map['camera']['last-pic-number'] = p_pic_number
         f = open(config_path, 'w')
-        f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
+        f.write(yaml.dump(data_map, default_flow_style=False,
+                allow_unicode=True))
         f.close()
 
     def insert_pics_to_file(self, p_index, pic_list):
