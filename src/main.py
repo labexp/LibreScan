@@ -1,8 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
-from web.i18n.PoParser import PoParser
-from web.libreScanWeb import LibreScanWeb
 import sys
+from web.libreScanWeb import LibreScanWeb
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
