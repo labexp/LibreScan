@@ -1,8 +1,8 @@
-pyYAML
-bottle
-pyjade
-jinja2
-polib
-cffi
-pexpect
+pyYAML == 3.11
+bottle == 0.12.9
+pyjade == 4.0.0
+jinja2 == 2.8
+polib == 1.0.7
+cffi == 1.8.3
+pexpect == 4.2.1
 jpegtran-cffi==0.5.2
