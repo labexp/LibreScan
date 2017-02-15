@@ -7,6 +7,7 @@ from services.outputService import OutputService
 from services.ocrEditorService import OcrEditorService
 from jinja2 import Environment, FileSystemLoader
 
+from services.devScannerService import DevScannerService
 from services.scannerService import ScannerService
 from web.controllers.languageController import LanguageController
 from web.controllers.mailController import MailController
@@ -20,6 +21,7 @@ from web.controllers.ocrEditorController import OcrEditorController
 class LibreScanWeb:
 
     def __init__(self):
+        self.dev_mode = os.environ["LS_DEV_MODE"] == "True"
         self.host = '127.0.0.1'
         self.port = '3333'
         self.app = Bottle()
@@ -83,7 +85,10 @@ class LibreScanWeb:
         self.app.route('/ocrs', method="GET", callback=self.controllers['ocr_editor'].show)
 
     def init_controllers(self):
-        scanner_service = ScannerService()
+        if self.dev_mode:
+            scanner_service = DevScannerService()
+        else:
+            scanner_service = ScannerService()
         mail_service = MailService()
         project_service = ProjectService()
         queue_service = QueueService()

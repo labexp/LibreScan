@@ -1,6 +1,7 @@
 import os
 from models.cameraConfig import CameraConfig
 from models.project import Project
+from services.devScannerService import DevScannerService
 from services.scannerService import ScannerService
 from services.queueService import QueueService
 from services.projectService import ProjectService
@@ -58,11 +59,13 @@ class ProjectController:
         return self.env.get_template('showProjects.jade').render(projects=project_list)
 
     def prepare_services(self, p_working_dir, p_pic_number=0):
-
         queue_service = QueueService()
         queue_service.clean_queue()
         queue_service.wait_process()
-        scanner_service = ScannerService(p_pic_number=p_pic_number)
+        if os.environ["LS_DEV_MODE"] == "True":
+            scanner_service = DevScannerService(p_pic_number=p_pic_number)
+        else:
+            scanner_service = ScannerService(p_pic_number=p_pic_number)
         scanner_service.working_dir = p_working_dir
         queue_service.task_manager = TaskManager(p_working_dir)
         OutputService(p_working_dir, "out")
