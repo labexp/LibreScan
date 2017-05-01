@@ -13,21 +13,17 @@ class ScannerController:
 
     def scan(self):
         if self.scanner_service is None:
-            # TODO
             return {'status': -1}
         last_pics = self.scanner_service.get_last_photo_names()
         return self.env.get_template('scan.jade').render(last_pics=last_pics)
 
     def create_photos(self):
-
         pic_names = self.scanner_service.take_pictures()
-
         if pic_names == -1:
             return {'status': -1}
         if len(self.pending_pics) != 0:
             self.queue_service.push(self.pending_pics)
         self.pending_pics = pic_names
-
         return {'status': 1, 'photo1': pic_names[0], 'photo2': pic_names[1], 'status': 1}
 
     def update_photos(self):
@@ -56,9 +52,12 @@ class ScannerController:
 
     def get_process_progress(self):
         items_left = self.queue_service.queue.qsize()
+        if items_left == 0:
+            self.queue_service.wait_process()
         return {'itemsLeft': items_left}
 
     def stop_scanning(self):
+        print(self.pending_pics)
         self.queue_service.push(self.pending_pics)
         return {'ready': True}
 

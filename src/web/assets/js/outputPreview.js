@@ -1,7 +1,6 @@
 
 var ready = function() {
-
-    $('#pdf-preview').attr( "src", "/pdf");
+    //$('#pdf-preview').attr( "src", "/pdf");
 
 };
 

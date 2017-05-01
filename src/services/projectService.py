@@ -8,6 +8,7 @@ import time
 
 
 class ProjectService(metaclass=Singleton):
+
     def __init__(self):
         self.config_folder = os.environ["HOME"] + "/.librescan"
         self.project_path = None
@@ -24,6 +25,7 @@ class ProjectService(metaclass=Singleton):
         # Creates the project config template with default values.
         src = self.config_folder + "/defaultProjectConfig.yaml"
         destiny = new_project_path + "/.projectConfig.yaml"
+
         os.system("cp " + src + " " + destiny)
         os.system("touch " + new_project_path + "/.pics.ls")
         os.system("touch " + new_project_path + "/.toDelete.ls")
@@ -56,7 +58,6 @@ class ProjectService(metaclass=Singleton):
     def load(self, p_project_path):
         self.project_path = p_project_path
         pics_file = self.project_path + '/.pics.ls'
-        print(pics_file)
         f = open(pics_file, "r")
         contents = f.readlines()
         f.close()

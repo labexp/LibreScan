@@ -1,8 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+import os
 
-from web.i18n.PoParser import PoParser
-from web.libreScanWeb import LibreScanWeb
 import sys
+from web.libreScanWeb import LibreScanWeb
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -11,7 +11,9 @@ if __name__ == '__main__':
         sys.exit(0)
 
     if sys.argv[1] == 'web':
-        PoParser.compile_po_files()
+        os.environ["LS_DEV_MODE"] = "False"
+        if len(sys.argv) > 2:
+            os.environ["LS_DEV_MODE"] = str(sys.argv[2] == '--dev')
         app = LibreScanWeb()
         app.run_app()
     else:

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Install extra dependencies
+
+# Ruby
+gem install iconv pdfbeads
+
+cd /usr/share/LibreScan/src/
+# Python dependencies
+pip3 install -r requirements.txt
+
+# Compiling locales
+python3 setup.py
+
+# Create symlink to /usr/bin
+ln -s /usr/share/LibreScan/bin/librescan.sh /usr/bin/librescan

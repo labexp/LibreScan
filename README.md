@@ -4,10 +4,6 @@
 
 		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg1-dev
 
-		# pip3 install pyYAML bottle pyjade jinja2 polib cffi pexpect
-
-		# pip3 install jpegtran-cffi==0.5.2
-
 --------------------------------------------------------------------------------------------
 
 - Instalar tesseract-ocr para el reconocimiento de texto:
@@ -73,6 +69,9 @@ nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp 
 		# ln -s /usr/bin/chdkptp/chdkptp /bin
 
 --------------------------------------------------------------------------------------------
+- Es necesario tener CHDK instalado en las cámaras. (En caso de no tenerlo se puede seguir esta guía. Se recomienda usar el método "a"): 
+https://github.com/LabExperimental-SIUA/ilt/wiki/Instalaci%C3%B3n-de-CHDK 
+
 - Para reconocer cuál cámara es la derecha y cuál es la izquierda hacemos uso de un archivo 'orientation.txt', que se encuentra almacenado la raíz de la tarjeta SD de cada cámara. Por ahora este proceso se debe hacer manualmente, introduciendo la SD en la computadora y creando el archivo manualmente. Pasos:
 	
 	1. Asegurarse que la SD esté desbloqueada.
@@ -84,15 +83,24 @@ nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp 
 Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario conecte las cámaras y decida la orientación sin crear el archivo manualmente.
 
 --------------------------------------------------------------------------------------------
-- Una vez instaladas todas las dependencias, procedemos a clonar el repositorio de LibreScan (por ahora del branch develop).
+- Una vez instaladas todas las dependencias, procedemos a clonar el repositorio de LibreScan.
 
-		$ git clone https://github.com/LabExperimental-SIUA/LibreScan/tree/develop
+		$ git clone https://github.com/LabExperimental-SIUA/LibreScan.git
 
 - Nos metemos a la carpeta clonada, y al código fuente.
 
 		$ cd LibreScan/src
 
+- Instalamos las dependencias de Python
+        
+        $ pip3 install -r requirements.txt
+
 - Corremos el setup para la creación de carpetas y archivos de configuración.
 
 		$ python3.4 setup.py
+		
+- Para ejecutar la aplicación web
 
+		$ python3.4 main.py web
+
+- Por último, abrimos el navegador en http://0.0.0.0:8180

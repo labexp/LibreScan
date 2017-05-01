@@ -1,5 +1,5 @@
-from queue import Queue
 import threading
+from queue import Queue
 from patterns.singleton import Singleton
 
 
@@ -37,3 +37,6 @@ class QueueService(metaclass=Singleton):
         with self.queue.mutex:
             self.queue.queue.clear()
         print("The queue has been cleaned")
+
+    def get_active_threads(self):
+        return threading.active_count()

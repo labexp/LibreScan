@@ -1,19 +1,20 @@
 import time
 import os
 import yaml
-
+from jpegtran import JPEGImage
+from shutil import copyfile
 from models.cameraConfig import CameraConfig
 from patterns.singleton import Singleton
-from utils.camera.impl.chdkptpPT import ChdkptpPT
-from jpegtran import JPEGImage
 
 
-class ScannerService(metaclass=Singleton):
+class DevScannerService(metaclass=Singleton):
     def __init__(self, p_working_dir=None, p_pic_number=0):
+        self.dev_pics_dir = 'resources/devModePics/'
+        self.dev_pics = sorted(os.listdir(self.dev_pics_dir))
+        self.dev_pics_index = [0, 1]
         self.working_dir = p_working_dir
         self.camera_config = None
         self.pic_number = p_pic_number
-        self.cam_driver = ChdkptpPT()
 
     def set_save_path(self, p_working_dir):
         self.working_dir = p_working_dir + "/raw/"
@@ -37,7 +38,21 @@ class ScannerService(metaclass=Singleton):
             pic_names.append("lsp" + str(self.pic_number).zfill(5))
             self.pic_number += 1
             pic_names.append("lsp" + str(self.pic_number).zfill(5))
-            self.cam_driver.shoot(save_path, pic_names)
+
+            # Copy development pics (/resources/devModePics) in the raw dir.
+            dev_pic = self.dev_pics_dir + self.dev_pics[self.dev_pics_index[0]]
+            dest_path = save_path + pic_names[0] + ".jpg"
+            copyfile(dev_pic, dest_path)
+            dev_pic = self.dev_pics_dir + self.dev_pics[self.dev_pics_index[1]]
+            dest_path = save_path + pic_names[1] + ".jpg"
+            copyfile(dev_pic, dest_path)
+
+            # Increase the dev pictures index (in a circular way).
+            self.dev_pics_index[0] = ((self.dev_pics_index[0] + 2)
+                                      % len(self.dev_pics))
+            self.dev_pics_index[1] = ((self.dev_pics_index[1] + 2)
+                                      % len(self.dev_pics))
+
             self.insert_pics_to_file(-1, pic_names)
             self.update_last_pic_number(self.pic_number)
         except:
@@ -51,8 +66,7 @@ class ScannerService(metaclass=Singleton):
         return pic_names
 
     def prepare_cams(self):
-        self.cam_driver.detect()
-        self.cam_driver.prepare(self.camera_config)
+        print("Preparing cameras...")
 
     def rotate_photos(self, p_left_photo, p_right_photo):
         pictures_found = False
@@ -95,7 +109,8 @@ class ScannerService(metaclass=Singleton):
         f.close()
         data_map['camera']['last-pic-number'] = p_pic_number
         f = open(config_path, 'w')
-        f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
+        f.write(yaml.dump(data_map, default_flow_style=False,
+                allow_unicode=True))
         f.close()
 
     def insert_pics_to_file(self, p_index, pic_list):
@@ -127,4 +142,5 @@ class ScannerService(metaclass=Singleton):
         return last_pics
 
     def recalibrate(self):
-        return self.cam_driver.calibrate()
+        print("Recalibrating cameras....")
+        return 1
