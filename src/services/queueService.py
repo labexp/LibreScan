@@ -1,6 +1,7 @@
-import threading
-from queue import Queue
 from patterns.singleton import Singleton
+from queue import Queue
+import threading
+from utils.task.taskManager import TaskManager
 
 
 class QueueService(metaclass=Singleton):
@@ -8,6 +9,8 @@ class QueueService(metaclass=Singleton):
     def __init__(self, p_worker_threads=2):
         self.queue = Queue()
         self.worker_threads = p_worker_threads
+        self.task_manager = TaskManager()
+        self.reset_queue()
         for i in range(self.worker_threads):
             t = threading.Thread(target=self.start)
             t.setDaemon(True)
@@ -16,7 +19,7 @@ class QueueService(metaclass=Singleton):
     def start(self):
         while True:
             item = [self.queue.get(block=True)]
-            print("Processing image: "+item[0])
+            print("Processing image: " + item[0])
             self.task_manager.process(item)
             self.queue.task_done()
 
@@ -38,5 +41,10 @@ class QueueService(metaclass=Singleton):
             self.queue.queue.clear()
         print("The queue has been cleaned")
 
-    def get_active_threads(self):
+    def reset_queue(self):
+        self.clean_queue()
+        self.wait_process()
+
+    @staticmethod
+    def get_active_threads():
         return threading.active_count()

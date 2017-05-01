@@ -19,7 +19,6 @@ from web.controllers.ocrEditorController import OcrEditorController
 
 
 class LibreScanWeb:
-
     def __init__(self):
         self.dev_mode = os.environ["LS_DEV_MODE"] == "True"
         self.host = '127.0.0.1'

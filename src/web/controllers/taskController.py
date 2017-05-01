@@ -1,5 +1,3 @@
-import base64
-
 from bottle import HTTPResponse
 
 
