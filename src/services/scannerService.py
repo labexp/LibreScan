@@ -1,5 +1,6 @@
 import time
-import os
+from os import getenv
+from os import remove
 import yaml
 
 from models.cameraConfig import CameraConfig
@@ -9,14 +10,11 @@ from jpegtran import JPEGImage
 
 
 class ScannerService(metaclass=Singleton):
-    def __init__(self, p_working_dir=None, p_pic_number=0):
-        self.working_dir = p_working_dir
+    def __init__(self, p_pic_number=0):
+        self.working_dir = getenv("LS_PROJECT_PATH")
         self.camera_config = None
         self.pic_number = p_pic_number
         self.cam_driver = ChdkptpPT()
-
-    def set_save_path(self, p_working_dir):
-        self.working_dir = p_working_dir + "/raw/"
 
     def set_camera_config(self):
         self.camera_config = self.get_configuration()
@@ -81,7 +79,7 @@ class ScannerService(metaclass=Singleton):
         f.close()
 
         for photo in p_photo_list:
-            os.remove(self.working_dir + "/raw/" + photo + ".jpg")
+            remove(self.working_dir + "/raw/" + photo + ".jpg")
             contents.remove(photo + '\n')
 
         f = open(pics_file, "w")
@@ -116,6 +114,7 @@ class ScannerService(metaclass=Singleton):
         f.close()
 
     def get_last_photo_names(self):
+        self.working_dir = getenv("LS_PROJECT_PATH")
         pics_file = self.working_dir + '/.pics.ls'
         f = open(pics_file, "r")
         contents = f.readlines()
