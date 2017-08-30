@@ -129,9 +129,9 @@ class LibreScanWeb:
         self.app.route('/images/last/id', method="GET", 
                         callback=self.controllers['image'].get_last_id)
         self.app.route('/texts/<id>', method="GET", 
-                        callback=self.controllers['hocr'].get_text)
+                        callback=self.controllers['text'].get_text)
         self.app.route('/saves/<id>', method="POST", 
-                        callback=self.controllers['hocr'].save_text)
+                        callback=self.controllers['text'].save_text)
 
     def init_controllers(self):
         if self.dev_mode:
@@ -155,7 +155,7 @@ class LibreScanWeb:
 
             'jabiru': JabiruController(self.env),
             'image': ImageController(self.image_service),
-            'hocr': Hocr(self.hocr_service)
+            'text': TextController(self.hocr_service)
         }
         return controllers
 
