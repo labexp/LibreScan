@@ -46,6 +46,7 @@ class LibreScanWeb:
         self._init_project_routes()
         self._init_task_routes()
         self._init_ocr_editor_routes()
+        self._init_jabiru_routes()
         self.app.route('/assets/:p_file#.+#', name='static',
                        callback=self.return_resource)
         self.app.route('/language/<lang>', method="GET",
@@ -120,6 +121,18 @@ class LibreScanWeb:
         self.app.route('/ocrs', method="GET",
                        callback=self.controllers['ocr_editor'].show)
 
+    def _init_jabiru_routes(self):
+        self.app.route('/pages', method="GET", 
+                        callback=self.controllers['jabiru'].home)
+        self.app.route('/images/<id>', method="GET", 
+                        callback=self.controllers['image'].get_image)
+        self.app.route('/images/last/id', method="GET", 
+                        callback=self.controllers['image'].get_last_id)
+        self.app.route('/texts/<id>', method="GET", 
+                        callback=self.controllers['text'].get_text)
+        self.app.route('/saves/<id>', method="POST", 
+                        callback=self.controllers['text'].save_text)
+
     def init_controllers(self):
         if self.dev_mode:
             scanner_service = DevScannerService()
@@ -138,7 +151,11 @@ class LibreScanWeb:
             'mail': MailController(self.env, mail_service),
             'language': LanguageController(self.env),
             'task': TaskController(self.env, output_service),
-            'ocr_editor': OcrEditorController(self.env, ocr_editor_service)
+            'ocr_editor': OcrEditorController(self.env, ocr_editor_service),
+
+            'jabiru': JabiruController(self.env),
+            'image': ImageController(self.image_service),
+            'text': TextController(self.hocr_service)
         }
         return controllers
 
