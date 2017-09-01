@@ -4,6 +4,7 @@ from os import system
 from os.path import exists as f_checker
 from patterns.singleton import Singleton
 from services.queueService import QueueService
+from utils.task.taskManager import TaskManager
 import subprocess
 import time
 import yaml
@@ -37,6 +38,7 @@ class ProjectService(metaclass=Singleton):
 
         # Append new project to projects file.
         self.append_project(self.config_folder + "/projects.yaml", folder_name, p_project.name, p_project.description)
+        QueueService.task_manager = TaskManager(new_project_path)
         return new_project_path
 
     def remove(self, p_id):
@@ -65,6 +67,7 @@ class ProjectService(metaclass=Singleton):
         f.close()
         index = 1
         queue_service = QueueService()
+        queue_service.task_manager = TaskManager(self.project_path)
         processed_path = self.project_path + "/processed/"
         for c in contents:
             pic_path = processed_path + c[:-1]
