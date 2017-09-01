@@ -2,28 +2,29 @@ from jpegtran import JPEGImage
 from bottle import HTTPResponse
 import os
 import glob
+
+
 class ImageController:
 
     def __init__(self, image_service):
         self.image_service = image_service
 
-
-
-    def get_image(self, id):
-        #Variable para la ruta al directorio
-        path = '/home/labexp/LibreScanProjects/L15/processed/' #este va a ser el path de la imagen
+    def get_image(self, p_id):
+        # Variable para la ruta al directorio
+        # este va a ser el path de la imagen
+        path = '/home/labexp/LibreScanProjects/L15/processed/'
         
         l = glob.glob(path + '*.tif')
         l.sort()
         
-        image_name = l[int(id)]
+        image_name = l[int(p_id)]
         
         temp = image_name.split('.')
         new_image = temp[0]
         new_image = new_image + ".jpg"
         
-        if (not os.path.isfile(new_image)):
-            self.image_service.convert_image(id)
+        if not os.path.isfile(new_image):
+            self.image_service.convert_image(p_id)
         
         headers = {
             'Content-Type': 'image/jpg'
@@ -41,4 +42,4 @@ class ImageController:
              
         infile.close()
 
-        return {'last_id' : last_line}
+        return {'last_id': last_line}

@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 import os
 import glob
 
+
 class HocrService:
     def __init__(self):
         pass
