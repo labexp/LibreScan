@@ -51,7 +51,7 @@ class LibreScanWeb:
         self._init_project_routes()
         self._init_task_routes()
         self._init_ocr_editor_routes()
-        # self._init_jabiru_routes()
+        self._init_jabiru_routes()
         self.app.route('/assets/:p_file#.+#', name='static',
                        callback=self.return_resource)
         self.app.route('/language/<lang>', method="GET",
