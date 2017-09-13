@@ -24,7 +24,7 @@ class ScannerController:
         if len(self.pending_pics) != 0:
             self.queue_service.push(self.pending_pics)
         self.pending_pics = pic_names
-        return {'status': 1, 'photo1': pic_names[0], 'photo2': pic_names[1], 'status': 1}
+        return {'status': 1, 'photo1': pic_names[0], 'photo2': pic_names[1]}
 
     def update_photos(self):
         pic_names = self.scanner_service.take_pictures()
@@ -33,7 +33,7 @@ class ScannerController:
             return {'status': -1}
         self.scanner_service.delete_photos(self.pending_pics)
         self.pending_pics = pic_names
-        return {'status': 1, 'photo1': pic_names[0], 'photo2': pic_names[1], 'status': 1}
+        return {'status': 1, 'photo1': pic_names[0], 'photo2': pic_names[1]}
 
     def prepare_devices(self):
         try:
