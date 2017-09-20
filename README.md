@@ -33,6 +33,9 @@
 		# apt-get install ruby ruby-dev ruby-rmagick 
 		# gem install iconv pdfbeads
 
+	Nota: Si presenta errores al instalar pdfbeads relacionados con zlib, instalar:
+
+		# apt-get install zlib1g-dev
 
 --------------------------------------------------------------------------------------------
 - En cuanto a las cámaras hay que instalar el CHDKPTP en el sistema.
