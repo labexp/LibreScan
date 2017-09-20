@@ -8,7 +8,7 @@ class HocrService:
         pass
 
     def get_path_file(self, id):
-        path = '/home/labexp/LibreScanProjects/L15/processed/' #este va a ser el path de la imagen
+        path = os.environ["LS_PROJECT_PATH"]+'/processed/' #este va a ser el path de la imagen
         
         l = glob.glob(path + '*.hocr')
         l.sort()

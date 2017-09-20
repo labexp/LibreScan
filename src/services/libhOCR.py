@@ -16,8 +16,17 @@ class libhOCR:
 			first = True
 			for word in line.findall(".//*[@class='ocrx_word']"):
 				if (word.text == None):
-					if (word[0].tag == '{http://www.w3.org/1999/xhtml}strong'):
-						aux_line += word[0].text+" "			
+					inside_word = word.find('.//*')
+					print(inside_word)
+					while(inside_word.text == None):
+						new_inside_word = inside_word.find('.//*')
+						if(new_inside_word == None):
+							break
+
+						inside_word = new_inside_word
+					if(inside_word.text == None):
+						inside_word.text = ""
+					aux_line += inside_word.text+" "			
 				else:
 					aux_line += word.text+" "
 
