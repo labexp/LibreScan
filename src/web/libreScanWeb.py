@@ -129,7 +129,7 @@ class LibreScanWeb:
     def _init_jabiru_routes(self):
         self.app.route('/pages', method="GET",
                        callback=self.controllers['jabiru'].home)
-        self.app.route('/images/<id>', method="GET",
+        self.app.route('/images/<p_id>', method="GET",
                        callback=self.controllers['image'].get_image)
         self.app.route('/images/last/id', method="GET",
                        callback=self.controllers['image'].get_last_id)

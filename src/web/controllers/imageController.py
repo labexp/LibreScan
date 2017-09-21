@@ -12,7 +12,7 @@ class ImageController:
     def get_image(self, p_id):
         # Variable para la ruta al directorio
         # este va a ser el path de la imagen
-        path = '/home/labexp/LibreScanProjects/L15/processed/'
+        path = os.environ["LS_PROJECT_PATH"]+'/processed/'
         
         l = glob.glob(path + '*.tif')
         l.sort()
@@ -22,9 +22,10 @@ class ImageController:
         temp = image_name.split('.')
         new_image = temp[0]
         new_image = new_image + ".jpg"
+
         
         if not os.path.isfile(new_image):
-            self.image_service.convert_image(p_id)
+            self.image_service.convert_image(image_name)
         
         headers = {
             'Content-Type': 'image/jpg'
@@ -35,7 +36,7 @@ class ImageController:
 
     def get_last_id(self):
         last_line = 0
-        infile = open('/home/labexp/LibreScanProjects/L15/.pics.ls', 'r')
+        infile = open( os.environ["LS_PROJECT_PATH"] +'/.pics.ls', 'r')
 
         for line in infile:
             last_line += 1

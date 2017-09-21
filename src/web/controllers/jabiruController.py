@@ -3,4 +3,4 @@ class JabiruController:
         self.env = env
 
     def home(self):
-        return self.env.get_template('webCorrector.jade').render()
+        return self.env.get_template('jabiru.jade').render()

@@ -7,6 +7,7 @@ class ImageService:
     def convert_image(self, image):
         temp = image.split('.')
         new_image = temp[0]
-        new_image = new_image + ".jpg"
+        new_image = new_image + ".jpg"        
         os.system("convert "+image+" "+new_image)   
+        
         

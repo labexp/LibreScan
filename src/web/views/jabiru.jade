@@ -1,0 +1,21 @@
+doctype html
+head
+    script(src='/assets/js/jquery-2.1.3.min.js')
+    script(src='/assets/js/jabiru.js')
+    link(rel='stylesheet', type='text/css', href='/assets/css/jabiru.css')
+html
+    include ./layouts/head.jade
+body
+    include ./layouts/topbar.jade
+
+    .image
+      img#page-image(src='/images/0')
+    .text
+      textarea#page-text.textBox(cols='')
+    .buttons
+      a#finish-btn.button(href="/outputPreview")= _('op_finish')
+      #save-btn.button: p: strong Guardar
+      #next-btn.button: p: strong Siguiente
+      #back-btn.button: p: strong Anterior
+
+    include ./layouts/footer.jade
