@@ -8,12 +8,11 @@ $(document).ready(function(){
 
 	$.get('/texts/0', function(data){
 		text = data.text;
-		alert(text);
 		$('#page-text').val(text);
 	});
 
 	$('#back-btn').hide();
-	
+
 	$('#next-btn').click(function(){
 		page++;
 		if(page === final_page)
