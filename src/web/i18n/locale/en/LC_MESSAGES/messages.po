@@ -8,6 +8,7 @@
 #           outputPewview.jade -> op_ + id
 #           processingPhase.jade -> pp_ + id
 #           topbar.jade -> tb_ + id
+#           jabiru.jade -> j_ + id
 
 msgid ""
 msgstr ""
@@ -58,6 +59,11 @@ msgstr "Scan"
 
 msgid "i_prev_scan"
 msgstr "Load projects"
+
+# Translations for jabiru.jade
+
+msgid "j_save"
+msgstr "Save"
 
 # Translations for newProject.jade
 

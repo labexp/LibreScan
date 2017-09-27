@@ -8,10 +8,16 @@
 #           outputPewview.jade -> op_ + id
 #           processingPhase.jade -> pp_ + id
 #           topbar.jade -> tb_ + id
+#           jabiru.jade -> j_ + id
 
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
+
+# Translations for jabiru.jade
+
+msgid "j_save"
+msgstr "Guardar"
 
 # Translations for topbar.jade
 

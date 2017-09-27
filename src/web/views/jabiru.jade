@@ -14,8 +14,8 @@ body
       textarea#page-text.textBox(cols='')
     .buttons
       a#finish-btn.button(href="/outputPreview")= _('op_finish')
-      #save-btn.button: p: strong Guardar
-      #next-btn.button: p: strong Siguiente
-      #back-btn.button: p: strong Anterior
+      #save-btn.button: p:= _('j_save')
+      #next-btn.button: p:= _('s_next')
+      #back-btn.button: p:= _('np_new_book_go_back')
 
     include ./layouts/footer.jade
