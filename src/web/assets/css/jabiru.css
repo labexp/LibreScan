@@ -1,20 +1,20 @@
-body{
-	background: #59323C;
-}
 p {
 	text-align: center;
+	color: white;
+	padding-top: 10px
 }
 img {
-	width: 500px;
-	height: 680px;
+	width: 450px;
+	height: 640px;
 }
 .image {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
-	margin-top: 70px;
-	margin-left: 130px;
+	margin: 30px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	width: 500px;
 	float: left;
 	background-color: #F2EEB3;
@@ -24,21 +24,16 @@ img {
 	height: 680px;
     }
 .text {
-	padding-top: 55px;
-	padding-right: 70px;
-	padding-left: 70px;
-	margin-top: 80px;
-	margin-bottom: 35px;
-	margin-left: 270px;
+	padding: 20px;
+	margin: 60px;
+	margin-top: 70px;
 	height: 640px;
 	float: left;
-	width: 333px;
+	width: 450px;
 	background: white;
 	border-color: #F2BBE3;
 }
 .buttons {
-	padding-left: 1000px;
-	margin-right: 200px;
 	float: right;
 }
 .button {
@@ -53,5 +48,5 @@ img {
 }
 .textBox{
 	height: 600px;
-	width: 333px;
+	width: 410px;
 }
