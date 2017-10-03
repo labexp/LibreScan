@@ -11,8 +11,11 @@ $(document).ready(function(){
 		$('#page-text').val(text);
 	});
 
+
+	
 	$('#back-btn').hide();
 
+	// Manage when the next button is pressed
 	$('#next-btn').click(function(){
 		page++;
 		if(page === final_page)
@@ -26,6 +29,7 @@ $(document).ready(function(){
 		});
 	});
 
+	// Manage when the back button is pressed
 	$('#back-btn').click(function(){
 		page--;
 		if(page === 0)
@@ -39,6 +43,7 @@ $(document).ready(function(){
 		});
 	});
 
+	// Manage when the save button is pressed
 	$('#save-btn').click(function(){
 		text = $('#page-text').val();
 		$.ajax({
