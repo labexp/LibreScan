@@ -1,4 +1,5 @@
-$(document).ready(function(){
+
+var ready = function() {
 	var page = 0;
 	var final_page = 0;
 
@@ -54,4 +55,8 @@ $(document).ready(function(){
             data: JSON.stringify({"text" : text})
         })
 	});
-});
+
+};
+
+$(document).on('page:load', ready);
+$(document).ready(ready);
