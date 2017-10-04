@@ -7,12 +7,13 @@ html
         main.main-container
           .container.main-button-container
                 .image
-                    img#page-image(src='/images/0')
+                    img.imgJabiru#page-image(src='/images/0')
                 .text#text
                     textarea#page-text.textBox(cols='')
                 .buttons
-                    a#finish-btn.button(href="/outputPreview"): p: = _('op_finish')
-                    #save-btn.button: p:= _('j_save')
-                    #next-btn.button: p:= _('s_next')
-                    #back-btn.button: p:= _('np_new_book_go_back')
+                    a#finish-btn.buttonJabiru(href="/outputPreview"): p: = _('op_finish')
+                    #save-btn.buttonJabiru: p:= _('j_save')
+                    #next-btn.buttonJabiru: p:= _('s_next')
+                    #back-btn.buttonJabiru: p:= _('np_new_book_go_back')
         include ./layouts/footer.jade
+        script(src='/assets/js/jabiru.js')

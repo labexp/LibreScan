@@ -3,15 +3,12 @@ p {
 	color: white;
 	padding-top: 10px
 }
-img {
+.imgJabiru {
 	width: 450px;
 	height: 640px;
 }
 .image {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding: 20px;
 	margin: 30px;
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -36,7 +33,7 @@ img {
 .buttons {
 	float: right;
 }
-.button {
+.buttonJabiru {
 	color: white;
 	float: right;
 	background-color: #8C6954;
