@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  librescan:
+    build: .
+    image: labexperimental/librescan:latest
+    container_name: librescan
+    ports:
+      - 8080:8080
+    volumes:
+      - "~/LibreScanProjects:/root/LibreScanProjects"
+    environment:
+      - LS_DEV_MODE
