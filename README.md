@@ -1,5 +1,10 @@
 # LibreScan
 
+## Comunidad
+- Hemos creado un bot de telegram para mantener a todos informados sobre los avances del proyecto, agrega el bot `@Librescan_bot` para recibir notificaciones. Creditos a nuestro amigo [Lupa18](https://github.com/lupa18) por nuestro bot de telegram! 
+
+## Instalación
+
 - Instalar dependencias que serán utilizadas:
 
 		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg1-dev
