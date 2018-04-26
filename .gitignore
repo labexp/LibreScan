@@ -1,10 +1,10 @@
 src/.idea/
-<<<<<<< HEAD
+
+
 **/__pycache__/
 src/services/main.py
 *.pyc
 *.mo
 .idea/
-=======
-**/__pycache__/
->>>>>>> upstream/master
+
+.envrc
