@@ -44,12 +44,9 @@
 --------------------------------------------------------------------------------------------
 - En cuanto a las cámaras hay que instalar el CHDKPTP en el sistema.
 
-		$ git svn clone http://subversion.assembla.com/svn/chdkptp/trunk chdkptp
+		$ git clone https://github.com/svn2github/chdkptp.git
 
 		$ cd chdkptp
-
-    -- nota: al 01.02.2015 Checked out HEAD:
-       http://subversion.assembla.com/svn/chdkptp/trunk r694
 
 		$ mv config-sample-linux.mk config.mk
 
@@ -57,19 +54,20 @@
 
 		# mkdir /usr/bin/chdkptp
 
-		# cp chdkptp-sample.sh /usr/bin/chdkptp/chdkptp
+		# cp chdkptp.sh /usr/bin/chdkptp/chdkptp
 
-      -- nota: chdkptp-sample.sh está en la dirección donde se descargó el chdkptp.
+      -- nota: chdkptp.sh está en la dirección donde se descargó el chdkptp.
 
 		# nano /usr/bin/chdkptp/chdkptp
 
 Modificar la línea que dice
 
-    #CHDKPTP_DIR=/path/to/chdkptp
+    CHDKPTP_EXE=chdkptp
+    CHDKPTP_DIR=/path/to/chdkptp
 
 por: 
-	
-	CHDKPTP_DIR=<FolderClonado>/chdkptp (Y guardamos los cambios)
+	CHDKPTP_EXE=chdkptp.sh
+	CHDKPTP_DIR=<ubicación del folder clonado de chdkptp> (Y guardamos los cambios)
 
 nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp (en el primer paso de esta sección). 
 
@@ -104,10 +102,10 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 
 - Corremos el setup para la creación de carpetas y archivos de configuración.
 
-		$ python3.4 setup.py
+		$ python3 setup.py
 		
 - Para ejecutar la aplicación web
 
-		$ python3.4 main.py web
+		$ python3 main.py web
 
-- Por último, abrimos el navegador en http://0.0.0.0:8180
+- Por último, abrimos el navegador en http://0.0.0.0:8080
