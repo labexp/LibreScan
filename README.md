@@ -65,8 +65,9 @@ Modificar la línea que dice
     CHDKPTP_EXE=chdkptp
     CHDKPTP_DIR=/path/to/chdkptp
 
-por: 
-	CHDKPTP_EXE=chdkptp.sh
+por:
+
+    CHDKPTP_EXE=chdkptp.sh
 	CHDKPTP_DIR=<ubicación del folder clonado de chdkptp> (Y guardamos los cambios)
 
 nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp (en el primer paso de esta sección). 
