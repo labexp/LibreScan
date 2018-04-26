@@ -11,7 +11,7 @@ class Scantailor(Task):
     def generate_base_command(self):
         command = "scantailor-cli"
         for param in self.config_params:
-            command += " -" + param + "=" + str(self.config_params[param])
+            command += " --" + param + "=" + str(self.config_params[param])
         return command
 
     # Generates the command to be executed, concatenating the photo and input-output paths.
