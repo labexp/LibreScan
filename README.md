@@ -31,6 +31,7 @@ puede utilizar los siguientes comandos para administrar el contenedor:
 - Ejecute el siguiente comando para detener el contenedor:
     
       docker container stop librescan  
+
 - Ejecute el siguiente comando para volver a iniciar el contenedor cuando lo desee:
     
       docker container start librescan 
