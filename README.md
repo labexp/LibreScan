@@ -25,6 +25,16 @@ Después de correr el comando encontará dos nuevas carpetas en su directorio `H
 - `~/LibreScanProjects`: Dirección donde se almacenan los proyectos e imágenes.
 - `~/.librescan`: Dirección donde se almacena la configuración general de LS.
 
+Una vez creado el contenedor de librescan no es necesario volver a correr el comando anterior,
+puede utilizar los siguientes comandos:
+
+- Para detener el contenedor:
+    
+      docker container stop librescan  
+- Para volver a iniciar el contenedor cuando lo desee:
+    
+      docker container start librescan 
+
 ## Instalación Manual
 
 ### ! Nota importante antes de iniciar
