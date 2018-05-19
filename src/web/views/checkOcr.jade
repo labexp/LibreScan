@@ -5,21 +5,6 @@ html
         include ./layouts/topbar.jade
         main.main-container
             .ocr-container
-                .row
-                    .col-md-12.col-lg-12#paging-parent-div
-                        div#ocr-paging-div
-                            #prev-ocr-btn.btn.btn-primary= _('co_prev')
-                            label.form-label= _('co_showing')
-                            input#curr-page-input(value="1")
-                            label.form-label= _('co_of')
-                            label.form-label= total_pages
-                            label.form-label= _('co_pages')
-                            #next-ocr-btn.btn.btn-primary= _('co_next')
-                        #save-ocr-btn.btn.btn-default.pull-right= _('co_save')
-                .row
-                    .col-md-12.col-lg-12
-                        textarea#page-ocr-textarea.pull-right
-                        img#page-tiff-img.pull-left
 
             a#process-btn.btn.btn-default.pull-right(href='', data-toggle='modal', data-target='#processing-modal')= _('s_next')
             #processing-modal.modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', data-backdrop="static")
@@ -33,8 +18,8 @@ html
                         h5= _('s_generating_output')
                         img#loading-book-gif(src='/assets/images/loadingBook.gif')
                   .modal-footer
-                    button.btn.btn-default(type='button', data-dismiss='modal')= _('s_cancel')
-                    a#show-output.button.btn.pull-right.btn-primary.disabled(href="/outputPreview")= _('s_next')
+                    a.btn.btn-default(href='/scan')= _('s_cancel')
+                    a#show-output.button.btn.pull-right.btn-primary.disabled(href="/pages")= _('s_next')
             #photo-modal.modal
               .modal-dialog
                 .modal-content

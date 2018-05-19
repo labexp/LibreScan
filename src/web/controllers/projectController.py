@@ -1,12 +1,10 @@
-import os
+from bottle import request
 from models.cameraConfig import CameraConfig
 from models.project import Project
+from os import environ as env
+from services.devScannerService import DevScannerService
 from services.scannerService import ScannerService
-from services.queueService import QueueService
 from services.projectService import ProjectService
-from services.outputService import OutputService
-from utils.task.taskManager import TaskManager
-from bottle import request
 
 
 class ProjectController:
@@ -22,7 +20,8 @@ class ProjectController:
         available_langs = ProjectService().get_available_languages()
         black_list = ['equ', 'osd']
         available_langs = {x for x in available_langs if x not in black_list}
-        return self.env.get_template('newProject.jade').render(langs=available_langs)
+        template = self.env.get_template('newProject.jade')
+        return template.render(langs=available_langs)
 
     def create(self):
         params = request.json['post_data']
@@ -31,18 +30,21 @@ class ProjectController:
         language = params['config']['language']
         zoom = int(params['config']['zoom'])
         camera_config = CameraConfig(zoom, 0)
-        project = Project(None, name, description, language, camera_config, ['pdfbeads'])
+        project = Project(None, name, description, language, camera_config,
+                          ['pdfbeads'])
         project_path = self.project_service.create(project)
-        status = self.prepare_services(project_path)
-        return {'status': status}
+        env["LS_PROJECT_PATH"] = project_path
+        self.services_last_pic()
+        return {'status': 1}
 
     def load(self, id):
         project_id = id
-        project_path = os.environ["HOME"] + '/LibreScanProjects/' + project_id
+        project_path = env["HOME"] + '/LibreScanProjects/' + project_id
         last_pic_number = self.project_service.get_project_last_pic(project_id)
-        status = self.prepare_services(project_path, last_pic_number)
+        env["LS_PROJECT_PATH"] = project_path
+        self.services_last_pic(last_pic_number)
         self.project_service.load(project_path)
-        return {'status': status}
+        return {'status': 1}
 
     def remove(self):
         project_id = request.json['id']
@@ -54,16 +56,16 @@ class ProjectController:
         if projects_map is None:
             project_list = []
         else:
-            project_list = sorted(list(projects_map.items()), key=lambda x: x[1]["creation_date"], reverse=True)
-        return self.env.get_template('showProjects.jade').render(projects=project_list)
+            project_list = sorted(list(projects_map.items()),
+                                  key=lambda x: x[1]["creation_date"],
+                                  reverse=True)
+        template = self.env.get_template('showProjects.jade')
+        return template.render(projects=project_list)
 
-    def prepare_services(self, p_working_dir, p_pic_number=0):
+    @staticmethod
+    def services_last_pic(p_pic_number=0):
+        if env["LS_DEV_MODE"] == "True":
+            DevScannerService(p_pic_number=p_pic_number)
+        else:
+            ScannerService(p_pic_number=p_pic_number)
 
-        queue_service = QueueService()
-        queue_service.clean_queue()
-        queue_service.wait_process()
-        scanner_service = ScannerService(p_pic_number=p_pic_number)
-        scanner_service.working_dir = p_working_dir
-        queue_service.task_manager = TaskManager(p_working_dir)
-        OutputService(p_working_dir, "out")
-        return 1

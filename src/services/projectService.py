@@ -1,40 +1,44 @@
-import os
+from os import getenv
+from os import mkdir
+from os import system
 from os.path import exists as f_checker
-import subprocess
-import yaml
 from patterns.singleton import Singleton
 from services.queueService import QueueService
+from utils.task.taskManager import TaskManager
+import subprocess
 import time
+import yaml
 
 
 class ProjectService(metaclass=Singleton):
-
     def __init__(self):
-        self.config_folder = os.environ["HOME"] + "/.librescan"
+        self.config_folder = getenv("HOME") + "/.librescan"
         self.project_path = None
+        self.working_dir = None
 
     def create(self, p_project):
         path = self.config_folder + "/config.yaml"
         folder_name = self.get_folder_name(path)
         new_project_path = self.get_projects_path(path) + "/" + folder_name
         self.project_path = new_project_path
-        os.mkdir(new_project_path)
-        os.mkdir(new_project_path + "/raw")
-        os.mkdir(new_project_path + "/processed")
+        mkdir(new_project_path)
+        mkdir(new_project_path + "/raw")
+        mkdir(new_project_path + "/processed")
 
         # Creates the project config template with default values.
         src = self.config_folder + "/defaultProjectConfig.yaml"
         destiny = new_project_path + "/.projectConfig.yaml"
 
-        os.system("cp " + src + " " + destiny)
-        os.system("touch " + new_project_path + "/.pics.ls")
-        os.system("touch " + new_project_path + "/.toDelete.ls")
+        system("cp " + src + " " + destiny)
+        system("touch " + new_project_path + "/.pics.ls")
+        system("touch " + new_project_path + "/.toDelete.ls")
 
         # Update project configuration
         self.change_config(p_project, destiny)
 
         # Append new project to projects file.
         self.append_project(self.config_folder + "/projects.yaml", folder_name, p_project.name, p_project.description)
+        QueueService.task_manager = TaskManager(new_project_path)
         return new_project_path
 
     def remove(self, p_id):
@@ -43,8 +47,8 @@ class ProjectService(metaclass=Singleton):
         data_map = yaml.safe_load(f)
         f.close()
         data_map.pop(p_id)
-        project_path = os.environ["HOME"] + '/LibreScanProjects/' + p_id
-        os.system("rm -rf " + project_path)
+        project_path = getenv("HOME") + '/LibreScanProjects/' + p_id
+        system("rm -rf " + project_path)
 
         f = open(config_path, 'w')
         if data_map:
@@ -63,6 +67,7 @@ class ProjectService(metaclass=Singleton):
         f.close()
         index = 1
         queue_service = QueueService()
+        queue_service.task_manager = TaskManager(self.project_path)
         processed_path = self.project_path + "/processed/"
         for c in contents:
             pic_path = processed_path + c[:-1]
@@ -81,10 +86,12 @@ class ProjectService(metaclass=Singleton):
         f.close()
         return data_map
 
-    def get_config(self, p_id):
+    @staticmethod
+    def get_config(p_id):
         return 1
 
-    def change_config(self, p_project, p_config_path):
+    @staticmethod
+    def change_config(p_project, p_config_path):
         f = open(p_config_path)
         data_map = yaml.safe_load(f)
         f.close()
@@ -101,7 +108,8 @@ class ProjectService(metaclass=Singleton):
         f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
         f.close()
 
-    def get_folder_name(self, p_path):
+    @staticmethod
+    def get_folder_name(p_path):
         f = open(p_path)
         data_map = yaml.safe_load(f)
         f.close()
@@ -113,20 +121,23 @@ class ProjectService(metaclass=Singleton):
         f.close()
         return folder_name
 
-    def get_projects_path(self, p_path):
+    @staticmethod
+    def get_projects_path(p_path):
         f = open(p_path)
         projects_path = yaml.safe_load(f)['project']['path']
         f.close()
         return projects_path
 
-    def append_project(self, p_projects_path, p_id, p_name, p_description):
+    @staticmethod
+    def append_project(p_projects_path, p_id, p_name, p_description):
         creation_date = time.strftime("%x %X")
         project = {str(p_id): {'name': p_name, 'description': p_description, 'creation_date': creation_date}}
         f = open(p_projects_path, "a")
         f.write(yaml.dump(project, default_flow_style=False, allow_unicode=True))
         f.close()
 
-    def get_available_languages(self):
+    @staticmethod
+    def get_available_languages():
         available_langs = (subprocess.Popen(['tesseract', "--list-langs"],
                                             stderr=subprocess.STDOUT,
                                             stdout=subprocess.PIPE)
@@ -134,8 +145,9 @@ class ProjectService(metaclass=Singleton):
                            .split("\n")[1:-1])
         return available_langs
 
-    def get_project_last_pic(self, p_id):
-        config_path = os.environ["HOME"] + '/LibreScanProjects/' + p_id + '/.projectConfig.yaml'
+    @staticmethod
+    def get_project_last_pic(p_id):
+        config_path = getenv("HOME") + '/LibreScanProjects/' + p_id + '/.projectConfig.yaml'
         f = open(config_path)
         last_pic_number = yaml.safe_load(f)['camera']['last-pic-number']
         f.close()

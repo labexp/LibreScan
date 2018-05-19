@@ -8,6 +8,7 @@
 #           outputPewview.jade -> op_ + id
 #           processingPhase.jade -> pp_ + id
 #           topbar.jade -> tb_ + id
+#           jabiru.jade -> j_ + id
 
 msgid ""
 msgstr ""
@@ -50,6 +51,11 @@ msgstr "Acerca"
 
 msgid "tb_loading_cams"
 msgstr "Preparando las cámaras"
+
+# Translations for jabiru.jade
+
+msgid "j_save"
+msgstr "Guardar"
 
 # Translations for index.jade
 
@@ -233,4 +239,3 @@ msgstr "Siguiente"
 
 msgid "co_save"
 msgstr "Guardar"
-
