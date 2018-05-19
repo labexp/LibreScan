@@ -26,12 +26,12 @@ Después de correr el comando encontará dos nuevas carpetas en su directorio `H
 - `~/.librescan`: Dirección donde se almacena la configuración general de LS.
 
 Una vez creado el contenedor de librescan no es necesario volver a correr el comando anterior,
-puede utilizar los siguientes comandos:
+puede utilizar los siguientes comandos para administrar el contenedor:
 
-- Para detener el contenedor:
+- Ejecute el siguiente comando para detener el contenedor:
     
       docker container stop librescan  
-- Para volver a iniciar el contenedor cuando lo desee:
+- Ejecute el siguiente comando para volver a iniciar el contenedor cuando lo desee:
     
       docker container start librescan 
 
