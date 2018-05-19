@@ -3,7 +3,26 @@
 ## Comunidad
 - Hemos creado un bot de telegram para mantener a todos informados sobre los avances del proyecto, agrega el bot `@Librescan_bot` para recibir notificaciones. Creditos a nuestro amigo [Lupa18](https://github.com/lupa18) por nuestro bot de telegram! 
 
-## Instalación
+## Instalación con Docker (Recomenda)
+
+Por favor refierase a la documentación de docker para su instalación: (https://docs.docker.com/install/).
+
+Además puede referirse a esta documentación para correr docker sin necesidad de usar `sudo`: [How can I use docker without sudo?](https://askubuntu.com/a/477554)
+
+```bash
+docker run -d -p 8080:8080 --privileged --name librescan \
+-v ~/LibreScanProjects:/root/LibreScanProjects \
+-v ~/.librescan:/root/.librescan \
+-v /dev/bus/usb:/dev/bus/usb \
+labexperimental/librescan:v1.2.0
+```
+
+Después de correr estos comandos encontará dos nuevas carpetas en su directorio `HOME`:
+
+- `~/LibreScanProjects`: Dirección donde se almacenan los proyectos e imágenes.
+- `~/.librescan`: Dirección donde se almacena la configuración general de LS.
+
+## Instalación Manual
 - Instalar dependencias que serán utilizadas:
 
 		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg1-dev
