@@ -29,27 +29,27 @@ def create_config_files():
     project_template = RESOURCESPATH + template_path
     copyfile(project_template, LSCONFIGPATH + template_path)
 
-    if os.path.exists(LSCONFIGPATH+"/projects.yaml"):
-        os.remove(LSCONFIGPATH+"/projects.yaml")
-        print("warning: projects.yaml file was deleted and recreated")
-    os.mknod(LSCONFIGPATH+"/projects.yaml")
+    if not os.path.exists(LSCONFIGPATH+"/projects.yaml"):
+        # os.remove(LSCONFIGPATH+"/projects.yaml")
+        os.mknod(LSCONFIGPATH + "/projects.yaml")
+        # print("warning: projects.yaml file was deleted and recreated")
 
-    if os.path.exists(LSCONFIGPATH+"/config.yaml"):
-        os.remove(LSCONFIGPATH+"/config.yaml")
-        print("warning: config.yaml file was deleted and recreated")
-    os.mknod(LSCONFIGPATH+"/config.yaml")
+    if not os.path.exists(LSCONFIGPATH+"/config.yaml"):
+        os.mknod(LSCONFIGPATH + "/config.yaml")
+        # os.remove(LSCONFIGPATH+"/config.yaml")
+        # print("warning: config.yaml file was deleted and recreated")
 
-    data_map = {
-        'email-receiver': 'librescan@gmail.com',
-        'project': {
-            'last-id': 0,
-            'path': LIBRESCANPATH
+        data_map = {
+            'email-receiver': 'librescan@gmail.com',
+            'project': {
+                'last-id': 0,
+                'path': LIBRESCANPATH
+            }
         }
-    }
 
-    f = open(LSCONFIGPATH+"/config.yaml", 'w')
-    f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
-    f.close()
+        f = open(LSCONFIGPATH+"/config.yaml", 'w')
+        f.write(yaml.dump(data_map, default_flow_style=False, allow_unicode=True))
+        f.close()
 
 
 create_folders()

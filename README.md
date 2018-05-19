@@ -3,7 +3,54 @@
 ## Comunidad
 - Hemos creado un bot de telegram para mantener a todos informados sobre los avances del proyecto, agrega el bot `@Librescan_bot` para recibir notificaciones. Creditos a nuestro amigo [Lupa18](https://github.com/lupa18) por nuestro bot de telegram! 
 
-## Instalación
+## Instalación con Docker (Recomenda)
+
+Por favor refierase a la documentación de docker para su instalación:
+ 
+- https://docs.docker.com/install
+- [How can I use docker without sudo?](https://askubuntu.com/a/477554)
+
+Una vez instalado `docker` basta con correr el comando:
+
+```bash
+docker run -d -p 8080:8080 --privileged --name librescan \
+-v ~/LibreScanProjects:/root/LibreScanProjects \
+-v ~/.librescan:/root/.librescan \
+-v /dev/bus/usb:/dev/bus/usb \
+labexperimental/librescan:v1.2.0
+```
+
+Después de correr el comando encontará dos nuevas carpetas en su directorio `HOME`:
+
+- `~/LibreScanProjects`: Dirección donde se almacenan los proyectos e imágenes.
+- `~/.librescan`: Dirección donde se almacena la configuración general de LS.
+
+Una vez creado el contenedor de librescan no es necesario volver a correr el comando anterior,
+puede utilizar los siguientes comandos para administrar el contenedor:
+
+- Ejecute el siguiente comando para detener el contenedor:
+    
+      docker container stop librescan  
+
+- Ejecute el siguiente comando para volver a iniciar el contenedor cuando lo desee:
+    
+      docker container start librescan 
+
+## Instalación Manual
+
+### ! Nota importante antes de iniciar
+
+Este tipo de instalación está sujeta a cambios dependiendo la distribución de linux que el usuario
+tenga en su computador, recomendamos intentar instalar la version de docker donde hemos
+preparado todo para su correcto funcionamiento.
+
+Si desea continuar con la instalación manual, algunas de las versiones mencionadas pueden variar
+con el tiempo o la distribución de linux. Si encuentra algún problema durante la instalación puede
+abrir un issue o bien diriguirse a nuestro canal de Telegram para recibir ayuda.
+
+
+### Instrucciones
+
 - Instalar dependencias que serán utilizadas:
 
 		# apt-get install python3-pip lua5.2 liblua5.2 git-svn libusb-dev python3 python-dev libjpeg8 libffi-dev libturbojpeg1-dev
@@ -60,19 +107,19 @@
 
 		# nano /usr/bin/chdkptp/chdkptp
 
-Modificar la línea que dice
-
-    CHDKPTP_EXE=chdkptp
-    CHDKPTP_DIR=/path/to/chdkptp
-
-por:
-
-    CHDKPTP_EXE=chdkptp.sh
-	CHDKPTP_DIR=<ubicación del folder clonado de chdkptp> (Y guardamos los cambios)
-
-nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp (en el primer paso de esta sección). 
-
-		# ln -s /usr/bin/chdkptp/chdkptp /bin
+    Modificar la línea que dice
+    
+      CHDKPTP_EXE=chdkptp
+      CHDKPTP_DIR=/path/to/chdkptp
+    
+    por:
+    
+      CHDKPTP_EXE=chdkptp.sh
+      CHDKPTP_DIR=<ubicación del folder clonado de chdkptp> (Y guardamos los cambios)
+    
+    nota: <FolderClonado>/chdkptp es la dirección donde se haya clonado el chdkptp (en el primer paso de esta sección). 
+    
+      # ln -s /usr/bin/chdkptp/chdkptp /bin
 
 --------------------------------------------------------------------------------------------
 - Es necesario tener CHDK instalado en las cámaras. (En caso de no tenerlo se puede seguir esta guía. Se recomienda usar el método "a"): 
@@ -99,11 +146,11 @@ Nota: Estamos trabajando en automatizar este proceso, de modo que se el usuario 
 
 - Instalamos las dependencias de Python
         
-        $ pip3 install -r requirements.txt
+      $ pip3 install -r requirements.txt
 
 - Corremos el setup para la creación de carpetas y archivos de configuración.
 
-		$ python3 setup.py
+      $ python3 setup.py
 		
 - Para ejecutar la aplicación web
 
